@@ -3,11 +3,13 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
 import'./navbar.css'
-const navbar = () => {
+
+const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="app__navbar-menu">
+    <nav>
+      <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
 
         {toggle && (
@@ -28,7 +30,8 @@ const navbar = () => {
           </motion.div>
         )}
       </div>
+    </nav>
   )
 }
 
-export default navbar
+export default Navbar
