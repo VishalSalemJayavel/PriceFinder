@@ -9,9 +9,17 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav>
+    <nav className='app__navbar'>
       <div className="app__navbar-logo">
         <img src={images.logo} alt="logo" />
+      </div>
+
+      <div className='app__navbar-list'>
+        <p><a href='#'>Home</a></p>
+        <p><a href='#'>Best Seller</a></p>
+        <p><a href='#'>Fresh Vegetables</a></p>
+        <p><a href='#'>Diary & Milk</a></p>
+        <p><a href='#'>About</a></p>
       </div>
 
       <ul className="app__navbar-links">
