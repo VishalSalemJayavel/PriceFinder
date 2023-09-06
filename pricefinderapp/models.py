@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+#create your models here
+
 class Customer(models.Model): # Customer model for storing customer details
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # One to one relationship with User model
     phone = models.CharField(max_length=200)    # Phone number of customer
@@ -23,4 +25,4 @@ class Customer(models.Model): # Customer model for storing customer details
         return self.name
 
 
-# Create your models here.
+
