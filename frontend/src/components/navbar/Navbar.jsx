@@ -38,7 +38,6 @@ const Navbar = () => {
         </li>
         
         <li className="app__navbar-signup">
-          
           <button type='button'>Signup</button>
         </li>
         
