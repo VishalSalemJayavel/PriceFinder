@@ -1,0 +1,55 @@
+.app__navbar{
+    display:flex;
+    justify-content: space-between;
+    
+    padding: 1rem 4rem; 
+}
+
+.app__navbar-list{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.app__navbar-list p {
+    display: flex;
+    padding-left: 1.5rem;
+    padding-top: 2rem;
+}
+
+.app__navbar-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.app__sign_in{
+    padding-right: 1.7rem;
+    list-style-type: none;
+}
+
+.app__sign_in img {
+    width: 25px;
+    padding-right: 0.5rem;
+}
+
+.app__wishlist{
+    list-style-type: none;
+}
+.app__wishlist img {
+    width: 25px;
+    padding-right: 0.5rem;
+}
+
+.app__navbar-menu {
+    display: none;
+}
+.app__navbar-logo{
+  width: 1%;
+  
+}
+
+.app__navbar-logo img {
+    width: 100px;
+    height: 100px;
+}
+
