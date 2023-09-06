@@ -1,13 +1,13 @@
 import React from 'react'
-
-import {Navbar} from '../../components';
 import './login.css';
+import {MainLayout} from '../../layout';
+
+
 const LoginPage = () => {
   return (
-    <div>
-        <Navbar />
-      Login
-    </div>
+    <MainLayout>
+      <div>Login</div>
+    </MainLayout>
   )
 }
 

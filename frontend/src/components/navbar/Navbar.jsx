@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import { images } from '../../constants';
+import { Link } from 'react-router-dom';
 
 import'./navbar.css'
 
@@ -34,7 +35,7 @@ const Navbar = () => {
       <ul className="app__navbar-links">
         <li className="app__sign_in">
           <img src={images.sign_in} alt="sign_in" />
-          <a href='#'>Login</a>
+          <Link to="/login">Login</Link>
         </li>
         
         <li className="app__navbar-signup">
