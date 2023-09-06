@@ -7,12 +7,20 @@ import'./navbar.css'
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
 
   return (
     <nav>
       <div className="app__navbar-logo">
         <img src={images.logo} alt="logo" />
       </div>
+
+      <input
+        type="text"
+        placeholder="Search for foods and items"
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+      />
 
       <ul className="app__navbar-links">
         <li className="app__sign_in">
