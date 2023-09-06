@@ -24,6 +24,7 @@ const Navbar = () => {
       </div>
 
       <input
+       className='app__navbar-search'
         type="text"
         placeholder="Search for foods and items"
         value={searchInput}
@@ -33,12 +34,12 @@ const Navbar = () => {
       <ul className="app__navbar-links">
         <li className="app__sign_in">
           <img src={images.sign_in} alt="sign_in" />
-          <a href='#'>Sign In</a>
+          <a href='#'>Login</a>
         </li>
         
-        <li className="app__wishlist">
-          <img src={images.wishlist} alt="wishlist" />
-          <a href='#'>Wishlist</a>
+        <li className="app__navbar-signup">
+          
+          <button type='button'>Signup</button>
         </li>
         
       </ul>

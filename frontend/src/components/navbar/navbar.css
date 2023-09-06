@@ -3,53 +3,80 @@
     justify-content: space-between;
     
     padding: 1rem 4rem; 
+
 }
 
 .app__navbar-list{
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     
 }
 
 .app__navbar-list p {
     display: flex;
     padding-left: 1.5rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
+    font-family: var(--font-family);
+    font-weight: 600;
 }
 
 .app__navbar-links {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-top: 1rem;
 }
 .app__sign_in{
     padding-right: 1.7rem;
     list-style-type: none;
+    font-family: var(--font-family);
+    font-weight: 600;
 }
 
 .app__sign_in img {
-    width: 25px;
+    width: 24px;
     padding-right: 0.5rem;
 }
 
-.app__wishlist{
+.app__navbar-signup{
     list-style-type: none;
 }
-.app__wishlist img {
-    width: 25px;
-    padding-right: 0.5rem;
+
+.app__navbar-signup button{
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #0ed12b;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
 }
 
 .app__navbar-menu {
     display: none;
 }
-.app__navbar-logo{
-  width: 1%;
-  
+.app__navbar-logo {
+    padding-top: 1rem;
 }
 
 .app__navbar-logo img {
     width: 100px;
-    height: 100px;
+}
+
+a {
+    font-size: 20px;
+    
+}
+
+.app__navbar-search {
+    margin-top: 0.5rem ;
+    width: 400px;
+    height: 40px;
+    text-align: center;
 }
 
