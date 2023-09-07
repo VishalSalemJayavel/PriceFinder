@@ -26,3 +26,4 @@ class Customer(models.Model): # Customer model for storing customer details
 
 
 
+
