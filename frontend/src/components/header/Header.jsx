@@ -5,7 +5,20 @@ import { images } from '../../constants';
 import './header.css'
 const Header = () => {
   return (
-    <div className="app__header">
+    <div className="app__header app__flex">
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
+        className="app__header-info"
+      >
+        <div className="app__header_text app__flex">
+          <div style={{ marginLeft: 20 }}>
+            <h1 className="head-text">Looking for good quality ingredients!</h1>
+          </div>
+        </div>
+      </motion.div>
+
+
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
