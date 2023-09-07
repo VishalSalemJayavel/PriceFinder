@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
 
       <input
-       className='app__navbar-search'
+        className='app__navbar-search'
         type="text"
         placeholder="Search for foods and items"
         value={searchInput}
