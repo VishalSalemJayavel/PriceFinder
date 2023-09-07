@@ -10,6 +10,17 @@ const LoginPage = () => {
 
   console.log(formData)
 
+  function loginFormSubmit() {
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(formData)
+  };
+  fetch('http://localhost:8000/dummyresponse', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }
+
   function handleChange(event) {
     setFormData(prevFormData => {
       return {
@@ -22,7 +33,7 @@ const LoginPage = () => {
   return (
     <MainLayout>
       <div className='app__login-inputs'>
-        <form action="#" method="post">
+        <form onSubmit={loginFormSubmit} method="post">
           <input
             className="app__login-username"
             type="text"
