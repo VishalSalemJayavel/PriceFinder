@@ -1,9 +1,12 @@
 .overlay_img {
     width: 100%;
-    height: 25%;
+    height: 625px;
 }
 
 .app__header_img {
     height: 25%;
 }
 
+p{
+    display: inline-block;
+}

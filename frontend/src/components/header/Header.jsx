@@ -11,13 +11,15 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header_img"
       >
+
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
           src={images.header}
           alt="header_img"
-          className="overlay_img"
+          className="overlay_img"  
         />
+
 
       </motion.div>
     </div>
