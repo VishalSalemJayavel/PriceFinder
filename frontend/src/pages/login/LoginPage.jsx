@@ -21,7 +21,7 @@ const LoginPage = () => {
 
   return (
     <MainLayout>
-      <div>
+      <div className='app__login-inputs'>
         <form action="#" method="post">
           <input
             className="app__login-username"
