@@ -8,3 +8,5 @@ def index(request):
 def dummyresponse(request):
     if request.method == 'POST':
         return JsonResponse({'foo':'bar'})
+    if request.method == 'GET':
+        return JsonResponse({'foo':'bar'})
