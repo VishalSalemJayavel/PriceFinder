@@ -2,8 +2,8 @@
     display:flex;
     justify-content: space-between;
     padding-right: 0.2em;
-    background-color:#88888648
-
+    /* background-color:#88888648; */
+    background-image: url(../../assets/header.png);
 }
 
 .app__navbar-list{
