@@ -35,7 +35,7 @@ const Navbar = () => {
       <ul className="app__navbar-links">
         <li className="app__sign_in">
           <img src={images.sign_in} alt="sign_in" />
-          <Link to="/login">Login</Link>
+          <Link to="/login">Login</Link>           
         </li>
         
         <li className="app__navbar-signup">
