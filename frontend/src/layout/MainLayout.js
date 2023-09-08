@@ -3,9 +3,9 @@ import {Navbar} from '../components'
 
 const MainLayout = ({children}) => {
     return (
-        <div>
+        <div style={{height:'100%', width: '100%'}}>
             <Navbar />
-            <div>{children}</div>
+            <div style={{height:'100%', width: '100%'}}>{children}</div>
         </div>
     )
 }

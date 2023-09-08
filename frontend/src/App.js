@@ -5,7 +5,7 @@ import {Navbar, Header} from './components';
 
 const App = () => {
   return (
-    <div className="App">
+    <div data-test="test" className="dfgdfgdfgdfg">
     <Navbar />
     <Header />
     </div>
