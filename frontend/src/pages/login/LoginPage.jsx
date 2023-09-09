@@ -45,9 +45,10 @@ const LoginPage = () => {
           <input
             className="app__login-username"
             type="text"
-            name="username"
+            name="userName"
             placeholder="User Name"
             onChange={handleChange}
+            value={formData.userName}
           />
           </div>
 
@@ -55,14 +56,15 @@ const LoginPage = () => {
           <input
             className="app__login-password"
             type="password"
-            name="password"
+            name="passWord"
             placeholder="Password"
             onChange={handleChange}
+            value={formData.passWord}
           />
           </div>
+
           <div className='app__login-forgotpass'>
             <p><a href='#'>Forgot Password?</a></p>  
-          
           </div>
 
           <div className='app__login-inputs_button'>
@@ -71,6 +73,7 @@ const LoginPage = () => {
         </form>
       </div>
     </div>
+
     </MainLayout>
   )
 }

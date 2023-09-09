@@ -9,6 +9,7 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+import SignUp from "./pages/signUp/SignUp";
 
   const router = createBrowserRouter([
     {
@@ -16,9 +17,14 @@ import {
       element: <App />,
     },
     {
-        path: "login/",
-        element: <LoginPage />,
-      },
+      path: "login/",
+      element: <LoginPage />,
+    },
+    {
+      path: "signup/",
+      element: <SignUp />,
+    }
+    
   ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

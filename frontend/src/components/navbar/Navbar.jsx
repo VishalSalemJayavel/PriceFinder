@@ -39,7 +39,7 @@ const Navbar = () => {
         </li>
         
         <li className="app__navbar-signup">
-          <button type='button'>Signup</button>
+        <Link to="/signup"><button>Sign Up</button></Link>
         </li>
         
       </ul>

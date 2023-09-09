@@ -3,6 +3,7 @@ import logo from '../assets/logo.png';
 import sign_in from '../assets/sign_in.png';
 import wishlist from '../assets/wishlist.png';
 import header from '../assets/header.png';
+import tomato from '../assets/tomato.png';
 
 export default {
     cart,
@@ -10,4 +11,5 @@ export default {
     sign_in,
     wishlist,
     header,
+    tomato,
 };
