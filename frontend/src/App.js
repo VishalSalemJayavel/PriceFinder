@@ -1,13 +1,26 @@
 import React from 'react';
 import './App.css';
 
-import {Navbar, Header} from './components';
+import data from "./data.js";
+
+import {Navbar, Header, Featured} from './components';
 
 const App = () => {
+  const cards = data.map((item) => {
+    return (
+      <Featured 
+        key={item.id}
+        item={item}
+      />
+    )
+  });
+
+
   return (
     <div data-test="test" className="dfgdfgdfgdfg">
     <Navbar />
     <Header />
+    {cards}
     </div>
   )
 }
