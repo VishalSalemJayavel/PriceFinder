@@ -17,7 +17,7 @@ const LoginPage = () => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(formData)
   };
-  fetch('http://localhost:8000/dummyresponse', requestOptions)
+  fetch('http://localhost:8000/api/', requestOptions)
       .then(response => response.json())
       .then(data => console.log(data));
   }

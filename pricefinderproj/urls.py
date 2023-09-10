@@ -16,7 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from pricefinderapp import views
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+
+router.register(r"customers", views.CustomerViewSet, basename="Customer")
+
 urlpatterns = [
-    path("", include("pricefinderapp.urls")),
     path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
 ]
