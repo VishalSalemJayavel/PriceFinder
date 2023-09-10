@@ -6,6 +6,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    height: 7%;
     backdrop-filter: blur(5px);
     opacity: 1;
     color: #fff;
@@ -13,14 +14,14 @@
 .app__navbar-list{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     
 }
 
 .app__navbar-list p {
     display: flex;
     padding-left: 1.5rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     font-family: var(--font-family);
     font-weight: 600;
 }
@@ -28,14 +29,14 @@
 .app__navbar-links {
     display: flex;
     justify-content: flex-end;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
 }
 .app__sign_in{
     
     list-style-type: none;
     font-family: var(--font-family);
     font-weight: 600;
-    padding: 0.5rem 1rem 0 0;
+    padding: 0 1rem 0 0;
     font-size: 18px;
 }
 
@@ -49,7 +50,7 @@
 }
 
 .app__navbar-signup button{
-    padding: 0.5rem 1rem;
+    padding:  0 1rem;
     color: #fff;
     background: #1ed10e;
     font-family: var(--font-family);
@@ -66,7 +67,7 @@
     display: none;
 }
 .app__navbar-logo {
-    padding: 1.5rem 0 0 1.5rem;
+    padding: 0.5rem 0 0 1.5rem;
 }
 
 .app__navbar-logo img {
@@ -80,11 +81,12 @@ a {
 }
 
 .app__navbar-search {
-    margin-top: 1.5rem ;
+    margin-top: 0.5rem ;
     width: 400px;
     height: 40px;
     text-align: center;
     font-size: 15px;
     font-weight: 600;
+    border-radius: 20px;
 }
 

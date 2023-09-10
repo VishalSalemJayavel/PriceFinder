@@ -20,7 +20,7 @@ const Navbar = () => {
         <p><a href='#'>Home</a></p>
         <p><a href='#'>Best Seller</a></p>
         <p><a href='#'>Fresh Vegetables</a></p>
-        <p><a href='#'>Diary & Milk</a></p>
+        <p><a href='#'>Dairy </a></p>
         <p><a href='#'>About</a></p>
       </div>
 
@@ -32,7 +32,7 @@ const Navbar = () => {
         onChange={(e) => setSearchInput(e.target.value)}
       />
 
-      <ul className="app__navbar-links">
+      {/* <ul className="app__navbar-links">
         <li className="app__sign_in">
           <img src={images.sign_in} alt="sign_in" />
           <Link to="/login">Login</Link>           
@@ -42,7 +42,11 @@ const Navbar = () => {
         <Link to="/signup"><button>Sign Up</button></Link>
         </li>
         
-      </ul>
+      </ul> */}
+      <div className="app__navbar-links">
+        <p className='app__sign_in'><Link to="/login">Login</Link></p>
+        <p className='app__navbar-signup'><Link to="/signup"><button>Sign Up</button></Link></p>
+      </div>
 
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
