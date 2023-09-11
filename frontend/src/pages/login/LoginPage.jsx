@@ -2,6 +2,7 @@ import React from 'react'
 import './login.css';
 import {MainLayout} from '../../layout';
 import {images} from '../../constants';
+import axios from 'axios';
 
 
 const LoginPage = () => {
@@ -12,15 +13,25 @@ const LoginPage = () => {
   console.log(formData)
 
   function loginFormSubmit() {
-    const requestOptions = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(formData)
-  };
-  fetch('http://localhost:8000/api/', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
+    console.log("loginFormSubmit");
+    axios.get("http://localhost:8000/api/customers")
+    .then(res => {
+      const users = res.data;
+      console.log(users)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }  
+  //   const requestOptions = {
+  //     method: 'POST',
+  //     headers: {'Content-Type': 'application/json'},
+  //     body: JSON.stringify(formData)
+  // };
+  // fetch('http://localhost:8000/api/', requestOptions)
+  //     .then(response => response.json())
+  //     .then(data => console.log(data));
+  // }
 
   function handleChange(event) {
     setFormData(prevFormData => {
@@ -30,6 +41,8 @@ const LoginPage = () => {
       }
     })
   }
+
+
 
   return (
     <MainLayout>
@@ -68,12 +81,13 @@ const LoginPage = () => {
           </div>
 
           <div className='app__login-inputs_button'>
-          <input type="submit"/>
+          <button type="submit">Login</button>
           </div>
         </form>
       </div>
     </div>
 
+    <button onClick={loginFormSubmit}>Click</button>
     </MainLayout>
   )
 }
