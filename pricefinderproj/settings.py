@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-tygo-_x_x!(2!!sen2yp&lm*h)+3l62&&q5bf+#ebnx-6)75_%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'localhost:3000',
+    'localhost:8000',
+]
 
 
 # Application definition
@@ -45,12 +50,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # Add CorsMiddleware to MIDDLEWARE
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware' # Add CorsMiddleware to MIDDLEWARE
+   
 ]
 
 ROOT_URLCONF = 'pricefinderproj.urls'
@@ -128,6 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #whitelisting localhost:3000
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+]
