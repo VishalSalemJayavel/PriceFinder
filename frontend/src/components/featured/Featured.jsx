@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Featured = (props) => {
     console.log(props.item.coverImg)
 

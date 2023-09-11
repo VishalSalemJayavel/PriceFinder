@@ -1,12 +1,13 @@
 .app__navbar{
     display:flex;
     justify-content: space-between;
+    padding-top: 5px;
     padding-right: 0.2em;
     background-color:#88888648;
     position: fixed;
     top: 0;
     width: 100%;
-    height: 7%;
+    height: 60px;
     backdrop-filter: blur(5px);
     opacity: 1;
     color: #fff;
@@ -41,7 +42,7 @@
 }
 
 .app__sign_in img {
-    width: 24px;
+    width: 27px;
     padding-right: 0.5rem;
 }
 
@@ -72,7 +73,7 @@
 
 .app__navbar-logo img {
     width: 200px;
-    height: 50px;
+    height: 47px;
 }
 
 a {
@@ -85,7 +86,6 @@ a {
     width: 400px;
     height: 40px;
     text-align: center;
-    font-size: 15px;
     font-weight: 600;
     border-radius: 20px;
 }

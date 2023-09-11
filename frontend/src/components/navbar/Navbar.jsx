@@ -17,11 +17,11 @@ const Navbar = () => {
       </div>
 
       <div className='app__navbar-list'>
-        <p><a href='#'>Home</a></p>
-        <p><a href='#'>Best Seller</a></p>
-        <p><a href='#'>Fresh Vegetables</a></p>
-        <p><a href='#'>Dairy </a></p>
-        <p><a href='#'>About</a></p>
+        <p><a href='/#'>Home</a></p>
+        <p><a href='/#'>Best Seller</a></p>
+        <p><a href='/#'>Fresh Vegetables</a></p>
+        <p><a href='/#'>Dairy </a></p>
+        <p><a href='/#'>About</a></p>
       </div>
 
       <input
