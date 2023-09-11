@@ -45,7 +45,7 @@ const Navbar = () => {
       </ul> */}
       <div className="app__navbar-links">
         
-        <p className='app__sign_in'><Link to="/login"><img src={images.sign_in} alt="sign_in" class/>Login</Link></p>
+        <p className='app__sign_in'><Link to="/login"><img src={images.sign_in} alt="sign_in"/>Login</Link></p>
         <p className='app__navbar-signup'><Link to="/signup"><button>Sign Up</button></Link></p>
       </div>
 
