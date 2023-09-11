@@ -17,7 +17,7 @@ const App = () => {
 
 
   return (
-    <div data-test="test" className="dfgdfgdfgdfg">
+    <div data-test="test" >
     <Navbar />
     <Header />
     {cards}

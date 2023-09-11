@@ -58,7 +58,7 @@ const Navbar = () => {
             transition={{ duration: 0.85, ease: 'easeOut' }}
           >
             <HiX onClick={() => setToggle(false)} />
-            <ul>
+            <ul className='app__navbar-menu_list'>
               {['home', 'best seller in your area', 'fresh vegetables', 'dairy & milk', 'about'].map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} onClick={() => setToggle(false)}>
