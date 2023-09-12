@@ -91,13 +91,13 @@ const LoginPage = () => {
           </div>
 
           <div className='app__login-inputs_button'>
-          <button type="submit" onClick={handleSubmit}>Login</button>
+          <button type="submit" className='app__login-inputs_button' onClick={handleSubmit}>Login</button>
           </div>
         </form>
       </div>
     </div>
 
-    <button onClick={handleSubmit}>Click</button>
+    {/* <button onClick={handleSubmit}>Click</button> */}
     </MainLayout>
   )
 }

@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 const Menu = () => (
   <>
   <p><a href="#Home">Home</a></p>
-  <p><a href="#wgpt3">Best Seller</a></p>
-  <p><a href="#possibility">Fresh Vegetable</a></p>
-  <p><a href="#features">Diary</a></p>
-  <p><a href="#blog">About</a></p>
+  <p><a href="#best_seller">Best Seller</a></p>
+  <p><a href="#fresh_veg">Fresh Vegetable</a></p>
+  <p><a href="#diary">Diary</a></p>
+  <p><a href="#about">About</a></p>
   </>
 )
 const Navbar = () => {
