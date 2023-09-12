@@ -8,21 +8,31 @@ import axios from 'axios';
 const LoginPage = () => {
   const [formData, setFormData] = React.useState(
     {userName: "", passWord: ""}
-  )
+  );
 
   console.log(formData)
 
-  function loginFormSubmit() {
-    console.log("loginFormSubmit");
-    axios.get("http://localhost:8000/api/customers")
-    .then(res => {
-      const users = res.data;
-      console.log(users)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }  
+  // function loginFormSubmit() {
+  //   console.log("loginFormSubmit");
+  //   axios.get("http://localhost:8000/api/customers")
+  //   .then(res => {
+  //     const users = res.data;
+  //     console.log(users)
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //   })
+  // }  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get('http://localhost:8000/api/customers', formData);
+      console.log(response.data); // Handle success response
+    } catch (error) {
+      console.error(error); // Handle error response
+    }
+  };
+
   //   const requestOptions = {
   //     method: 'POST',
   //     headers: {'Content-Type': 'application/json'},
@@ -53,7 +63,7 @@ const LoginPage = () => {
         </div>
       <div className='app__login-inputs'>
       <div className='app__login-text'><p>Login</p></div>
-        <form onSubmit={loginFormSubmit} method="post">
+        <form onSubmit={handleSubmit} method="post">
          <div className='app__login-inputs_one'> 
           <input
             className="app__login-username"
@@ -81,13 +91,13 @@ const LoginPage = () => {
           </div>
 
           <div className='app__login-inputs_button'>
-          <button type="submit">Login</button>
+          <button type="submit" onClick={handleSubmit}>Login</button>
           </div>
         </form>
       </div>
     </div>
 
-    <button onClick={loginFormSubmit}>Click</button>
+    <button onClick={handleSubmit}>Click</button>
     </MainLayout>
   )
 }
