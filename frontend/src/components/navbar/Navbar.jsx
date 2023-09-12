@@ -1,77 +1,65 @@
 import React, { useState } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
-import { motion } from 'framer-motion';
-import { images } from '../../constants';
+import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
+import {images} from '../../constants';
+import './navbar.css';
 import { Link } from 'react-router-dom';
 
-import'./navbar.css'
-
+const Menu = () => (
+  <>
+  <p><a href="#Home">Home</a></p>
+  <p><a href="#wgpt3">Best Seller</a></p>
+  <p><a href="#possibility">Fresh Vegetable</a></p>
+  <p><a href="#features">Diary</a></p>
+  <p><a href="#blog">About</a></p>
+  </>
+)
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
+
+  const [toggleMenu, setToggleMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('');
-
   return (
-    <nav className='app__navbar'>
-      <div className="app__navbar-logo">
-        <img src={images.logo} alt="logo" />
+    <div className='gpt3__navbar'>
+      <div className='gpt3__navbar-links'>
+        <div className='gpt3__navbar-links_logo'>
+          <img src={images.logo} alt='logo' />
+        </div>
+        <div className='gpt3__navbar-links_container'>
+          <Menu />
+        </div>
       </div>
-
-      <div className='app__navbar-list'>
-        <p><a href='/#'>Home</a></p>
-        <p><a href='/#'>Best Seller</a></p>
-        <p><a href='/#'>Fresh Vegetables</a></p>
-        <p><a href='/#'>Dairy </a></p>
-        <p><a href='/#'>About</a></p>
-      </div>
-
+      <div className='gpt3__navbar-search'>
       <input
-        className='app__navbar-search'
-        type="text"
-        placeholder="Search for foods and items"
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
+          className='app__navbar-search'
+          type="text"
+          placeholder="Search"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
       />
-
-      {/* <ul className="app__navbar-links">
-        <li className="app__sign_in">
-          <img src={images.sign_in} alt="sign_in" />
-          <Link to="/login">Login</Link>           
-        </li>
-        
-        <li className="app__navbar-signup">
-        <Link to="/signup"><button>Sign Up</button></Link>
-        </li>
-        
-      </ul> */}
-      <div className="app__navbar-links">
-        
-        <p className='app__sign_in'><Link to="/login"><img src={images.sign_in} alt="sign_in"/>Login</Link></p>
-        <p className='app__navbar-signup'><Link to="/signup"><button>Sign Up</button></Link></p>
       </div>
-
-      <div className="app__navbar-menu">
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
-
-        {toggle && (
-          <motion.div
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: 'easeOut' }}
-          >
-            <HiX onClick={() => setToggle(false)} />
-            <ul className='app__navbar-menu_list'>
-              {['home', 'best seller in your area', 'fresh vegetables', 'dairy & milk', 'about'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
+      <div className='gpt3__navbar-sign'>
+        <Link to= '/login'><p>Sign in</p></Link>
+        <Link to='/signup' ><button type='button'>Sign up</button></Link>
       </div>
-    </nav>
+      <div className='gpt3__navbar-menu'>
+       {toggleMenu
+       ?<RiCloseLine color='black' size={27} onClick={() => setToggleMenu(false)}/>
+       :<RiMenu3Line color='black' size={27} onClick={() => setToggleMenu(true)}/>
+      }
+      {toggleMenu && (
+        <div className='gpt3__navbar-menu_container scale-up-center'>
+          <div className='gpt3__navbar-menu_contanier-links'>
+            <Menu />
+            <div className='gpt3__navbar-menu_container-links-sign'>
+            <p>Sign in</p>
+            <button type='button'>Sign up</button>
+      </div>
+          </div>
+        </div>
+      )}
+      </div>
+    </div>
   )
 }
 
 export default Navbar
+
