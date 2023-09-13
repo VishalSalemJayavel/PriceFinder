@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {images} from '../../constants';
 import './navbar.css';
@@ -14,9 +14,17 @@ const Menu = () => (
   </>
 )
 const Navbar = () => {
-
   const [toggleMenu, setToggleMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('');
+
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token') !== null) {
+       setIsAuth(true); 
+     }
+   }, [isAuth]);
+
   return (
     <div className='gpt3__navbar'>
       <div className='gpt3__navbar-links'>
@@ -37,7 +45,7 @@ const Navbar = () => {
       />
       </div>
       <div className='gpt3__navbar-sign'>
-        <Link to= '/login'><p>Sign in</p></Link>
+        {isAuth ? <Link to= '/logout'><p>Sign Out</p></Link> : <Link to= '/login'><p>Sign in</p></Link>}
         <Link to='/signup' ><button type='button'>Sign up</button></Link>
       </div>
       <div className='gpt3__navbar-menu'>

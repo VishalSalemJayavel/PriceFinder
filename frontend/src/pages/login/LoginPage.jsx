@@ -7,16 +7,29 @@ import axios from 'axios';
 
 const LoginPage = () => {
   const [formData, setFormData] = React.useState(
-    {userName: "", passWord: ""}
+    {email: "", passWord: ""}
   );
+
+
 
   console.log(formData)
  
-  const handleSubmit = async (e) => {
+  const login = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get('http://localhost:8000/api/customers', formData);
-      console.log(response.data); // Handle success response
+      const {data} = await axios.post('http://localhost:8000/api/customers', 
+      formData, {headers: 
+        {'Content-Type': 'application/json'}}, 
+        {withCredentials: true});
+
+      console.log(data); // Handle success response
+      
+      localStorage.clear();
+      localStorage.setItem('access_token', data.access);
+      localStorage.setItem('refresh_token', data.refresh);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
+      window.location.href = '/'
+
     } catch (error) {
       console.error(error); // Handle error response
     }
@@ -41,8 +54,6 @@ const LoginPage = () => {
     })
   }
 
-
-
   return (
     <MainLayout>
       
@@ -52,13 +63,13 @@ const LoginPage = () => {
         </div>
       <div className='app__login-inputs'>
       <div className='app__login-text'><p>Login</p></div>
-        <form onSubmit={handleSubmit} method="post">
+        <form onSubmit={login} method="post">
          <div className='app__login-inputs_one'> 
           <input
-            className="app__login-username"
-            type="text"
-            name="userName"
-            placeholder="User Name"
+            className="app__login-email"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
             onChange={handleChange}
             value={formData.userName}
           />
@@ -80,7 +91,7 @@ const LoginPage = () => {
           </div>
 
           <div className='app__login-inputs_button'>
-          <button type="submit" className='app__login-inputs_button' onClick={handleSubmit}>Login</button>
+          <button type="submit" className='app__login-inputs_button' onClick={login}>Login</button>
           </div>
         </form>
       </div>
