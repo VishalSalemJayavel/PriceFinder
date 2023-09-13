@@ -1,30 +1,69 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
+from django.utils import timezone
 
 #create your models here
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email, password, **extra_fields):
+        if not email:
+            raise ValueError('Email is required')
+        if not password:
+            raise ValueError('Password is required')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self.db)
+        
+        return user
+    
+    def create_superuser(self, email, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser',True)
+        
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True')
+        
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True')
+        
+        return self.create_user(email, password, **extra_fields)
+    
+#Retailer Model
+class Retailer(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    date_joined = models.DateTimeField(default=timezone.now)
+    groups = models.ManyToManyField(Group, related_name='retailer', blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name='retailer_user_permissions', blank=True)
 
-class Customer(models.Model): # Customer model for storing customer details
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # One to one relationship with User model
-    name = models.CharField(max_length=200, null=True) # Name of customer
-    phone = models.CharField(max_length=200)    # Phone number of customer
-    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True) # Profile picture of customer
-    addressline1 = models.CharField(max_length=200, blank=True, null=True) # Address line 1 of customer
-    addressline2  = models.CharField(max_length=200, blank=True, null = True) # Address line 2 of customer
-    city = models.CharField(max_length=200, blank=True, null = True) # City of customer
-    state = models.CharField(max_length=200, blank=True, null = True)    # State of customer
-    country = models.CharField(max_length=200, blank=True, null = True) # Country of customer
-    zipcode = models.CharField(max_length=200, blank=True, null = True) # Zipcode of customer
-    shippingline1 = models.CharField(max_length=200, blank=True, null = True)    # Shipping address line 1 of customer
-    shippingline2 = models.CharField(max_length=200, blank=True, null = True)   # Shipping address line 2 of customer
-    shippingcity = models.CharField(max_length=200, blank=True, null = True) # Shipping city of customer
-    shippingstate = models.CharField(max_length=200, blank = True, null = True)   # Shipping state of customer
-    shippingcountry = models.CharField(max_length=200, blank=True, null = True)   # Shipping country of customer
-    shippingzipcode = models.CharField(max_length=200, blank=True, null = True)  # Shipping zipcode of customer
+    objects = CustomUserManager()
 
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
 
     def __str__(self):
         return self.name
+    
+#Customer Model
+class Customer(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    date_joined = models.DateTimeField(default=timezone.now)
+    groups = models.ManyToManyField(Group, related_name='customer', blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name='customer_user_permissions', blank=True)
 
+    objects = CustomUserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 
