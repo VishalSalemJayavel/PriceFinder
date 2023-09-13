@@ -29,7 +29,7 @@ function SignUp() {
     //       .then(data => console.log(data));
     // }
 
-    const handleSubmit = async (e) => {
+    const signUp = async (e) => {
       e.preventDefault();
       try {
         const response = await axios.get('http://localhost:8000/api/customers', formData);
@@ -58,7 +58,7 @@ function SignUp() {
           <div className='app__signup-inputs'>
           <div className='app__signup-text'><p>Sign Up</p></div>
 
-            <form onSubmit={handleSubmit} method="post">
+            <form onSubmit={signUp} method="post">
              <div className='app__signup-inputs_one'> 
               <input
                 className="app__signup-fullname"
@@ -137,7 +137,7 @@ function SignUp() {
               </div> */}
     
               <div className='app__signup-inputs_button'>
-              <button type="submit" className='app__signup-inputs_button' onClick={handleSubmit}>Sign Up</button>
+              <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
               </div>
             </form>
           </div>
