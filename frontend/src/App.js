@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-
-import data from "./data.js";
+import featured from "./featured.js";
+import { Link } from 'react-router-dom';
 
 import {Navbar, Header, Featured} from './components';
 
 const App = () => {
-  const cards = data.map((item) => {
+  const featuredCards = featured.map((item) => {
     return (
       <Featured 
         key={item.id}
@@ -20,7 +20,7 @@ const App = () => {
     <div data-test="test" >
     <Navbar />
     <Header />
-    {cards}
+    <Link to= '/products'>{featuredCards}</Link>
     </div>
   )
 }
