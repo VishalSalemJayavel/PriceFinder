@@ -148,6 +148,7 @@
 @media screen and (max-width: 550px) {
     .gpt3__navbar{
         padding: 2rem;
+        padding-bottom: 0;
     }
     .gpt3__navbar-sign{
         display: none;

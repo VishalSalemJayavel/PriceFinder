@@ -4,6 +4,7 @@
     padding-left: 130px;
     height: 100%;
     background-image: url(../../assets/login_image.jpg);
+    background-size: cover;
     padding-top: 6rem;
     
 }

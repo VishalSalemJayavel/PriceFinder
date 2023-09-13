@@ -4,6 +4,7 @@ import sign_in from '../assets/sign_in.png';
 import wishlist from '../assets/wishlist.png';
 import header from '../assets/header.png';
 import tomato from '../assets/tomato.png';
+import signup from '../assets/signup.png';
 
 export default {
     cart,
@@ -12,4 +13,5 @@ export default {
     wishlist,
     header,
     tomato,
+    signup,
 };

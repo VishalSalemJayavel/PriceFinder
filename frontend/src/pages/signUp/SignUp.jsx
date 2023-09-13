@@ -61,10 +61,10 @@ function SignUp() {
             <form onSubmit={handleSubmit} method="post">
              <div className='app__signup-inputs_one'> 
               <input
-                className="app__signup-username"
+                className="app__signup-fullname"
                 type="text"
-                name="userName"
-                placeholder="User Name"
+                name="Fullname"
+                placeholder="Full Name"
                 onChange={handleChange}
                 value={formData.userName}
               />
@@ -86,13 +86,13 @@ function SignUp() {
                 className="app__signup-email"
                 type="email"
                 name="email"
-                placeholder="Enter your email"
+                placeholder="Enter your Email"
                 onChange={handleChange}
                 value={formData.email}
               />
               </div>
 
-              <div className='app__signup-inputs_four'>
+              {/* <div className='app__signup-inputs_four'>
               <input
                 className="app__signup-address_line1"
                 type="text"
@@ -101,9 +101,9 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.address_line1}
               />
-              </div>
+              </div> */}
 
-              <div className='app__signup-inputs_five'>
+              {/* <div className='app__signup-inputs_five'>
               <input
                 className="app__signup-address_line2"
                 type="text"
@@ -112,9 +112,9 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.address_line2}
               />
-              </div>
+              </div> */}
 
-              <div className='app__signup-inputs_six'>
+              {/* <div className='app__signup-inputs_six'>
               <input
                 className="app__signup-city"
                 type="text"
@@ -123,9 +123,9 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.city}
               />
-              </div>
+              </div> */}
 
-              <div className='app__signup-inputs_seven'>
+              {/* <div className='app__signup-inputs_seven'>
               <input
                 className="app__signup-state"
                 type="text"
@@ -134,7 +134,7 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.state}
               />
-              </div>
+              </div> */}
     
               <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={handleSubmit}>Sign Up</button>
