@@ -20,10 +20,12 @@ class TestView(APIView):
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
 class RetailerViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,) 
     queryset = Retailer.objects.all()
     serializer_class = RetailerSerializer
 

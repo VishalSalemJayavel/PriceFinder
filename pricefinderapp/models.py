@@ -55,7 +55,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
     groups = models.ManyToManyField(Group, related_name='custom', blank=True)
-    user_permissions = models.ManyToManyField(Permission, related_name='custom_user_permissions', blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name='custom_user_permissions', blank=True, default='')
 
     objects = CustomUserManager()
 
@@ -70,7 +70,7 @@ class Customer(models.Model):
     date_of_birth = models.DateField()
     
     def __str__(self):
-        return self.name
+        return self.user.name
 
 class Retailer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
