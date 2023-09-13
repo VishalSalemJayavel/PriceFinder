@@ -1,5 +1,6 @@
 import React from 'react'
 import './signUp.css';
+import axios from 'axios';
 import {MainLayout} from '../../layout';
 import {images} from '../../constants';
 
@@ -17,16 +18,26 @@ function SignUp() {
 
     console.log(formData)
 
-    function signupFormSubmit() {
-        const requestOptions = {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(formData)
-      };
-      fetch('http://localhost:8000/dummyresponse', requestOptions)
-          .then(response => response.json())
-          .then(data => console.log(data));
-    }
+    // function signupFormSubmit() {
+    //     const requestOptions = {
+    //       method: 'POST',
+    //       headers: {'Content-Type': 'application/json'},
+    //       body: JSON.stringify(formData)
+    //   };
+    //   fetch('http://localhost:8000/dummyresponse', requestOptions)
+    //       .then(response => response.json())
+    //       .then(data => console.log(data));
+    // }
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.get('http://localhost:8000/api/customers', formData);
+        console.log(response.data); // Handle success response
+      } catch (error) {
+        console.error(error); // Handle error response
+      }
+    };
 
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -47,7 +58,7 @@ function SignUp() {
           <div className='app__signup-inputs'>
           <div className='app__signup-text'><p>Sign Up</p></div>
 
-            <form onSubmit={signupFormSubmit} method="post">
+            <form onSubmit={handleSubmit} method="post">
              <div className='app__signup-inputs_one'> 
               <input
                 className="app__signup-username"
@@ -126,7 +137,7 @@ function SignUp() {
               </div>
     
               <div className='app__signup-inputs_button'>
-              <input type="submit"/>
+              <button type="submit" className='app__signup-inputs_button' onClick={handleSubmit}>Sign Up</button>
               </div>
             </form>
           </div>

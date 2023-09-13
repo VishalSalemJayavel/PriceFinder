@@ -11,18 +11,7 @@ const LoginPage = () => {
   );
 
   console.log(formData)
-
-  // function loginFormSubmit() {
-  //   console.log("loginFormSubmit");
-  //   axios.get("http://localhost:8000/api/customers")
-  //   .then(res => {
-  //     const users = res.data;
-  //     console.log(users)
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
-  // }  
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -96,8 +85,6 @@ const LoginPage = () => {
         </form>
       </div>
     </div>
-
-    {/* <button onClick={handleSubmit}>Click</button> */}
     </MainLayout>
   )
 }
