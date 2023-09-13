@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-tygo-_x_x!(2!!sen2yp&lm*h)+3l62&&q5bf+#ebnx-6)75_%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -52,7 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # Add CorsMiddleware to MIDDLEWARE
+    'corsheaders.middleware.CorsMiddleware', # Add CorsMiddleware to MIDDLEWARE / DO NOT CHANGE ORDER
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -105,6 +106,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'pricefinderapp.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

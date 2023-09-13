@@ -30,32 +30,32 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
     
 #Retailer Model
-class Retailer(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=255, unique=True)
-    name = models.CharField(max_length=255)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(default=timezone.now)
-    groups = models.ManyToManyField(Group, related_name='retailer', blank=True)
-    user_permissions = models.ManyToManyField(Permission, related_name='retailer_user_permissions', blank=True)
+# class Retailer(AbstractBaseUser, PermissionsMixin):
+#     email = models.EmailField(max_length=255, unique=True)
+#     name = models.CharField(max_length=255)
+#     is_active = models.BooleanField(default=True)
+#     is_staff = models.BooleanField(default=False)
+#     date_joined = models.DateTimeField(default=timezone.now)
+#     groups = models.ManyToManyField(Group, related_name='retailer', blank=True)
+#     user_permissions = models.ManyToManyField(Permission, related_name='retailer_user_permissions', blank=True)
 
-    objects = CustomUserManager()
+#     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name']
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = ['name']
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
 #Customer Model
-class Customer(AbstractBaseUser, PermissionsMixin):
+class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
-    groups = models.ManyToManyField(Group, related_name='customer', blank=True)
-    user_permissions = models.ManyToManyField(Permission, related_name='customer_user_permissions', blank=True)
+    groups = models.ManyToManyField(Group, related_name='custom', blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name='custom_user_permissions', blank=True)
 
     objects = CustomUserManager()
 
@@ -63,7 +63,25 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['name']
 
     def __str__(self):
+        return self.email
+    
+class Customer(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date_of_birth = models.DateField()
+    
+    def __str__(self):
         return self.name
+
+class Retailer(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date_of_birth = models.DateField()
+    
+    def __str__(self):
+        return self.name
+
+
+    
+
 
 
 

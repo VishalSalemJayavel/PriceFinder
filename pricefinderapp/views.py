@@ -2,22 +2,30 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework import viewsets
 from rest_framework.views import APIView
-from .serializers import CustomerSerializer
+from .serializers import *
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 import json
+
+class TestView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, *args, **kwargs):
+        return Response(data={"message": "Hello, World!"})
 
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
-    queryset = Customer.objects.all().order_by('name')
+    queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
 class RetailerViewSet(viewsets.ModelViewSet):
-    queryset = Retailer.objects.all().order_by('name')
-    serializer_class = CustomerSerializer
+    queryset = Retailer.objects.all()
+    serializer_class = RetailerSerializer
 
 
 
