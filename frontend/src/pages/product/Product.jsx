@@ -22,7 +22,7 @@ const Product = () => {
         <p>Products</p>
       </div>
       <div className='app__product-cards'>
-        <Link to="/singleproduct">{productCards}</Link>
+        {productCards}
       </div>
     </div>
   )
