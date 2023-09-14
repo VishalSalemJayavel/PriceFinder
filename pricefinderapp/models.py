@@ -59,7 +59,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 # This is the actual customer table that is created in the database    
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    date_of_birth = models.DateField()
+    phone_number = models.CharField(max_length=10, null=True)
     
     def __str__(self):
         return self.user.name
@@ -69,7 +69,7 @@ class Customer(models.Model):
 # This is the actual retailer table that is created in the database
 class Retailer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    date_of_birth = models.DateField()
+    phone_number = models.CharField(max_length=10, null=True)
     
     def __str__(self):
         return self.name
