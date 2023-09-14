@@ -51,7 +51,7 @@ class CreateUserView(APIView):
             password = data['password']                                                                   #  |
             user_type = data['user_type']                                                                 #  |            
             name = data['name']                                                                           #  V                          
-            phone_number = data['phone_number']                                                         #  Till here            
+            phone_number = data['phone_number']                                                           #  Till here            
             if user_type == 'customer':                                                                   #  Check the user type and assign the user model accordingly                          
                 user_model = Customer                                                                     #   |              
             elif user_type == 'retailer':                                                                 #   |          
@@ -68,7 +68,7 @@ class CreateUserView(APIView):
             if not user_exists:                                                                           # If user does not exist, create a new user      
             
                 customuser = CustomUser.objects.create_user(email=email, password=password, name = name)  # First creates a new CustomUser object
-                user = user_model.objects.create(user = customuser, phone_number=phone_number)        # Then creates a new user object of the type specified by the user(Customer/Retailer) and link them using FK user field
+                user = user_model.objects.create(user = customuser, phone_number=phone_number)            # Then creates a new user object of the type specified by the user(Customer/Retailer) and link them using FK user field
                 user.save()                                                                               # Save the user object                         
                 return JsonResponse({'message': 'User created successfully'}, status=200)                 # Return a success message
             else:
@@ -77,6 +77,21 @@ class CreateUserView(APIView):
             print(e)
             return JsonResponse({'error': str(e)}, status=400)
         
+# A View to display user details after Login __________________________________________________________________________________________________________
+
+class UserDetailsView(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self, request, *args, **kwargs):
+        try:
+            user = request.user
+            name = user.name
+            email = user.email
+            return JsonResponse({'name': name, 'email': email}, status=200)
+        except Exception as e:
+            print(e)
+            return JsonResponse({'error': str(e)}, status=400)
+            
+
 
 # Customer View Returs a list of all the customers __________________________________________________________________________________________________
 
