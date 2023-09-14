@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const LoginPage = () => {
   const [formData, setFormData] = React.useState(
-    {email: "", passWord: ""}
+    {email: "", password: ""}
   );
 
 
@@ -17,7 +17,7 @@ const LoginPage = () => {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const {data} = await axios.post('http://localhost:8000/api/customers', 
+      const {data} = await axios.post('http://localhost:8000/api/token/', 
       formData, {headers: 
         {'Content-Type': 'application/json'}}, 
         {withCredentials: true});
@@ -79,10 +79,10 @@ const LoginPage = () => {
           <input
             className="app__login-password"
             type="password"
-            name="passWord"
+            name="password"
             placeholder="Password"
             onChange={handleChange}
-            value={formData.passWord}
+            value={formData.password}
           />
           </div>
 
