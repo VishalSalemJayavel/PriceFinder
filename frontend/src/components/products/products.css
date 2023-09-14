@@ -1,0 +1,46 @@
+.products__container{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid ;
+    width: 600px;
+    height: 248px;
+    border-radius:5px 8px 8px 8px;
+    background: #FFF;
+    box-shadow: 0px 24px 64px 0px rgba(58, 58, 67, 0.16);
+    
+}
+
+.card__images{
+    width: 190px;
+    height: 200px;
+    margin: 0 1rem 0 0;
+    
+}
+
+.card__images img {
+    width: 190px;
+    height: 247px;
+    border-radius:5px 8px 8px 8px ;
+}
+
+.card__title{
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%; /* 19.2px */
+    letter-spacing: 0.08px;
+    margin-bottom: 0.5rem;
+    padding-top: 10px;
+    
+}
+
+.card__price{
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%; /* 19.2px */
+    letter-spacing: 0.08px;
+    margin-bottom: 0.5rem;
+    padding-top: 10px;
+    
+}

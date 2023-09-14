@@ -1,0 +1,25 @@
+.app__product{
+    margin-top: 5.5rem;
+}
+
+.app__product-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-family: var(--font-family);
+    font-family: var(--font-family);
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 120%; /* 37.2px */
+    letter-spacing: 0.155px;
+    margin-top: 7rem;
+    margin-right: 2rem;
+}
+
+.app__product-cards{
+    width: 100%;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+}
