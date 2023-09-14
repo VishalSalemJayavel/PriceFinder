@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_205_RESET_CONTENT
+from rest_framework_simplejwt.tokens import RefreshToken
 
 import json
 
@@ -16,8 +18,56 @@ class TestView(APIView):
 
     def get(self, request, *args, **kwargs):
         return Response(data={"message": "Hello, World!"})
+    
 
+class logout_view(APIView):
+    permission_classes = (IsAuthenticated,)
 
+    def post(self, request, *args, **kwargs):
+        try:
+            refresh_token = request.data["refresh_token"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response(status= HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            print(e)
+            return Response(status= HTTP_400_BAD_REQUEST)
+        
+class CreateUserView(APIView):
+    def post(self, request, *args, **kwargs):
+        user_exists = False
+        try:
+            data = json.loads(request.body)
+            print(data['name'])
+            email = data['email']
+            password = data['password']
+            user_type = data['user_type']
+            name = data['name']
+            date_of_birth = data['date_of_birth']
+            if user_type == 'customer':
+                user_model = Customer
+            elif user_type == 'retailer':
+                user_model = Retailer
+            else:
+                return JsonResponse({'error': 'Invalid user type'}, status=400)
+            
+            try:
+                CustomUser.objects.get(email=email)
+                user_exists = True
+            except:
+                print("New User")
+            
+            if not user_exists: 
+            
+                cu = CustomUser.objects.create_user(email=email, password=password, name = name)
+                user = user_model.objects.create(user = cu, date_of_birth = date_of_birth)
+                user.save()
+                return JsonResponse({'message': 'User created successfully'}, status=200)
+            else:
+                return JsonResponse({'error': 'User already exists'}, status=410)
+        except Exception as e:
+            print(e)
+            return JsonResponse({'error': str(e)}, status=400)
 
 class CustomerViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
