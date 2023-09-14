@@ -17,7 +17,7 @@ const LoginPage = () => {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const {data} = await axios.post('http://localhost:8000/api/token/', 
+      const {data} = await axios.post('api/token/', 
       formData, {headers: 
         {'Content-Type': 'application/json'}}, 
         {withCredentials: true});

@@ -1,6 +1,6 @@
 import React from "react-dom/client";
 import ReactDOM  from "react-dom/client";
-
+import axios from 'axios';
 import App from "./App";
 import './index.css';
 
@@ -9,6 +9,9 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+import Logout from "./pages/logout/Logout";
+
+  axios.defaults.baseURL = 'http://localhost:8000/';
 
   const router = createBrowserRouter([
     {
@@ -30,7 +33,11 @@ import {
     {
       path: "singleproduct/",
       element: <SingleProduct />,
-    }
+    },
+    {
+      path: "logout/",
+      element: <Logout />,
+    },
   ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

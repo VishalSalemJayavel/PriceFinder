@@ -32,7 +32,7 @@ function SignUp() {
     const signUp = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.get('http://localhost:8000/api/customers', formData);
+        const response = await axios.get('api/createuser', formData);
         console.log(response.data); // Handle success response
       } catch (error) {
         console.error(error); // Handle error response
