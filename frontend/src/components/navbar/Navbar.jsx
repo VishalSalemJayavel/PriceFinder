@@ -46,7 +46,7 @@ const Navbar = () => {
       </div>
       <div className='gpt3__navbar-sign'>
         {isAuth ? <Link to= '/logout'><p>Sign Out</p></Link> : <Link to= '/login'><p>Sign in</p></Link>}
-        <Link to='/signup' ><button type='button'>Sign up</button></Link>
+        {isAuth ? null : <Link to='/signup' ><button type='button'>Sign up</button></Link>}
       </div>
       <div className='gpt3__navbar-menu'>
        {toggleMenu

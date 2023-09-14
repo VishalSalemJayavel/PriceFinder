@@ -6,34 +6,28 @@ import {images} from '../../constants';
 
 function SignUp() {
     const [formData, setFormData] = React.useState(
-        {userName: "",
-         passWord: "",
+        {name: "",
+         password: "",
          email: "",
-         address_line1: "",
-         address_line2: "",
-         city: "",
-         state: "",
+         phone_number: "",
+         user_type: "customer"
         }
     )
 
     console.log(formData)
 
-    // function signupFormSubmit() {
-    //     const requestOptions = {
-    //       method: 'POST',
-    //       headers: {'Content-Type': 'application/json'},
-    //       body: JSON.stringify(formData)
-    //   };
-    //   fetch('http://localhost:8000/dummyresponse', requestOptions)
-    //       .then(response => response.json())
-    //       .then(data => console.log(data));
-    // }
-
     const signUp = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.get('http://localhost:8000/api/customers', formData);
-        console.log(response.data); // Handle success response
+        const response = await axios.post('createuser/', 
+        formData, {headers: 
+          {'Content-Type': 'application/json'}}, 
+          {withCredentials: true});
+  
+        console.log(response); // Handle success response
+        
+        window.location.href = '/login'
+  
       } catch (error) {
         console.error(error); // Handle error response
       }
@@ -63,25 +57,14 @@ function SignUp() {
               <input
                 className="app__signup-fullname"
                 type="text"
-                name="Fullname"
+                name="name"
                 placeholder="Full Name"
                 onChange={handleChange}
-                value={formData.userName}
-              />
-              </div>
-    
-              <div className='app__signup-inputs_two'>
-              <input
-                className="app__signup-password"
-                type="password"
-                name="passWord"
-                placeholder="Password"
-                onChange={handleChange}
-                value={formData.passWord}
+                value={formData.name}
               />
               </div>
 
-              <div className='app__signup-inputs_three'>
+              <div className='app__signup-inputs_two'>
               <input
                 className="app__signup-email"
                 type="email"
@@ -91,51 +74,30 @@ function SignUp() {
                 value={formData.email}
               />
               </div>
-
-              {/* <div className='app__signup-inputs_four'>
-              <input
-                className="app__signup-address_line1"
-                type="text"
-                name="address_line1"
-                placeholder="Address Line 1"
-                onChange={handleChange}
-                value={formData.address_line1}
-              />
-              </div> */}
-
-              {/* <div className='app__signup-inputs_five'>
-              <input
-                className="app__signup-address_line2"
-                type="text"
-                name="address_line2"
-                placeholder="Address Line 2"
-                onChange={handleChange}
-                value={formData.address_line2}
-              />
-              </div> */}
-
-              {/* <div className='app__signup-inputs_six'>
-              <input
-                className="app__signup-city"
-                type="text"
-                name="city"
-                placeholder="City"
-                onChange={handleChange}
-                value={formData.city}
-              />
-              </div> */}
-
-              {/* <div className='app__signup-inputs_seven'>
-              <input
-                className="app__signup-state"
-                type="text"
-                name="state"
-                placeholder="State"
-                onChange={handleChange}
-                value={formData.state}
-              />
-              </div> */}
     
+              <div className='app__signup-inputs_three'>
+              <input
+                className="app__signup-password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={handleChange}
+                value={formData.password}
+              />
+              </div>
+
+              <div className='app__signup-inputs_four'>
+              <input
+              className='app__signup-phonenum'
+              type='tel'
+              maxLength={10}
+              name='phone_number'
+              placeholder='Phone Number'
+              onChange={handleChange}
+              value={formData.phone_number}
+              />
+              </div>
+
               <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
               </div>
