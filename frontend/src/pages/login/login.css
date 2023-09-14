@@ -10,7 +10,7 @@
 }
 
 .app__login-logo{
-    width: 100px;
+    width: 300px;
     height: 100px;
     margin-left: 80px;
     margin-top: 13rem;
@@ -93,7 +93,7 @@
 }
 
 .app__login-forgotpass a{
-    color: #106d08  ;
+    color: white;
     font-family: var(--font-family);
     font-size: 12px;
     font-weight: 550;
