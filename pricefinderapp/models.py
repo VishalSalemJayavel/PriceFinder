@@ -1,11 +1,18 @@
+#############################################################################################################################################
+# Code Author: Sai Vignesh Kumar Senthilkumar
+# IF Something breaks, talk to me before you touch the code
+# better yet, don't touch the code at all
+# This is the file that creates the database tables dont mess around.
+#############################################################################################################################################
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 from django.utils import timezone
 
 #create your models here
+#Custom User Manager to create a user with email and password instead of username and password as in the default django user model ______________________________________________
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, password, **extra_fields):
+    def create_user(self, email, password, **extra_fields):                                     # Function to Create a user with email and password
         if not email:
             raise ValueError('Email is required')
         if not password:
@@ -17,7 +24,7 @@ class CustomUserManager(BaseUserManager):
         
         return user
     
-    def create_superuser(self, email, password, **extra_fields):
+    def create_superuser(self, email, password, **extra_fields):                                 # Function to Create a superuser with email and password
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser',True)
         
@@ -29,25 +36,8 @@ class CustomUserManager(BaseUserManager):
         
         return self.create_user(email, password, **extra_fields)
     
-#Retailer Model
-# class Retailer(AbstractBaseUser, PermissionsMixin):
-#     email = models.EmailField(max_length=255, unique=True)
-#     name = models.CharField(max_length=255)
-#     is_active = models.BooleanField(default=True)
-#     is_staff = models.BooleanField(default=False)
-#     date_joined = models.DateTimeField(default=timezone.now)
-#     groups = models.ManyToManyField(Group, related_name='retailer', blank=True)
-#     user_permissions = models.ManyToManyField(Permission, related_name='retailer_user_permissions', blank=True)
-
-#     objects = CustomUserManager()
-
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['name']
-
-#     def __str__(self):
-#         return self.name
-    
-#Customer Model
+#Custom User Model to create a user with email and password instead of username and password as in the default django user model ______________________________________________
+# This is the actual user table that is created in the database
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
@@ -64,14 +54,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
-    
+
+#Customer Model to store Additional Customer Details _______________________________________________________________________________________________________________________
+# This is the actual customer table that is created in the database    
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
     
     def __str__(self):
         return self.user.name
+    
 
+#Retailer Model to store Additional Retailer Details _______________________________________________________________________________________________________________________
+# This is the actual retailer table that is created in the database
 class Retailer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
