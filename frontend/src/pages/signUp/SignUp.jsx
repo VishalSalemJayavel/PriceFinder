@@ -10,27 +10,24 @@ function SignUp() {
          password: "",
          email: "",
          phone_number: "",
+         user_type: "customer"
         }
     )
 
     console.log(formData)
 
-    // function signupFormSubmit() {
-    //     const requestOptions = {
-    //       method: 'POST',
-    //       headers: {'Content-Type': 'application/json'},
-    //       body: JSON.stringify(formData)
-    //   };
-    //   fetch('http://localhost:8000/dummyresponse', requestOptions)
-    //       .then(response => response.json())
-    //       .then(data => console.log(data));
-    // }
-
     const signUp = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.get('api/createuser', formData);
-        console.log(response.data); // Handle success response
+        const response = await axios.post('createuser/', 
+        formData, {headers: 
+          {'Content-Type': 'application/json'}}, 
+          {withCredentials: true});
+  
+        console.log(response); // Handle success response
+        
+        window.location.href = '/login'
+  
       } catch (error) {
         console.error(error); // Handle error response
       }
@@ -101,8 +98,6 @@ function SignUp() {
               />
               </div>
 
-
-    
               <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
               </div>

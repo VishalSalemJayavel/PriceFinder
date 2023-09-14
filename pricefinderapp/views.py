@@ -50,8 +50,7 @@ class CreateUserView(APIView):
             email = data['email']                                                                         # Parse the data
             password = data['password']                                                                   #  |
             user_type = data['user_type']                                                                 #  |            
-            name = data['name']                                                                           #  V                          
-            date_of_birth = data['date_of_birth']                                                         #  Till here            
+            name = data['name']                                                                           #  V                                                                                   #  Till here            
             if user_type == 'customer':                                                                   #  Check the user type and assign the user model accordingly                          
                 user_model = Customer                                                                     #   |              
             elif user_type == 'retailer':                                                                 #   |          
@@ -68,7 +67,7 @@ class CreateUserView(APIView):
             if not user_exists:                                                                           # If user does not exist, create a new user      
             
                 customuser = CustomUser.objects.create_user(email=email, password=password, name = name)  # First creates a new CustomUser object
-                user = user_model.objects.create(user = customuser, date_of_birth = date_of_birth)        # Then creates a new user object of the type specified by the user(Customer/Retailer) and link them using FK user field
+                user = user_model.objects.create(user = customuser)        # Then creates a new user object of the type specified by the user(Customer/Retailer) and link them using FK user field
                 user.save()                                                                               # Save the user object                         
                 return JsonResponse({'message': 'User created successfully'}, status=200)                 # Return a success message
             else:
