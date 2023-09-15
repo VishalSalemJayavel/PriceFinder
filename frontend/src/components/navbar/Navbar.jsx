@@ -3,6 +3,7 @@ import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {images} from '../../constants';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Menu = () => (
   <>
@@ -18,12 +19,36 @@ const Navbar = () => {
   const [searchInput, setSearchInput] = useState('');
 
   const [isAuth, setIsAuth] = useState(false);
-
+  const [user, setUser] = useState({
+    user: "",
+    email: "",
+  });
+  
   useEffect(() => {
     if (localStorage.getItem('access_token') !== null) {
-       setIsAuth(true); 
+      setIsAuth(true);
+      (async () => {
+        // e.preventDefault();
+        try {
+          const {data} = await axios.get('userdetails/', 
+            {headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('access_token')}`}}, 
+            {withCredentials: true});
+    
+          console.log(data); // Handle success response
+          
+          setUser({
+            user: data['name'],
+            email: data['email'],
+          })
+    
+        } catch (error) {
+          console.error(error); // Handle error response
+        }
+      })();
      }
-   }, [isAuth]);
+   }, [isAuth]);
+
+console.log(user);
 
   return (
     <div className='gpt3__navbar'>
@@ -46,7 +71,7 @@ const Navbar = () => {
       </div>
       <div className='gpt3__navbar-sign'>
         {isAuth ? <Link to= '/logout'><p>Sign Out</p></Link> : <Link to= '/login'><p>Sign in</p></Link>}
-        {isAuth ? null : <Link to='/signup' ><button type='button'>Sign up</button></Link>}
+        {isAuth ? <p>{user.user}</p> : <Link to='/signup' ><button type='button'>Sign up</button></Link>}
       </div>
       <div className='gpt3__navbar-menu'>
        {toggleMenu

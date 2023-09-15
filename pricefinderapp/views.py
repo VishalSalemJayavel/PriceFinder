@@ -80,9 +80,9 @@ class CreateUserView(APIView):
 # A View to display user details after Login __________________________________________________________________________________________________________
 
 class UserDetailsView(APIView):
-    permission_classes = (IsAuthenticated,)
-    def get(self, request, *args, **kwargs):
-        try:
+    permission_classes = (IsAuthenticated,)                                                                         # Only Authenticated Users can access this view
+    def get(self, request, *args, **kwargs):                                                                        # Get the user details from the request object
+        try:                                                                                                        # Try to get the user details and return them                               
             user = request.user
             name = user.name
             email = user.email
