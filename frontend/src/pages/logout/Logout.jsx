@@ -13,7 +13,7 @@ const Logout = () => {
                   {withCredentials: true});
             console.log(data); // Handle success response
             localStorage.clear();
-            axios.defaults.headers.common['Authorization'] = `Bearer ${data['access_token']}}`;
+            axios.defaults.headers.common['Authorization'] = null;
             window.location.href = '/'
             } catch (e) {
               console.log('logout not working', e)

@@ -14,7 +14,7 @@ const Products = (props) => {
             <img src={images.tomato} alt={props.item.title} />
           </div>
           <div>
-          <p className="card__title">{props.item.title}</p>
+          <p className="card__tit">{props.item.title}</p>
           <p className="card__price">{props.item.price}</p>
           </div>
         </Link>

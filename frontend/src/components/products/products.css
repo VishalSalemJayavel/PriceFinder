@@ -1,12 +1,12 @@
 .products__container{
     display: flex;
     flex-direction: row;
-    border: 1px solid ;
+    border: 1px ;
     width: 600px;
     height: 248px;
     border-radius:5px 8px 8px 8px;
     background: #FFF;
-    box-shadow: 0px 24px 64px 0px rgba(58, 58, 67, 0.16);
+    box-shadow: 0px 24px 64px 0px rgba(58, 58, 67, 0.27);
     
 }
 
@@ -23,7 +23,7 @@
     border-radius:5px 8px 8px 8px ;
 }
 
-.card__title{
+.card__tit{
     font-family: var(--font-family);
     font-size: 16px;
     font-weight: 700;

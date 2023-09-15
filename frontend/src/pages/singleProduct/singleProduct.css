@@ -1,0 +1,48 @@
+.product{
+    width: 700px;
+    /* border: 1px solid black; */
+    margin: 14rem 2rem 2rem 2rem;
+
+}
+
+li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+p{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.card__titles{
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 120%; /* 19.2px */
+    letter-spacing: 0.08px;
+    margin-bottom: 0.5rem;
+    padding-top: 10px;
+    padding-right: 10rem ;
+    
+}
+
+.product__img{
+    width: 250px;
+    height: 320px;
+    margin: 0 1rem 0 0;
+    
+}
+.card__description,
+.card__sellerName,
+.card__price,
+.card__rating{
+    font-family: var(--font-family);
+    font-size: 20px;
+}
+
+.product__img img{
+    width: 250px;
+    height: 320px;
+    border-radius: 0;
+}
