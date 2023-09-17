@@ -21,14 +21,13 @@ const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState({
     user: "",
-    email: "",
-  });
+    email: "",
+  });
   
   useEffect(() => {
     if (localStorage.getItem('access_token') !== null) {
       setIsAuth(true);
       (async () => {
-        // e.preventDefault();
         try {
           const {data} = await axios.get('userdetails/', 
             {headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('access_token')}`}}, 
@@ -46,7 +45,7 @@ const Navbar = () => {
         }
       })();
      }
-   }, [isAuth]);
+  }, [isAuth]);
 
 console.log(user);
 
