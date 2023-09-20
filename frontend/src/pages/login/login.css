@@ -1,4 +1,4 @@
-.app__login{
+.app__login {
     display: flex;
     padding-right: 250px;
     padding-left: 130px;
@@ -6,10 +6,10 @@
     background-image: url(../../assets/login_image.jpg);
     background-size: cover;
     padding-top: 6rem;
-    
+
 }
 
-.app__login-logo{
+.app__login-logo {
     width: 300px;
     height: 100px;
     margin-left: 80px;
@@ -17,7 +17,7 @@
     margin-bottom: 50px;
 }
 
-.app__login-text{
+.app__login-text {
     width: 69px;
     height: 22px;
     display: flex;
@@ -51,7 +51,7 @@
     background-color: #88888648;
 }
 
-.app__login-email{
+.app__login-email {
     width: 220px;
     height: 35px;
     border-radius: 20px;
@@ -68,7 +68,7 @@
 
 }
 
-.app__login-password{
+.app__login-password {
     width: 220px;
     height: 35px;
     border-radius: 20px;
@@ -85,21 +85,21 @@
 
 }
 
-.app__login-forgotpass{
+.app__login-forgotpass {
     width: 190px;
     height: 30px;
     margin-bottom: 10px;
-    margin-left: 5px;    
+    margin-left: 5px;
 }
 
-.app__login-forgotpass a{
+.app__login-forgotpass a {
     color: white;
     font-family: var(--font-family);
     font-size: 12px;
     font-weight: 550;
-    }
+}
 
-.app__login-inputs_button button{
+.app__login-inputs_button button {
     width: 87px;
     height: 30px;
 
@@ -109,13 +109,14 @@
 }
 
 
-@media screen and (max-width: 1050px){
-    .app__login{
+@media screen and (max-width: 1050px) {
+    .app__login {
         width: 100%;
         height: 100%;
-        
+
     }
-    .app__login-logo{
+
+    .app__login-logo {
         width: 100%;
         height: 100%;
         margin: 15rem 0 10rem 0;
@@ -126,34 +127,35 @@
         height: 60px;
     }
 
-    .app__login-inputs{
+    .app__login-inputs {
         width: 100%;
         margin-left: 10rem;
     }
 }
 
-@media screen and (max-width: 550px){
-    .app__login{
+@media screen and (max-width: 550px) {
+    .app__login {
         display: flex;
         flex-direction: row;
         justify-content: center;
         /* align-items: center;  */
     }
+
     .app__login-logo img {
-    display: none;
+        display: none;
     }
 
-    .app__login-inputs{
+    .app__login-inputs {
         width: 220px;
-        
+
     }
 
     .app__login-text {
         font-size: 23px;
     }
 
-    .app__login-email, 
-    .app__login-password{
+    .app__login-email,
+    .app__login-password {
         width: 200px;
     }
 }

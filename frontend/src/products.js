@@ -6,6 +6,6 @@ export default [
         coverImg: "tomato.png",
         sellerName: 'John Doe',
         price: 1.99,
-        rating: 4, 
+        rating: 4,
     }
 ]

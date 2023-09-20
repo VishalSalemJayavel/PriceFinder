@@ -1,8 +1,8 @@
-.app__product{
+.app__product {
     margin-top: 5.5rem;
 }
 
-.app__product-header{
+.app__product-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,20 +10,21 @@
     font-family: var(--font-family);
     font-size: 31px;
     font-weight: 700;
-    line-height: 120%; /* 37.2px */
+    line-height: 120%;
+    /* 37.2px */
     letter-spacing: 0.155px;
     margin-top: 7rem;
     margin-right: 2rem;
 }
 
-.app__product-cards{
+.app__product-cards {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
 }
 
-@media screen and (max-width:1050px){
-    .app__product-header{
+@media screen and (max-width:1050px) {
+    .app__product-header {
         justify-content: center;
     }
 }

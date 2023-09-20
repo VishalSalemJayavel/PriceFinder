@@ -1,71 +1,72 @@
- .app__featured{
-    display: flex;
-    flex-direction: row;
-    margin: 1.5rem;
-}
+ .app__featured {
+     display: flex;
+     flex-direction: row;
+     margin: 1.5rem;
+ }
 
 
-.app__featured-title{
-    font-family: var(--font-family);
-    font-size: 31px;
-    font-weight: 700;
-    line-height: 120%;  
-    letter-spacing: 0.155px;
-    margin-top: 7rem;
-    margin-right: 1rem;
-}
+ .app__featured-title {
+     font-family: var(--font-family);
+     font-size: 31px;
+     font-weight: 700;
+     line-height: 120%;
+     letter-spacing: 0.155px;
+     margin-top: 7rem;
+     margin-right: 1rem;
+ }
 
 
-.app__featured-card{
-    
-    height: 100%;
-    border: 0.5px solid;
-    border-radius: 5px 8px 8px 8px;
-    background: #FFF;
-    box-shadow: 0px 24px 64px 0px rgba(58, 58, 67, 0.16);
-    
+ .app__featured-card {
 
-}
+     height: 100%;
+     border: 0.5px solid;
+     border-radius: 5px 8px 8px 8px;
+     background: #FFF;
+     box-shadow: 0px 24px 64px 0px rgba(58, 58, 67, 0.16);
 
-.card__image{
-    width: 190px;
-    height: 260px;
-    border-radius:5px 8px 8px 8px ;
-}
 
-.card__title{
-    font-family: var(--font-family);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 120%; 
-    letter-spacing: 0.08px;
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
+ }
 
-@media screen and (max-width: 550px){
-    .app__featured{
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-    }
+ .card__image {
+     width: 190px;
+     height: 260px;
+     border-radius: 5px 8px 8px 8px;
+ }
 
-    .app__featured-title{
-        margin: 0;
-        font-size: 25px;
-    }
+ .card__title {
+     font-family: var(--font-family);
+     font-size: 20px;
+     font-weight: 700;
+     line-height: 120%;
+     letter-spacing: 0.08px;
+     margin-bottom: 0.5rem;
+     text-align: center;
+ }
 
-    .app__featured-card{
-        margin: 0.5rem;
-    }
-    .card__image{
-        width: 190px;
-        height: 260px;
-        border-radius:5px 8px 8px 8px ;
-    }
+ @media screen and (max-width: 550px) {
+     .app__featured {
+         flex-direction: column;
+         align-items: center;
+         margin: 0;
+     }
 
-    .card__title{
-        margin: 0;
-        font-size: 15px;
-    }
-}
+     .app__featured-title {
+         margin: 0;
+         font-size: 25px;
+     }
+
+     .app__featured-card {
+         margin: 0.5rem;
+     }
+
+     .card__image {
+         width: 190px;
+         height: 260px;
+         border-radius: 5px 8px 8px 8px;
+     }
+
+     .card__title {
+         margin: 0;
+         font-size: 15px;
+     }
+ }

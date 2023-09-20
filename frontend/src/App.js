@@ -3,12 +3,12 @@ import './App.css';
 import featured from "./featured.js";
 
 
-import {Navbar, Header, Category} from './components';
+import { Navbar, Header, Category } from './components';
 
 const App = () => {
   const CategoryCards = featured.map((item) => {
     return (
-      <Category 
+      <Category
         key={item.id}
         item={item}
       />
@@ -18,9 +18,9 @@ const App = () => {
 
   return (
     <div data-test="test" >
-    <Navbar />
-    <Header />
-    {CategoryCards} 
+      <Navbar />
+      <Header />
+      {CategoryCards}
     </div>
   )
 }
