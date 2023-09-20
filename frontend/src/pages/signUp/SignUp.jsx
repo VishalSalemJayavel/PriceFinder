@@ -1,60 +1,63 @@
 import React from 'react'
 import './signUp.css';
 import axios from 'axios';
-import {MainLayout} from '../../layout';
-import {images} from '../../constants';
+import { MainLayout } from '../../layout';
+import { images } from '../../constants';
 
 function SignUp() {
-    const [formData, setFormData] = React.useState(
-        {name: "",
-         password: "",
-         email: "",
-         phone_number: "",
-         user_type: ""
-        }
-    )
-
-    console.log(formData)
-
-    const signUp = async (e) => {
-      e.preventDefault();
-      try {
-        const response = await axios.post('createuser/', 
-        formData, {headers: 
-          {'Content-Type': 'application/json'}}, 
-          {withCredentials: true});
-  
-        console.log(response); // Handle success response
-        
-        window.location.href = '/login'
-  
-      } catch (error) {
-        console.error(error); // Handle error response
-      }
-    };
-
-    function handleChange(event) {
-        const {name, value, type, checked} = event.target;
-        setFormData(prevFormData => {
-          return {
-            ...prevFormData,
-            [name]: type === "checkbox" ? checked : value
-          }
-        })
+  const [formData, setFormData] = React.useState(
+    {
+      name: "",
+      password: "",
+      email: "",
+      phone_number: "",
+      user_type: ""
     }
+  )
 
-    return (
-        <MainLayout>
-          
-        <div className='app__signup'>
-            <div className='app__signup-logo'>
-              <img src={images.logo} alt="" />
-            </div>
-          <div className='app__signup-inputs'>
+  console.log(formData)
+
+  const signUp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('createuser/',
+        formData, {
+          headers:
+            { 'Content-Type': 'application/json' }
+      },
+        { withCredentials: true });
+
+      console.log(response); // Handle success response
+
+      window.location.href = '/login'
+
+    } catch (error) {
+      console.error(error); // Handle error response
+    }
+  };
+
+  function handleChange(event) {
+    const { name, value, type, checked } = event.target;
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [name]: type === "checkbox" ? checked : value
+      }
+    })
+  }
+
+  return (
+    <MainLayout>
+
+      <div className='app__signup'>
+        <div className='app__signup-logo'>
+          <img src={images.logo} alt="" />
+        </div>
+        <div className='app__signup-inputs'>
           <div className='app__signup-text'><p>Sign Up</p></div>
 
-            <form onSubmit={signUp} method="post">
-             <div className='app__signup-inputs_one'> 
+          <form onSubmit={signUp} method="post">
+            <div className='app__signup-inputs_one'>
               <input
                 className="app__signup-fullname"
                 type="text"
@@ -63,9 +66,9 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.name}
               />
-              </div>
+            </div>
 
-              <div className='app__signup-inputs_two'>
+            <div className='app__signup-inputs_two'>
               <input
                 className="app__signup-email"
                 type="email"
@@ -74,9 +77,9 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.email}
               />
-              </div>
-    
-              <div className='app__signup-inputs_three'>
+            </div>
+
+            <div className='app__signup-inputs_three'>
               <input
                 className="app__signup-password"
                 type="password"
@@ -85,48 +88,48 @@ function SignUp() {
                 onChange={handleChange}
                 value={formData.password}
               />
-              </div>
+            </div>
 
-              <div className='app__signup-inputs_four'>
+            <div className='app__signup-inputs_four'>
               <input
-              className='app__signup-phonenum'
-              type='tel'
-              maxLength={10}
-              name='phone_number'
-              placeholder='Phone Number'
-              onChange={handleChange}
-              value={formData.phone_number}
+                className='app__signup-phonenum'
+                type='tel'
+                maxLength={10}
+                name='phone_number'
+                placeholder='Phone Number'
+                onChange={handleChange}
+                value={formData.phone_number}
               />
-              </div>
+            </div>
 
-              <p>Who are you:</p>
-              <input 
-                type="radio" 
-                id="retailer" 
-                name="user_type" 
-                value="retailer"
-                checked={formData.user_type === "retailer"}
-                onChange={handleChange} />
-              <label for="retailer">Producer</label><br></br>
+            <p>Who are you:</p>
+            <input
+              type="radio"
+              id="retailer"
+              name="user_type"
+              value="retailer"
+              checked={formData.user_type === "retailer"}
+              onChange={handleChange} />
+            <label for="retailer">Producer</label><br></br>
 
-              <input 
-                type="radio" 
-                id="customer" 
-                name="user_type" 
-                value="customer" 
-                checked={formData.user_type === "customer"}
-                onChange={handleChange} />
-              <label for="customer">Customer</label><br></br>
+            <input
+              type="radio"
+              id="customer"
+              name="user_type"
+              value="customer"
+              checked={formData.user_type === "customer"}
+              onChange={handleChange} />
+            <label for="customer">Customer</label><br></br>
 
-              <div className='app__signup-inputs_button'>
+            <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-    
-        </MainLayout>
-    )
+      </div>
+
+    </MainLayout>
+  )
 }
 
 export default SignUp

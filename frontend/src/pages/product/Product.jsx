@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Product = () => {
   const productCards = products.map((item) => {
     return (
-      <Products 
+      <Products
         key={item.id}
         item={item}
       />

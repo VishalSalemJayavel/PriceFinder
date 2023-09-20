@@ -1,4 +1,4 @@
-.product{
+.product {
     width: 700px;
     margin: 14rem 2rem 2rem 2rem;
 
@@ -10,11 +10,12 @@ li {
     flex-direction: row;
     justify-content: space-evenly;
 }
-p{
+
+p {
     padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-.card__titles{
+.card__titles {
     font-family: var(--font-family);
     font-size: 30px;
     font-weight: 700;
@@ -22,57 +23,62 @@ p{
     letter-spacing: 0.08px;
     margin-bottom: 0.5rem;
     padding-top: 10px;
-    padding-right: 10rem ;
-    
+    padding-right: 10rem;
+
 }
 
-.product__img{
+.product__img {
     width: 250px;
     height: 320px;
     margin: 0 1rem 0 0;
-    
+
 }
+
 .card__description,
 .card__sellerName,
 .card__price,
-.card__rating{
+.card__rating {
     font-family: var(--font-family);
     font-size: 20px;
 }
 
-.product__img img{
+.product__img img {
     width: 250px;
     height: 320px;
     border-radius: 0;
 }
 
 @media screen and (max-width:550px) {
-   .product{
-    width: 100%;
-    margin-top: 7rem;
+    .product {
+        width: 100%;
+        margin-top: 7rem;
 
-   }
-    li{
+    }
+
+    li {
         flex-direction: column;
     }
+
     .card__description,
     .card__sellerName,
     .card__price,
-    .card__rating{
+    .card__rating {
         font-size: 16px;
     }
 
-    .card__titles{
+    .card__titles {
         font-size: 20px;
         padding-right: 0;
         margin-bottom: 0;
     }
-    .product__img img{
+
+    .product__img img {
         width: 200px;
         height: 300px;
         border-radius: 0;
     }
-    .product__img{
+
+    .product__img {
         margin-left: 3rem;
         display: inline-flex;
         justify-content: center;

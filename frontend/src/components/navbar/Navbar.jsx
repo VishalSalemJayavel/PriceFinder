@@ -42,10 +42,6 @@ const Navbar = () => {
             user_type: data['user_type']
           })
 
-          if (data['user_type'] === 'retailer') {
-            window.location.href = '/dashboard'
-          }
-
         } catch (error) {
           console.error(error); // Handle error response
         }
@@ -78,7 +74,7 @@ const Navbar = () => {
         {isAuth ? <Link to='/logout'><p>Sign Out</p></Link> : <Link to='/login'><p>Sign in</p></Link>}
         {isAuth ? (
           user.user_type === "retailer" ? (
-            <Link to="/retailersettings"><p>{user.user}</p></Link>
+            <Link to="/dashboard"><p>{user.user}</p></Link>
           ) : user.user_type === "customer" ? (
             <Link to="/customersettings"><p>{user.user}</p></Link>
           ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
