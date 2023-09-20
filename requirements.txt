@@ -3,3 +3,5 @@ pillow
 djangorestframework
 django-cors-headers
 djangorestframework-simplejwt
+azure-storage-blob
+django-storages[azure]

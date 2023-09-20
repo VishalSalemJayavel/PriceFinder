@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages', # Add storages to INSTALLED_APPS
     'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
@@ -61,6 +62,23 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
    
 ]
+
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+
+STATIC_LOCATION = 'static'
+MEDIA_LOCATION = 'media'
+
+AZURE_ACCOUNT_NAME = 'farmerconnect' #needs to be externalized later
+
+AZURE_ACCOUNT_KEY = 'ce8bFMKuP4Ru714u12ORdrp04zbT+FyQvDT5m9zsgO12c8kLdFSdI7Ye7UnXPT8izkbmO2csjZo7+AStZo99lw=='
+
+AZURE_CONTAINER = 'media'
+
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
 REST_FRAMEWORK = {
      'DEFAULT_AUTHENTICATION_CLASSES': [

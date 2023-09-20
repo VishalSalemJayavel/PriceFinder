@@ -60,6 +60,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=10, null=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures', null=True)
     
     def __str__(self):
         return self.user.name
@@ -70,6 +71,8 @@ class Customer(models.Model):
 class Retailer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=10, null=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures', null=True)
+    
     
     def __str__(self):
         return self.name
