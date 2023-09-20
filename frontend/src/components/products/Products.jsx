@@ -13,7 +13,7 @@ const Products = (props) => {
           <div className="card__images">
             <img src={images.tomato} alt={props.item.title} />
           </div>
-          <div>
+          <div className='app__products-info'>
           <p className="card__tit">{props.item.title}</p>
           <p className="card__price">{props.item.price}</p>
           </div>

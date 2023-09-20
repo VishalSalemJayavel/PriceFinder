@@ -44,3 +44,48 @@
     padding-top: 10px;
     
 }
+
+@media screen and (max-width:1050px){
+    .products{
+        margin-left: 4rem;
+        display: inline-block;
+    }
+    .products__container{
+        flex-direction: column;
+        width: 262px;
+        height: 350px;
+        
+    }
+
+    .card__images img {
+        padding: 8px;
+        width: 262px;
+        height: 230px;
+        border-radius:5px 8px 8px 8px ;
+    }
+
+    .app__products-info > p{
+        display: inline-block;
+    }
+    .card__tit{
+        font-family: var(--font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 120%;
+        letter-spacing: 0.08px;
+        padding-top: 45px;
+        margin-right: 5rem;
+        
+    }
+
+}
+
+@media screen and (max-width:550px){
+    .products{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}

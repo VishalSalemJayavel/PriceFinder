@@ -8,7 +8,9 @@ const Category = (props) => {
 
     return (
         <div className="app__featured">
-            <div className='app__featured-title'><p>Categories</p></div>
+            <div className='app__featured-title'>
+                <p>Categories</p>
+            </div>
             <div className='app__featured-card'>
             <Link to="/products">
                 <img src={images.tomato} className="card__image" alt={props.item.title} />
