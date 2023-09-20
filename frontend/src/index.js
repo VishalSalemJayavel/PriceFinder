@@ -37,6 +37,18 @@ import {
       path: "logout/",
       element: <Logout />,
     },
+    {
+      path: "retailersettings/",
+      element: <RetailerSettings />,
+    },
+    {
+      path: "customersettings/",
+      element: <CustomerSettings />,
+    },
+    {
+      path: "dashboard/",
+      element: <RetailerDashboard />,
+    },
   ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
