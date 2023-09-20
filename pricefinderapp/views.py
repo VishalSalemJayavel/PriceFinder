@@ -86,10 +86,23 @@ class UserDetailsView(APIView):
             user = request.user
             name = user.name
             email = user.email
-            return JsonResponse({'name': name, 'email': email}, status=200)
+            try:
+                Customer.objects.get(user=user)                                                                     # Check if the user is a customer
+                user_type = 'customer'                                                                              # If yes, set user_type to customer
+            except:
+                print("user not a customer")
+                try:
+                    Retailer.objects.get(user=user)                                                                 # Check if the user is a retailer
+                    user_type = 'retailer'                                                                          # If yes, set user_type to retailer
+                except Exception as e:
+                    print("user not a retailer or a customer")
+                    print(e)
+                    return JsonResponse({'error': str(e)}, status=420) #change added
+                                                                                                         
+            return JsonResponse({'name': name, 'email': email, 'user_type':user_type}, status=200)
         except Exception as e:
             print(e)
-            return JsonResponse({'error': str(e)}, status=400)
+            return JsonResponse({'error': str(e)}, status=430)
             
 
 
