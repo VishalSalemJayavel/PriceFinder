@@ -1,6 +1,7 @@
 ############################################################################################################################################################
 #Code Author: Sai Vignesh Kumar Senthilkumar
 #IF Something breaks, talk to me before you touch the code
+# error codes: 400 - Bad Request, 410 - User already exists, 420 - Usertype error,404 - Not Found
 ############################################################################################################################################################
 
 from django.shortcuts import render
@@ -102,9 +103,38 @@ class UserDetailsView(APIView):
             return JsonResponse({'name': name, 'email': email, 'user_type':user_type}, status=200)
         except Exception as e:
             print(e)
-            return JsonResponse({'error': str(e)}, status=430)
-            
+            return JsonResponse({'error': str(e)}, status=400)
 
+
+class ProductListView(APIView):
+    def get(self, request, *args, **kwargs):
+        uuid_param = self.kwargs.get('uuid', None)
+        if uuid_param:
+            try:
+                product = Product.objects.get(uuid=uuid_param)
+                serializer = ProductSerializer(product)
+                return Response(serializer.data)
+            except Exception as e:
+                print(e)
+                return JsonResponse({'error': str(e)}, status=404)
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+    
+# A viw to display all the categories __________________________________________________________________________________________________________________
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+# A View to display all the products __________________________________________________________________________________________________________________
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+# The below views should probably be commented out later to prevent security issues
 
 # Customer View Returs a list of all the customers __________________________________________________________________________________________________
 

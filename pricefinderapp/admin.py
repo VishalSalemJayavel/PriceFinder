@@ -7,3 +7,5 @@ from .models import *
 admin.site.register(CustomUser) # Register CustomUser model with admin site
 admin.site.register(Customer) # Register Customer model with admin site
 admin.site.register(Retailer) # Register Retailer model with admin site
+admin.site.register(Product) # Register Product model with admin site
+admin.site.register(Category) # Register Category model with admin site

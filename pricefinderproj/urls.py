@@ -25,6 +25,8 @@ router = routers.DefaultRouter()
 
 router.register(r"customers", views.CustomerViewSet, basename="Customer")
 router.register(r"retailers", views.RetailerViewSet, basename="Retailer")
+router.register(r"products", views.ProductViewSet, basename="Product")
+router.register(r"categories", views.CategoryViewSet, basename="Category")
 # router.register(r"login", views.LoginView, basename="Login")
 # router.register(r"logout", views.LogoutView, basename="Logout")
 
