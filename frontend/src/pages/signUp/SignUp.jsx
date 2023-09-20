@@ -10,7 +10,7 @@ function SignUp() {
          password: "",
          email: "",
          phone_number: "",
-         user_type: "customer"
+         user_type: ""
         }
     )
 
@@ -34,10 +34,11 @@ function SignUp() {
     };
 
     function handleChange(event) {
+        const {name, value, type, checked} = event.target;
         setFormData(prevFormData => {
           return {
             ...prevFormData,
-            [event.target.name]: event.target.value
+            [name]: type === "checkbox" ? checked : value
           }
         })
     }
@@ -97,6 +98,25 @@ function SignUp() {
               value={formData.phone_number}
               />
               </div>
+
+              <p>Who are you:</p>
+              <input 
+                type="radio" 
+                id="retailer" 
+                name="user_type" 
+                value="retailer"
+                checked={formData.user_type === "retailer"}
+                onChange={handleChange} />
+              <label for="retailer">Producer</label><br></br>
+
+              <input 
+                type="radio" 
+                id="customer" 
+                name="user_type" 
+                value="customer" 
+                checked={formData.user_type === "customer"}
+                onChange={handleChange} />
+              <label for="customer">Customer</label><br></br>
 
               <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
