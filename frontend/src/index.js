@@ -4,7 +4,7 @@ import axios from 'axios';
 import App from "./App";
 import './index.css';
 
-import {LoginPage, SignUp, Product, SingleProduct, Logout} from './pages';
+import {LoginPage, SignUp, Product, SingleProduct, Logout, RetailerSettings, CustomerSettings, RetailerDashboard} from './pages';
 import {
     createBrowserRouter,
     RouterProvider,
