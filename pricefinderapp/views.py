@@ -122,14 +122,14 @@ class ProductListView(APIView):
         return Response(serializer.data)
     
 # A viw to display all the categories __________________________________________________________________________________________________________________
-class CategoryViewSet(viewsets.ModelViewSet):
+class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
 # A View to display all the products __________________________________________________________________________________________________________________
 
-class ProductViewSet(viewsets.ModelViewSet):
+class ProductViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
