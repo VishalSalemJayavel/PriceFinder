@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { images } from '../../constants'
 import './category.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -40,12 +39,6 @@ const Category = () => {
                     </Link>
                 </div>)
             )}
-            {/* <div className='app__featured-card'>
-                <Link to="/products">
-                    <img src={categories.imgSrc} className="card__image" alt={images.tomato} />
-                    <p className="card__title">{categories.name}</p>
-                </Link>
-            </div> */}
         </div>
     )
 }

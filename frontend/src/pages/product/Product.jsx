@@ -1,20 +1,9 @@
 import React from 'react';
 import './product.css';
-
-import products from '../../products';
 import { Products } from '../../components';
-// import { MainLayout } from '../../layout';
-// import { Link } from 'react-router-dom';
+
 
 const Product = () => {
-  const productCards = products.map((item) => {
-    return (
-      <Products
-        key={item.id}
-        item={item}
-      />
-    )
-  });
 
   return (
     <div className='app__product'>
@@ -22,7 +11,7 @@ const Product = () => {
         <p>Products</p>
       </div>
       <div className='app__product-cards'>
-        {productCards}
+        <Products />
       </div>
     </div>
   )
