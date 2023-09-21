@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 import './singleProduct.css'
 import products from '../../products'
 import images from '../../constants/images'

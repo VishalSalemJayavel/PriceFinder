@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { MainLayout } from '../../layout';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -7,8 +6,6 @@ import './products.css';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-
-  let { productId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +40,7 @@ const Products = () => {
       <div className="products">
         {products.map((product, index) => (
           <div key={index} className='products__card'>
-            <Link to="/singleproduct" className='products__container'>
+            <Link to={`/singleproduct/${product.id}`} className='products__container'>
               <div className="card__images">
                 <img src={product.imgSrc} alt={product.title} />
               </div>
