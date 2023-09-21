@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Menu = () => (
   <>
-    <p><a href="#Home">Home</a></p>
+    <p><a href="/">Home</a></p>
     <p><a href="#best_seller">Best Seller</a></p>
     <p><a href="#fresh_veg">Fresh Vegetable</a></p>
     <p><a href="#diary">Diary</a></p>

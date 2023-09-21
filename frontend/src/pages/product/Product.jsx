@@ -3,8 +3,8 @@ import './product.css';
 
 import products from '../../products';
 import { Products } from '../../components';
-import { MainLayout } from '../../layout';
-import { Link } from 'react-router-dom';
+// import { MainLayout } from '../../layout';
+// import { Link } from 'react-router-dom';
 
 const Product = () => {
   const productCards = products.map((item) => {

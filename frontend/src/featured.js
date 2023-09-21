@@ -1,7 +1,7 @@
 export default [
     {
         id: 1,
-        title: 'Tomato',
+        title: 'Vegetables',
         coverImg: "tomato.png",
     }
 ]
