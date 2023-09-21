@@ -98,6 +98,7 @@ class Retailer(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to="category_images", null=True)
 
     def __str__(self):
         return self.name
