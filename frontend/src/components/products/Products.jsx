@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { MainLayout } from '../../layout';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -6,6 +7,8 @@ import './products.css';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+
+  let { productId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +19,7 @@ const Products = () => {
         console.log(data);
 
         const productArray = data.map((product) => ({
-          id: product._id,
+          id: product.uuid,
           title: product.title,
           price: product.price,
           currency: product.currency,
