@@ -68,11 +68,11 @@ DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 STATIC_LOCATION = 'static'
 MEDIA_LOCATION = 'media'
 
-AZURE_ACCOUNT_NAME = 'farmerconnect' #needs to be externalized later
+AZURE_ACCOUNT_NAME = 'farmersconnectstorage' #needs to be externalized later
 
-AZURE_ACCOUNT_KEY = 'ce8bFMKuP4Ru714u12ORdrp04zbT+FyQvDT5m9zsgO12c8kLdFSdI7Ye7UnXPT8izkbmO2csjZo7+AStZo99lw=='
+AZURE_ACCOUNT_KEY = 'jmhzAw6acoDOkyILkyB+QGta5WDBICZnIuSuiZG991T9aivZHyaLbG/EGiF08jHje42BugqA5M2R+ASt44Gf6w=='
 
-AZURE_CONTAINER = 'media'
+AZURE_CONTAINER = 'farmerconnectapp'
 
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 
