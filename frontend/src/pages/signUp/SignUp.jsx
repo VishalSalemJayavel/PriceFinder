@@ -102,16 +102,18 @@ function SignUp() {
             </div>
 
             <div className='app__signup-inputs_five'>
-              <fieldset>
-                <legend>Who are you:</legend>
+            <p>Select who you are</p>
+              <div className='app__signup-inputs_five-options'>
+                
+                <div>
                 <input
+                className='app__signup-producer'
                   type="radio"
                   id="retailer"
                   name="user_type"
                   value="retailer"
                   checked={formData.user_type === "retailer"}
-                  onChange={handleChange} />
-                <label for="retailer">Producer</label><br></br>
+                  onChange={handleChange} />Seller
 
                 <input
                   type="radio"
@@ -119,9 +121,9 @@ function SignUp() {
                   name="user_type"
                   value="customer"
                   checked={formData.user_type === "customer"}
-                  onChange={handleChange} />
-                <label for="customer">Customer</label><br></br>
-              </fieldset>
+                  onChange={handleChange} />Buyer
+                </div>
+              </div>
             </div>
 
             <div className='app__signup-inputs_button'>

@@ -79,6 +79,12 @@ class Customer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=10, null=True)
     profile_picture = models.ImageField(upload_to="profile_pictures", null=True)
+    address_line_1 = models.CharField(max_length=255, null=True)
+    address_line_2 = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    state = models.CharField(max_length=255, null=True)
+    pincode = models.CharField(max_length=6, null=True)
+    country = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return self.user.name
@@ -90,6 +96,13 @@ class Retailer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=10, null=True)
     profile_picture = models.ImageField(upload_to="profile_pictures", null=True)
+    address_line_1 = models.CharField(max_length=255, null=True)
+    address_line_2 = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    state = models.CharField(max_length=255, null=True)
+    pincode = models.CharField(max_length=6, null=True)
+    country = models.CharField(max_length=255, null=True)
+
 
     def __str__(self):
         return self.user.name
