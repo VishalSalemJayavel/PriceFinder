@@ -33,7 +33,7 @@ const Category = () => {
             </div>
             {categories.map((category, index) => (
                 <div key={index} className='app__featured-card'>
-                    <Link to="/products">
+                    <Link to={`/products/${category.categoryName}`}>
                         <img src={category.imgSrc} className='card__image' alt={category.categoryName} />
                         <p className='card__title'>{category.categoryName}</p>
                     </Link>
