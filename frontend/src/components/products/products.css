@@ -1,3 +1,13 @@
+.products{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 5rem;
+    margin-left: 2rem;
+    
+}
+
+
 .products__container {
     display: flex;
     flex-direction: row;
@@ -46,6 +56,20 @@
     padding-top: 10px;
 
 }
+
+.card__stocks{
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%;
+    /* 19.2px */
+    letter-spacing: 0.08px;
+    margin-bottom: 0.5rem;
+    padding-top: 10px;
+
+}
+
+
 
 @media screen and (max-width:1050px) {
     .products {
