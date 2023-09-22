@@ -6,7 +6,7 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from rest_framework.views import APIView
 from .serializers import *
 from .models import *
@@ -77,6 +77,124 @@ class CreateUserView(APIView):
         except Exception as e:                                                                            # Catch any exception and return an error message                       
             print(e)
             return JsonResponse({'error': str(e)}, status=400)
+        
+# A View to Edit User Details _________________________________________________________________________________________________________________________
+
+class EditUserView(APIView):
+        permissions_classes = (IsAuthenticated,)
+        def post(self, request, *args, **Kwargs):
+            user = request.user
+            print(user.name)                                                                                 # Get the user details from the request object
+            try:                                                                                                # Try to get the user details and update them
+                customer = Customer.objects.get(user=user)
+                print(customer.user.name + "customer")                                                      # Check if the user is a customer
+                user_model = customer
+            except:
+                try:
+                    retailer = Retailer.objects.get(user=user)
+                    print(retailer.user.name + "retailer")                                                  # Check if the user is a retailer
+                    user_model = retailer
+                except Exception as e:
+                    print(e)
+                    return JsonResponse({'error': str(e)}, status=420)
+            try:                                                                 # Get the data from the request body
+                if request.POST['name']:
+                    name = request.POST['name'] 
+                    print(name)
+                    user.name = name
+                if request.POST['address_line_1']:
+                    address_line_1 = request.POST['address_line_1']
+                    print(address_line_1)
+                    user_model.address_line_1 = address_line_1
+                if request.POST['address_line_2']:     
+                    address_line_2 = request.POST['address_line_2']
+                    print(address_line_2)                                                    #  |
+                    user_model.address_line_2 = address_line_2
+                if request.POST['city']:
+                    city = request.POST['city']
+                    print(city)                                                    #  |
+                    user_model.city = city 
+                if request.POST['state']:
+                    state = request.POST['state']
+                    print(state)
+                    user_model.state = state
+                if request.POST['pincode']:
+                    pincode = request.POST['pincode']
+                    print(pincode)
+                    user_model.pincode = pincode
+                if request.POST['country']:
+                    country = request.POST['country']
+                    print(country)
+                    user_model.country = country
+                if request.FILES['profilePicture']:
+                    print("profile picture")
+                    profile_photo = request.FILES["profilePicture"]
+                    user_model.profile_picture = profile_photo
+                user.save()
+                print("user saved")
+                user_model.save()  
+                print("user model saved")      
+                return JsonResponse({'Success': 'User Editted Succesfully'}, status = 200)                                              #  |
+            except Exception as e:
+                print (e)
+                return JsonResponse({'error': str(e)}, status=400)                                                                            # Save the user details                                                                                   #  |
+                                                                                          # Parse the dat
+                
+      
+                                                                   # Only Authenticated Users can access this view
+    # def post(self, request, *args, **kwargs):
+    #     user = request.user
+    #     print(user.name)                                                                                 # Get the user details from the request object
+    #     try:                                                                                                # Try to get the user details and update them
+    #         customer = Customer.objects.get(user=user)
+    #         print(customer.user.name + "customer")                                                      # Check if the user is a customer
+    #         user_model = Customer
+    #     except:
+    #         try:
+    #             retailer = Retailer.objects.get(user=user)
+    #             print(retailer.user.name + "retailer")                                                  # Check if the user is a retailer
+    #             user_model = Retailer
+    #         except Exception as e:
+    #             print(e)
+    #             return JsonResponse({'error': str(e)}, status=420) # user type error
+    #     try:                                                                 # Get the data from the request body
+    #         print(request.POST['name'])                                                                 # Get the data from the request body
+    #         name = request.POST['name']                                                                             # Parse the data
+    #         address_line_1 = request.POST['address_line_1']                                                         #  |
+    #         address_line_2 = request.POST['address_line_2']                                                         #  |                                                      #  |
+    #         city = request.POST['city']                                                                             #  |
+    #         state = request.POST['state']                                                                           #  |
+    #         pincode = request.POST['pincode']                                                                       #  |
+    #         country = request.POST['country'] 
+    #         profile_picture = request.FILES['profilePicture']  
+    #     except Exception as e:
+    #         print(e)
+    #         return JsonResponse({'error': str(e)}, status=400)
+    #     try:
+            
+    #         if user_model: 
+    #             if name :
+    #                 user_model.user.name = name
+    #             if address_line_1:                                                                        # Update the user details
+    #                 user_model.address_line_1 = address_line_1
+    #             if address_line_2:                                                       #  |
+    #                 user_model.address_line_2 = address_line_2
+    #             if profile_picture:                                                      #  |
+    #                 user_model.profile_picture = profile_picture
+    #             if city:                                                     #  |
+    #                 user_model.city = city                                                                           #  |
+    #             if state:
+    #                 user_model.state = state                                                                         #  |
+    #             if pincode:
+    #                 user_model.pincode = pincode                                                                     #  |
+    #             if country:
+    #                 user_model.country = country                                                                     #  |
+    #             user_model.save(self)                                                                                # Save the user details                                                                                   #  |
+    #             return JsonResponse({'message': 'Customer details updated successfully'}, status=200)              # Return a success message
+    #     except Exception as e:
+    #         print(e)
+    #         return JsonResponse({'error':str(e)},status = 400)         
+
         
 # A View to display user details after Login __________________________________________________________________________________________________________
 
