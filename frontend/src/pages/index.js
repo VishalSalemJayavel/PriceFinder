@@ -6,3 +6,4 @@ export { default as Logout } from './logout/Logout';
 export { default as RetailerSettings } from './retailer/RetailerSettings';
 export { default as CustomerSettings } from './customer/CustomerSettings';
 export { default as RetailerDashboard } from './retailer/RetailerDashboard';
+export { default as Landing } from './landingPage/Landing';

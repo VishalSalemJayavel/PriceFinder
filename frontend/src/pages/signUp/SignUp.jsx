@@ -22,8 +22,8 @@ function SignUp() {
     try {
       const response = await axios.post('createuser/',
         formData, {
-          headers:
-            { 'Content-Type': 'application/json' }
+        headers:
+          { 'Content-Type': 'application/json' }
       },
         { withCredentials: true });
 
@@ -102,24 +102,28 @@ function SignUp() {
               />
             </div>
 
-            <p>Who are you:</p>
-            <input
-              type="radio"
-              id="retailer"
-              name="user_type"
-              value="retailer"
-              checked={formData.user_type === "retailer"}
-              onChange={handleChange} />
-            <label for="retailer">Producer</label><br></br>
+            <div className='app__signup-inputs_five'>
+              <fieldset>
+                <legend>Who are you:</legend>
+                <input
+                  type="radio"
+                  id="retailer"
+                  name="user_type"
+                  value="retailer"
+                  checked={formData.user_type === "retailer"}
+                  onChange={handleChange} />
+                <label for="retailer">Producer</label><br></br>
 
-            <input
-              type="radio"
-              id="customer"
-              name="user_type"
-              value="customer"
-              checked={formData.user_type === "customer"}
-              onChange={handleChange} />
-            <label for="customer">Customer</label><br></br>
+                <input
+                  type="radio"
+                  id="customer"
+                  name="user_type"
+                  value="customer"
+                  checked={formData.user_type === "customer"}
+                  onChange={handleChange} />
+                <label for="customer">Customer</label><br></br>
+              </fieldset>
+            </div>
 
             <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
