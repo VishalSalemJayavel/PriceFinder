@@ -41,14 +41,14 @@
 
 .app__signup-inputs {
     width: 400px;
-    height: 400px;
+    height: 500px;
     border: 1px solid black;
     border-radius: 20px;
     padding: 0 10px;
     margin-bottom: 10px;
     font-size: 16px;
     outline: none;
-    margin-top: 10rem;
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,6 +119,34 @@
     line-height: normal;
 }
 
+.app__signup-inputs_five{
+    width: 220px;
+    height: 60px;
+    border-radius: 20px;
+    border: 1px solid var(--Gray-3, #828282);
+    background: #F6F6F6;
+    margin-bottom: 25px;
+    padding: 0 12px;
+
+    color: #706e6e;
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.app__signup-inputs_five p {
+    padding: 5px 0 9px 0;
+}
+
+input[type=radio]{
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+
+
+
 .app__signup-inputs_button {
     width: 87px;
     height: 30px;
@@ -127,6 +155,8 @@
     border: 0px solid var(--Gray-6, #F2F2F2);
     background: var(--Blue-1, #1ed10e);
 }
+
+
 
 
 @media screen and (max-width: 1050px) {
