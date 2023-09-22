@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { MainLayout } from '../../layout';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './products.css';
 
 const Products = () => {
+  let { category } = useParams();
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/products');
+        const response = await axios.get('/products/' + category + '/' );
         const data = response.data;
 
         console.log(data);
