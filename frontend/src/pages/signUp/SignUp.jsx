@@ -48,7 +48,6 @@ function SignUp() {
 
   return (
     <MainLayout>
-
       <div className='app__signup'>
         <div className='app__signup-logo'>
           <img src={images.logo} alt="" />
