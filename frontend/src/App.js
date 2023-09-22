@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.css';
 
-import { Navbar, Header, Category } from './components';
+import { Landing } from './pages';
 
 const App = () => {
 
   return (
-    <div data-test="test" >
-      <Navbar />
-      <Header />
-      <Category />
+    <div >
+      <Landing />
     </div>
+    
   )
 }
 
