@@ -129,6 +129,7 @@ function SignUp() {
             <div className='app__signup-inputs_button'>
               <button type="submit" className='app__signup-inputs_button' onClick={signUp}>Sign Up</button>
             </div>
+            
           </form>
         </div>
       </div>
