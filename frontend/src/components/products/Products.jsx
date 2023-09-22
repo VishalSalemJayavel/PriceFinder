@@ -13,7 +13,7 @@ const Products = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/products/' + category + '/' );
+        const response = await axios.get('/products/' + category );
         const data = response.data;
 
         console.log(data);
