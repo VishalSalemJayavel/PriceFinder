@@ -5,17 +5,19 @@ from .models import *
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = '__all__' # All fields of Customer model are serialized
+        read_only_fields = '__all__' # All fields of Customer model are serialized
 
 class RetailerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Retailer
-        fields = '__all__' # All fields of Retailer model are serialized
+        read_only_fields = '__all__' # All fields of Retailer model are serialized
 
 class ProductSerializer(serializers.ModelSerializer):
+    category = serializers.ReadOnlyField(source='category.name')
+    retailer = serializers.ReadOnlyField(source='retailer.user.name')
     class Meta:
         model = Product
-        fields = '__all__' # All fields of Product model are serialized
+        fields = ('__all__') # All fields of Product model are serialized
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:

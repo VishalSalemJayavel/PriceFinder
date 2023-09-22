@@ -109,7 +109,21 @@ class UserDetailsView(APIView):
 class ProductListView(APIView):
     def get(self, request, *args, **kwargs):
         uuid_param = self.kwargs.get('uuid', None)
+        category_param = self.kwargs.get('category', None)
+        if category_param:
+            print(category_param)
+            try:
+                category = Category.objects.get(name=category_param)
+                print(category)
+                products = Product.objects.filter(category=category)
+                print(products)
+                serializer = ProductSerializer(products, many=True)
+                return Response(serializer.data)
+            except Exception as e:
+                print(e)
+                return JsonResponse({'error': str(e)}, status=404)
         if uuid_param:
+            print(uuid_param)
             try:
                 product = Product.objects.get(uuid=uuid_param)
                 serializer = ProductSerializer(product)
@@ -129,7 +143,7 @@ class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
 
 # A View to display all the products __________________________________________________________________________________________________________________
 
-class ProductViewSet(viewsets.ReadOnlyModelViewSet):
+class ProductViewSet(viewsets.ReadOnlyModelViewSet):    #Not used for now
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
