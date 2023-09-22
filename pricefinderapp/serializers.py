@@ -17,7 +17,7 @@ class ProductSerializer(serializers.ModelSerializer):
     retailer = serializers.ReadOnlyField(source='retailer.user.name')
     class Meta:
         model = Product
-        fields = ('__all__') # All fields of Product model are serialized
+        fields = '__all__' # All fields of Product model are serialized
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
