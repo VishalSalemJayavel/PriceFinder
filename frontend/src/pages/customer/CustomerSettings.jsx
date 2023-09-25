@@ -10,13 +10,12 @@ const CustomerSettings = () => {
     address_line_2: "",
     city: "",
     state: "",
-    pin_code: "",
-    country: ""
+    pincode: "",
   });
 
-  const [profilePicture, setProfilePicture] = useState({
-    image: null
-  });
+  const [profilePicture, setProfilePicture] = useState(null);
+
+  const [userUpdateStatus, setUserUpdateStatus] = useState();
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -29,12 +28,10 @@ const CustomerSettings = () => {
   }
 
   function handleImageChange(event) {
-    setProfilePicture({ image: event.target.files[0] })
+    const image = event.target.files[0];
+    setProfilePicture(image)
   };
 
-  function formCancel() {
-    form.reset();
-  }
 
   const customerSettings = async (e) => {
     e.preventDefault();
@@ -45,17 +42,23 @@ const CustomerSettings = () => {
     formData.append('address_line_2', customerData.address_line_2);
     formData.append('city', customerData.city);
     formData.append('state', customerData.state);
-    formData.append('pin_code', customerData.pin_code);
-    formData.append('country', customerData.country);
-    formData.append('profilePicture', profilePicture.image);
+    formData.append('pincode', customerData.pincode);
+    formData.append('profilePicture', profilePicture);
+
+    console.log(formData);
 
     try {
       const response = await axios.post('edituser/',
         formData,
-        { headers: { 'Content-Type': 'application/json'} },
+        { headers: { 'Content-Type': 'application/json' } },
         { withCredentials: true });
 
-      console.log(response); // Handle success response
+      if (response.status === 200) {
+        setUserUpdateStatus(true);
+      }
+      else {
+        setUserUpdateStatus(false);
+      }
 
     } catch (error) {
       console.error(error); // Handle error response
@@ -66,6 +69,15 @@ const CustomerSettings = () => {
   return (
     <MainLayout>
       <div className='app__customerSettings'>
+        {userUpdateStatus === true ? (
+          <div className='app__customerSettings-success'>
+            <p>Profile Updated Successfully</p>
+          </div>
+        ) : userUpdateStatus === false ? (
+          <div className='app__customerSettings-failure'>
+            <p>Profile Failed to Update</p>
+          </div>
+        ) : null}
         <form onSubmit={customerSettings} method="post">
           <div className='app__customerSettings-main'>
             <div className='app__customerSettings-title'>
@@ -153,10 +165,10 @@ const CustomerSettings = () => {
               className="app__customerSettings-pincode"
               type="text"
               id='pincode'
-              name="pin_code"
+              name="pincode"
               placeholder="Pin Code"
               onChange={handleChange}
-              value={customerData.pin_code}
+              value={customerData.pincode}
             />
 
 
@@ -165,8 +177,9 @@ const CustomerSettings = () => {
             </div>
 
             <div className='app__customerSettings-cancel_button'>
-              <button type="button" className='app__customerSettings-cancel_button' onClick={formCancel}>Cancel</button>
+              <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
             </div>
+
           </div>
 
         </form>
