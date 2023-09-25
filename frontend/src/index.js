@@ -1,6 +1,7 @@
 import React from "react-dom/client";
 import ReactDOM from "react-dom/client";
 import axios from 'axios';
+import './interceptors/axios';
 import App from "./App";
 import './index.css';
 

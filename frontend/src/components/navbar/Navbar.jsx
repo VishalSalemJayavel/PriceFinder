@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { images } from '../../constants';
-import './navbar.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './navbar.css';
 
 const Menu = () => (
   <>
@@ -31,7 +31,7 @@ const Navbar = () => {
       (async () => {
         try {
           const { data } = await axios.get('userdetails/',
-            { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
+            { headers: { 'Content-Type': 'application/json'} },
             { withCredentials: true });
 
           console.log(data); // Handle success response

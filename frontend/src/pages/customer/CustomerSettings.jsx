@@ -32,6 +32,10 @@ const CustomerSettings = () => {
     setProfilePicture({ image: event.target.files[0] })
   };
 
+  function formCancel() {
+    form.reset();
+  }
+
   const customerSettings = async (e) => {
     e.preventDefault();
 
@@ -47,10 +51,8 @@ const CustomerSettings = () => {
 
     try {
       const response = await axios.post('edituser/',
-        formData, {
-        headers:
-          { 'Content-Type': 'multipart/form-data' }
-      },
+        formData,
+        { headers: { 'Content-Type': 'application/json'} },
         { withCredentials: true });
 
       console.log(response); // Handle success response
@@ -139,6 +141,9 @@ const CustomerSettings = () => {
               <button type="submit" className='app__customerSettings-inputs_button' onClick={customerSettings}>Update Profile</button>
             </div>
 
+            <div className='app__customerSettings-cancel_button'>
+              <button type="button" className='app__customerSettings-cancel_button' onClick={formCancel}>Cancel</button>
+            </div>
           </div>
         </form>
       </div>
