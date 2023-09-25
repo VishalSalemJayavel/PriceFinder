@@ -31,7 +31,7 @@ const Navbar = () => {
       (async () => {
         try {
           const { data } = await axios.get('userdetails/',
-            { headers: { 'Content-Type': 'application/json'} },
+            { headers: { 'Content-Type': 'application/json' } },
             { withCredentials: true });
 
           console.log(data); // Handle success response
@@ -74,9 +74,9 @@ const Navbar = () => {
         {isAuth ? <Link to='/logout'><p>Sign Out</p></Link> : <Link to='/login'><p>Sign in</p></Link>}
         {isAuth ? (
           user.user_type === "retailer" ? (
-            <Link to="/dashboard"><p>{user.user}</p></Link>
+            <Link to="/dashboard"><p>{user.user}</p><img src={images.dp} alt="dp" /></Link>
           ) : user.user_type === "customer" ? (
-            <Link to="/customersettings"><p>{user.user}</p></Link>
+            <Link to="/customersettings"><p>{user.user}</p><img src={images.dp} alt="dp" /></Link>
           ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
         ) : (
           <Link to="/signup">
