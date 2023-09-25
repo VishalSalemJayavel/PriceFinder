@@ -65,81 +65,104 @@ const CustomerSettings = () => {
     <MainLayout>
       <div className='app__customerSettings'>
         <form onSubmit={customerSettings} method="post">
-          <div className='app__customerSettings-inputs_one'>
-            <input type="file"
-              id="image"
-              accept="image/png, image/jpeg"
-              onChange={handleImageChange} required
-            />
+          <div className='app__customerSettings-main'>
+            <div className='app__customerSettings-title'>
+              <p>Edit Profile</p>
+            </div>
+            <div className='app__customerSettings-inputs_one'>
+              <input type="file"
+                id="image"
+                accept="image/png, image/jpeg"
+                onChange={handleImageChange} required
+              />
+            </div>
+          </div>
 
+          <div className='app__customerSettings-inputs'>
+            <label for="name">FullName</label>
             <input
               className="app__customerSettings-name"
               type="text"
+              id='name'
               name="name"
               placeholder="Full Name"
               onChange={handleChange}
               value={customerData.name}
             />
 
-            <input
-              className="app__customerSettings-address_line_1"
-              type="text"
-              name="address_line_1"
-              placeholder="Address_line_1"
-              onChange={handleChange}
-              value={customerData.address_line_1}
-            />
+            <div className='inputs__flex'>
+              <div className='inputs-label'>
+                <label For="addr1">Address Line 1</label>
+                <input
+                  className="app__customerSettings-address_line_1"
+                  type="text"
+                  id='addr1'
+                  name="address_line_1"
+                  placeholder="Address_line_1"
+                  onChange={handleChange}
+                  value={customerData.address_line_1}
+                />
+              </div>
 
-            <input
-              className="app__customerSettings-address_line_2"
-              type="text"
-              name="address_line_2"
-              placeholder="Address_line_2"
-              onChange={handleChange}
-              value={customerData.address_line_2}
-            />
+              <div className='inputs-label'>
+                <label htmlFor="addr2">Address Line 2</label>
+                <input
+                  className="app__customerSettings-address_line_2"
+                  type="text"
+                  id='addr2'
+                  name="address_line_2"
+                  placeholder="Address_line_2"
+                  onChange={handleChange}
+                  value={customerData.address_line_2}
+                />
+              </div>
+            </div>
 
-            <input
-              className="app__customerSettings-city"
-              type="text"
-              name="city"
-              placeholder="City"
-              onChange={handleChange}
-              value={customerData.city}
-            />
+            <div className='inputs__flex'>
+              <div className='inputs-label'>
+                <label htmlFor="city">District</label>
+                <input
+                  className="app__customerSettings-city"
+                  type="text"
+                  name="city"
+                  id='city'
+                  placeholder="District"
+                  onChange={handleChange}
+                  value={customerData.city}
+                />
+              </div>
 
-            <input
-              className="app__customerSettings-state"
-              type="text"
-              name="state"
-              placeholder="State"
-              onChange={handleChange}
-              value={customerData.state}
-            />
+              <div className='inputs-label'>
+                <label htmlFor="state">State</label>
+                <input
+                  className="app__customerSettings-state"
+                  type="text"
+                  id='state'
+                  name="state"
+                  placeholder="State"
+                  onChange={handleChange}
+                  value={customerData.state}
+                />
+              </div>
+            </div>
 
+            <label htmlFor="pincode">Pincode</label>
             <input
               className="app__customerSettings-pincode"
               type="text"
+              id='pincode'
               name="pin_code"
               placeholder="Pin Code"
               onChange={handleChange}
               value={customerData.pin_code}
             />
 
-            <input
-              className="app__customerSettings-country"
-              type="text"
-              name="country"
-              placeholder="Country"
-              onChange={handleChange}
-              value={customerData.country}
-            />
 
             <div className='app__customerSettings-inputs_button'>
               <button type="submit" className='app__customerSettings-inputs_button' onClick={customerSettings}>Update Profile</button>
             </div>
-
           </div>
+
         </form>
       </div>
     </MainLayout>
