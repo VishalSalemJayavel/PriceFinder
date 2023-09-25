@@ -1,0 +1,67 @@
+.app__customerSettings{
+    margin-top: 7rem;
+}
+
+.app__customerSettings-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.app__customerSettings-title{
+    font-family: var(--font-family);
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.app__customerSettings-inputs{
+    display: flex;
+    flex-direction: column;
+    margin-left: 22em;
+}
+
+label{
+    color: #1C1C1C;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.app__customerSettings-name,
+.app__customerSettings-address_line_1,
+.app__customerSettings-address_line_2,
+.app__customerSettings-city,
+.app__customerSettings-state,
+.app__customerSettings-pincode,
+.app__customerSettings-country{
+    width: 405px;
+    height: 50px;
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+
+.inputs__flex{
+    display: flex;
+    flex-direction: row;
+    justify-content:unset ;
+}
+
+.inputs-label{
+    display: flex;
+    flex-direction: column;
+}
+
+.app__customerSettings-name,
+.app__customerSettings-pincode{
+    width:876px ;
+}
+
+.app__customerSettings-address_line_1{
+    margin-right: 4rem;
+}
+
+.app__customerSettings-city{
+    margin-right: 4rem;
+}
