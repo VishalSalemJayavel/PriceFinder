@@ -1,12 +1,14 @@
 import React from 'react'
-import { Navbar, Header, Category } from '../../components';
+import { Header, Category } from '../../components';
+import { MainLayout } from '../../layout';
 
 const Landing = () => {
   return (
     <div>
-      <Navbar />
-      <Header />
-      <Category />
+      <MainLayout>
+        <Header />
+        <Category />
+      </MainLayout>
     </div>
   )
 }
