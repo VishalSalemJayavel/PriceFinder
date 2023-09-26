@@ -106,6 +106,34 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
+                <label htmlFor="email">Email</label>
+                <input
+                  className="app__customerSettings-email"
+                  type="email"
+                  id='email'
+                  name="email"
+                  placeholder="Email"
+                  value={customerData.email}
+                  disabled
+                />
+              </div>
+
+              <div className='inputs-label'>
+                <label htmlFor="phone_number">Phone Number</label>
+                <input
+                  className='app__customerSettings-phonenum'
+                  type='tel'
+                  id='phone_number'
+                  maxLength={10}
+                  name='phone_number'
+                  placeholder='Phone Number'
+                  value={customerData.phone_number}
+                />
+              </div>
+            </div>
+
+            <div className='inputs__flex'>
+              <div className='inputs-label'>
                 <label For="addr1">Address Line 1</label>
                 <input
                   className="app__customerSettings-address_line_1"
@@ -171,13 +199,14 @@ const CustomerSettings = () => {
               value={customerData.pincode}
             />
 
+            <div className='app__customerSettings-buttons'>
+              <div className='app__customerSettings-inputs_button'>
+                <button type="submit" className='app__customerSettings-inputs_button' onClick={customerSettings}>Update Profile</button>
+              </div>
 
-            <div className='app__customerSettings-inputs_button'>
-              <button type="submit" className='app__customerSettings-inputs_button' onClick={customerSettings}>Update Profile</button>
-            </div>
-
-            <div className='app__customerSettings-cancel_button'>
-              <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
+              <div className='app__customerSettings-cancel_button'>
+                <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
+              </div>
             </div>
 
           </div>
