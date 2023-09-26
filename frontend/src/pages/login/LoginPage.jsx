@@ -1,16 +1,14 @@
-import React from 'react'
-import './login.css';
-import { MainLayout } from '../../layout';
-import { images } from '../../constants';
 import axios from 'axios';
+import React from 'react';
+import { images } from '../../constants';
+import { MainLayout } from '../../layout';
+import './login.css';
 
 
 const LoginPage = () => {
   const [formData, setFormData] = React.useState(
     { email: "", password: "" }
   );
-
-
 
   console.log(formData)
 
