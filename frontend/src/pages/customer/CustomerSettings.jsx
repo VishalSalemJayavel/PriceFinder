@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import './customersettings.css';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { MainLayout } from '../../layout';
+import './customersettings.css';
 
 const CustomerSettings = () => {
   const [customerData, setCustomerData] = useState({
     name: "",
+    email: "",
+    phone_number: "",
     address_line_1: "",
     address_line_2: "",
     city: "",
@@ -32,12 +34,39 @@ const CustomerSettings = () => {
     setProfilePicture(image)
   };
 
+  useEffect(() => {
+    const fetchCustomerData = async () => {
+      try {
+        const { data } = await axios.get('userdetails/',
+          { headers: { 'Content-Type': 'application/json' } },
+          { withCredentials: true });
+
+        setCustomerData({
+          name: data.name,
+          email: data.email,
+          phone_number: data.phone_number,
+          address_line_1: data.address_line_1,
+          address_line_2: data.address_line_2,
+          city: data.city,
+          state: data.state,
+          pincode: data.pincode,
+        });
+
+        setProfilePicture(data.profilePicture);
+
+      } catch (error) {
+        console.error(error); // Handle error response
+      }
+    };
+    fetchCustomerData();
+  }, []);
 
   const customerSettings = async (e) => {
     e.preventDefault();
 
     let formData = new FormData();
     formData.append('name', customerData.name);
+    formData.append('phone_number', customerData.phone_number);
     formData.append('address_line_1', customerData.address_line_1);
     formData.append('address_line_2', customerData.address_line_2);
     formData.append('city', customerData.city);
@@ -102,6 +131,7 @@ const CustomerSettings = () => {
               placeholder="Full Name"
               onChange={handleChange}
               value={customerData.name}
+              required
             />
 
             <div className='inputs__flex'>
@@ -128,6 +158,7 @@ const CustomerSettings = () => {
                   name='phone_number'
                   placeholder='Phone Number'
                   value={customerData.phone_number}
+                  required
                 />
               </div>
             </div>
@@ -143,6 +174,7 @@ const CustomerSettings = () => {
                   placeholder="Address_line_1"
                   onChange={handleChange}
                   value={customerData.address_line_1}
+                  required
                 />
               </div>
 
@@ -171,6 +203,7 @@ const CustomerSettings = () => {
                   placeholder="District"
                   onChange={handleChange}
                   value={customerData.city}
+                  required
                 />
               </div>
 
@@ -184,6 +217,7 @@ const CustomerSettings = () => {
                   placeholder="State"
                   onChange={handleChange}
                   value={customerData.state}
+                  required
                 />
               </div>
             </div>
@@ -197,6 +231,7 @@ const CustomerSettings = () => {
               placeholder="Pin Code"
               onChange={handleChange}
               value={customerData.pincode}
+              required
             />
 
             <div className='app__customerSettings-buttons'>
