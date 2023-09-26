@@ -158,7 +158,6 @@ const CustomerSettings = () => {
                   name='phone_number'
                   placeholder='Phone Number'
                   value={customerData.phone_number}
-                  required
                 />
               </div>
             </div>
