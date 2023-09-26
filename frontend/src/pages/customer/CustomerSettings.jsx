@@ -37,7 +37,7 @@ const CustomerSettings = () => {
   useEffect(() => {
     const fetchCustomerData = async () => {
       try {
-        const { data } = await axios.get('userdetails/',
+        const { data } = await axios.get('edituser/',
           { headers: { 'Content-Type': 'application/json' } },
           { withCredentials: true });
 
@@ -51,7 +51,7 @@ const CustomerSettings = () => {
           state: data.state,
           pincode: data.pincode,
         });
-
+        console.log(data);
         setProfilePicture(data.profilePicture);
 
       } catch (error) {
