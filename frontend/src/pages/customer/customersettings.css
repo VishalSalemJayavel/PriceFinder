@@ -1,30 +1,31 @@
-.app__customerSettings{
+.app__customerSettings {
     margin-top: 7rem;
 }
 
-.app__customerSettings-main{
+.app__customerSettings-main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.app__customerSettings-title{
+.app__customerSettings-title {
     font-family: var(--font-family);
     font-size: 45px;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.app__customerSettings-inputs{
+.app__customerSettings-inputs {
     display: flex;
     flex-direction: column;
     margin-left: 22em;
 }
-input[type=file]{
+
+input[type=file] {
     margin-top: 30px;
 }
 
-label{
+label {
     color: #1C1C1C;
     font-family: var(--font-family);
     font-size: 18px;
@@ -32,6 +33,7 @@ label{
     font-weight: 600;
     line-height: normal;
 }
+
 .app__customerSettings-name,
 .app__customerSettings-address_line_1,
 .app__customerSettings-address_line_2,
@@ -40,49 +42,49 @@ label{
 .app__customerSettings-pincode,
 .app__customerSettings-country,
 .app__customerSettings-phonenum,
-.app__customerSettings-email{
+.app__customerSettings-email {
     width: 405px;
     height: 50px;
     margin-bottom: 1rem;
     padding: 10px;
 }
 
-.inputs__flex{
+.inputs__flex {
     display: flex;
     flex-direction: row;
-    justify-content:unset;
+    justify-content: unset;
 }
 
-.inputs-label{
+.inputs-label {
     display: flex;
     flex-direction: column;
 }
 
 .app__customerSettings-name,
-.app__customerSettings-pincode{
-    width:876px ;
+.app__customerSettings-pincode {
+    width: 876px;
 }
 
-.app__customerSettings-email{
+.app__customerSettings-email {
     margin-right: 4rem;
 }
 
-.app__customerSettings-address_line_1{
+.app__customerSettings-address_line_1 {
     margin-right: 4rem;
 }
 
-.app__customerSettings-city{
+.app__customerSettings-city {
     margin-right: 4rem;
 }
 
 .app__customerSettings-success,
-.app__customerSettings-failure{
+.app__customerSettings-failure {
     width: 500px;
     height: 80px;
     margin: auto;
-    padding: 20px 0 0 0 ;
+    padding: 20px 0 0 0;
     border-radius: 20px;
-    
+
 
     font-family: var(--font-family);
     font-size: 18px;
@@ -93,11 +95,11 @@ label{
     text-align: center;
 }
 
-.app__customerSettings-buttons{
+.app__customerSettings-buttons {
     display: flex;
-}   
+}
 
-.app__customerSettings-inputs_button{
+.app__customerSettings-inputs_button {
     font-size: 13px;
     font-family: var(--font-family);
     font-weight: 600;
@@ -110,7 +112,7 @@ label{
     margin-right: 3rem;
 }
 
-.app__customerSettings-cancel_button{
+.app__customerSettings-cancel_button {
     font-size: 14px;
     color: #1ed10e;
     font-family: var(--font-family);
@@ -122,10 +124,84 @@ label{
     border-radius: 5px;
 }
 
-.app__customerSettings-success{
+.app__customerSettings-success {
     background-color: rgb(202, 245, 202);
 }
 
-.app__customerSettings-failure{
+.app__customerSettings-failure {
     background-color: rgb(245, 202, 202);
+}
+
+@media screen and (max-width: 1050px) {
+    .app__customerSettings-main {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .app__customerSettings-inputs {
+        margin-left: 2rem;
+    }
+
+    .app__customerSettings-name,
+    .app__customerSettings-address_line_1,
+    .app__customerSettings-address_line_2,
+    .app__customerSettings-city,
+    .app__customerSettings-state,
+    .app__customerSettings-pincode,
+    .app__customerSettings-country,
+    .app__customerSettings-phonenum,
+    .app__customerSettings-email {
+        width: 300px;
+        height: 50px;
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+}
+
+@media screen and (max-width: 550px){
+    .app__customerSettings-main {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .app__customerSettings-inputs {
+        margin-left: 3rem;
+    }
+
+    .app__customerSettings-name,
+    .app__customerSettings-address_line_1,
+    .app__customerSettings-address_line_2,
+    .app__customerSettings-city,
+    .app__customerSettings-state,
+    .app__customerSettings-pincode,
+    .app__customerSettings-country,
+    .app__customerSettings-phonenum,
+    .app__customerSettings-email {
+        width: 250px;
+        height: 50px;
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+    .app__customerSettings-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app__customerSettings-inputs_button {
+        margin-bottom: 1rem;
+    }
+
+    .app__customerSettings-cancel_button {
+        margin-bottom: 1rem;
+    }
+
+    .inputs__flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+    }
 }

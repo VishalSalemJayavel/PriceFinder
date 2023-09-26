@@ -136,7 +136,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label htmlFor="email">Email</label>
+                <label for="email">Email</label>
                 <input
                   className="app__customerSettings-email"
                   type="email"
@@ -149,7 +149,7 @@ const CustomerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label htmlFor="phone_number">Phone Number</label>
+                <label for="phone_number">Phone Number</label>
                 <input
                   className='app__customerSettings-phonenum'
                   type='tel'
@@ -164,7 +164,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label For="addr1">Address Line 1</label>
+                <label for="addr1">Address Line 1</label>
                 <input
                   className="app__customerSettings-address_line_1"
                   type="text"
@@ -178,7 +178,7 @@ const CustomerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label htmlFor="addr2">Address Line 2</label>
+                <label for="addr2">Address Line 2</label>
                 <input
                   className="app__customerSettings-address_line_2"
                   type="text"
@@ -193,7 +193,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label htmlFor="city">District</label>
+                <label for="city">District</label>
                 <input
                   className="app__customerSettings-city"
                   type="text"
@@ -207,7 +207,7 @@ const CustomerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label htmlFor="state">State</label>
+                <label for="state">State</label>
                 <input
                   className="app__customerSettings-state"
                   type="text"
@@ -221,7 +221,7 @@ const CustomerSettings = () => {
               </div>
             </div>
 
-            <label htmlFor="pincode">Pincode</label>
+            <label for="pincode">Pincode</label>
             <input
               className="app__customerSettings-pincode"
               type="text"
