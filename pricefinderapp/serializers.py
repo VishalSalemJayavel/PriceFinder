@@ -3,14 +3,16 @@ from rest_framework import serializers
 from .models import *
 
 class CustomerSerializer(serializers.ModelSerializer):
+    name = serializers.ReadOnlyField(source='user.name')
+    email = serializers.ReadOnlyField(source='user.email')
     class Meta:
         model = Customer
-        read_only_fields = '__all__' # All fields of Customer model are serialized
+        fields = '__all__' # All fields of Customer model are serialized
 
 class RetailerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Retailer
-        read_only_fields = '__all__' # All fields of Retailer model are serialized
+        fields = '__all__' # All fields of Retailer model are serialized
 
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.ReadOnlyField(source='category.name')
