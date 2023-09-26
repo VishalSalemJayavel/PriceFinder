@@ -122,7 +122,11 @@ class EditUserView(APIView):
                 if data['pincode']:
                     pincode = data['pincode']
                     user_model.pincode = pincode
-                    print(pincode)                                                         
+                    print(pincode)  
+                if data['phone_number']:
+                    phone_number = data['phone_number']
+                    user_model.phone_number = phone_number
+                    print(phone_number)                                                       
                 # if data['country']:
                 #     country = data['country']
                 #     user_model.country = country
@@ -238,19 +242,36 @@ class UserDetailsView(APIView):
             name = user.name
             email = user.email
             try:
-                Customer.objects.get(user=user)                                                                     # Check if the user is a customer
-                user_type = 'customer'                                                                              # If yes, set user_type to customer
+                user_object = Customer.objects.get(user=user)                                                                     # Check if the user is a customer
+                user_type = 'customer'     
+                                                                                         # If yes, set user_type to customer
             except:
                 print("user not a customer")
                 try:
-                    Retailer.objects.get(user=user)                                                                 # Check if the user is a retailer
+                    user_object = Retailer.objects.get(user=user)                                                                 # Check if the user is a retailer
                     user_type = 'retailer'                                                                          # If yes, set user_type to retailer
                 except Exception as e:
                     print("user not a retailer or a customer")
                     print(e)
                     return JsonResponse({'error': str(e)}, status=420) #change added
+                phone_number = user_object.phone_number
+                address_line_1 = user_object.address_line_1
+                address_line_2 = user_object.address_line_2
+                city = user_object.city
+                state = user_object.state
+                pincode = user_object.pincode
+                profile_picture = user_object.profile_picture
                                                                                                          
-            return JsonResponse({'name': name, 'email': email, 'user_type':user_type}, status=200)
+            return JsonResponse({'name': name, 
+                                 'email': email, 
+                                 'user_type':user_type, 
+                                 'phone_number': phone_number, 
+                                 'profilePicture': profile_picture, 
+                                 'pincode':pincode,
+                                 'address_line_1': address_line_1,
+                                 'address_line_2': address_line_2,
+                                 'city': city,
+                                 'state': state}, status=200)
         except Exception as e:
             print(e)
             return JsonResponse({'error': str(e)}, status=400)
