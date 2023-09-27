@@ -10,6 +10,8 @@ class CustomerSerializer(serializers.ModelSerializer):
         fields = '__all__' # All fields of Customer model are serialized
 
 class RetailerSerializer(serializers.ModelSerializer):
+    name = serializers.ReadOnlyField(source='user.name')
+    email = serializers.ReadOnlyField(source='user.email')
     class Meta:
         model = Retailer
         fields = '__all__' # All fields of Retailer model are serialized
