@@ -1,11 +1,10 @@
-import React from "react-dom/client";
-import ReactDOM from "react-dom/client";
 import axios from 'axios';
-import './interceptors/axios';
+import { default as React, default as ReactDOM } from "react-dom/client";
 import App from "./App";
 import './index.css';
+import './interceptors/axios';
 
-import { LoginPage, SignUp, Product, SingleProduct, Logout, RetailerSettings, CustomerSettings, RetailerDashboard } from './pages';
+import { CustomerSettings, LoginPage, Logout, Product, RetailerDashboard, RetailerSettings, Settings, SignUp, SingleProduct } from './pages';
 
 import {
   createBrowserRouter,
@@ -42,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "retailersettings/",
     element: <RetailerSettings />,
+  },
+  {
+    path: "settings/",
+    element: <Settings />,
   },
   {
     path: "customersettings/",

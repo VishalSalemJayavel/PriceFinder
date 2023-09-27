@@ -78,12 +78,12 @@ const Navbar = () => {
         {isAuth ? <Link to='/logout'><p>Sign Out</p></Link> : <Link to='/login'><p>Sign in</p></Link>}
         {isAuth ? (
           user.user_type === "retailer" ? (
-            <Link to="/dashboard">
+            <Link to="/settings">
               <p className='login_name'>{user.user}</p>
               <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
             </Link>
           ) : user.user_type === "customer" ? (
-            <Link to="/customersettings">
+            <Link to="/settings">
               <p className='login_name'>{user.user}</p>
               <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
             </Link>
