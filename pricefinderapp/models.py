@@ -85,6 +85,7 @@ class Customer(models.Model):
     state = models.CharField(max_length=255, null=True, blank = True)
     pincode = models.CharField(max_length=6, null=True, blank = True)
     country = models.CharField(max_length=255, null=True, blank = True)
+    user_type = models.CharField(max_length=255, null=True, blank = True, default='customer')
 
     def __str__(self):
         return self.user.name
@@ -102,6 +103,7 @@ class Retailer(models.Model):
     state = models.CharField(max_length=255, null=True, blank = True)
     pincode = models.CharField(max_length=6, null=True, blank = True)
     country = models.CharField(max_length=255, null=True, blank = True)
+    user_type = models.CharField(max_length=255, null=True, blank = True, default='retailer')
 
 
     def __str__(self):

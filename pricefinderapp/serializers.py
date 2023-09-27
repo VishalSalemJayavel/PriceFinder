@@ -5,7 +5,6 @@ from .models import *
 class CustomerSerializer(serializers.ModelSerializer):
     name = serializers.ReadOnlyField(source='user.name')
     email = serializers.ReadOnlyField(source='user.email')
-    user_type = 'customer'
     class Meta:
         model = Customer
         fields = '__all__' # All fields of Customer model are serialized
@@ -13,7 +12,6 @@ class CustomerSerializer(serializers.ModelSerializer):
 class RetailerSerializer(serializers.ModelSerializer):
     name = serializers.ReadOnlyField(source='user.name')
     email = serializers.ReadOnlyField(source='user.email')
-    user_type = 'retailer'
     class Meta:
         model = Retailer
         fields = '__all__' # All fields of Retailer model are serialized
