@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import { images } from '../../constants';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { RiCloseLine, RiMenu3Line } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
+import { images } from '../../constants';
 import './navbar.css';
 
 const Menu = () => (
@@ -22,7 +22,8 @@ const Navbar = () => {
   const [user, setUser] = useState({
     user: "",
     email: "",
-    user_type: ""
+    user_type: "",
+    profile_picture: null,
   });
 
   useEffect(() => {
@@ -39,8 +40,11 @@ const Navbar = () => {
           setUser({
             user: data['name'],
             email: data['email'],
-            user_type: data['user_type']
+            user_type: data['user_type'],
+            profile_picture: data['profile_picture'],
           })
+
+          console.log(user);
 
         } catch (error) {
           console.error(error); // Handle error response
