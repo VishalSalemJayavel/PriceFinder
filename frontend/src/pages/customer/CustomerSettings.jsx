@@ -44,7 +44,7 @@ const CustomerSettings = () => {
       const fetchCustomerData = async () => {
         try {
           const { data } = await axios.get('edituser/',
-            { headers: { 'Content-Type': 'application/json' } },
+            { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
             { withCredentials: true });
 
           setCustomerData({
