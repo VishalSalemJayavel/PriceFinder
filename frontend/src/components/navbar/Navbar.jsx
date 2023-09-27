@@ -100,12 +100,31 @@ const Navbar = () => {
           : <RiMenu3Line color='black' size={27} onClick={() => setToggleMenu(true)} />
         }
         {toggleMenu && (
-          <div className='gpt3__navbar-menu_container scale-up-center'>
+          <div className='gpt3__navbar-menu_container slide-bottom'>
             <div className='gpt3__navbar-menu_contanier-links'>
               <Menu />
               <div className='gpt3__navbar-menu_container-links-sign'>
-                <p>Sign in</p>
-                <button type='button'>Sign up</button>
+                {/* <p>Sign in</p>
+                <button type='button'>Sign up</button> */}
+
+                {isAuth ? <Link to='/logout'><p>Sign Out</p></Link> : <Link to='/login'><p>Sign in</p></Link>}
+                {isAuth ? (
+                  user.user_type === "retailer" ? (
+                    <Link to="/dashboard">
+                      <p className='login_name'>{user.user}</p>
+                      <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+                    </Link>
+                  ) : user.user_type === "customer" ? (
+                    <Link to="/customersettings">
+                      <p className='login_name'>{user.user}</p>
+                      <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+                    </Link>
+                  ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
+                ) : (
+                  <Link to="/signup">
+                    <button type="button">Sign up</button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

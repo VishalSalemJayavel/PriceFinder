@@ -9,7 +9,7 @@
     top: 0;
     backdrop-filter: blur(5px);
     opacity: 1;
-    color: black;
+
 
 }
 
@@ -121,6 +121,12 @@
     display: none;
 }
 
+.login_img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 1050px) {
     .gpt3__navbar-links_container {
         display: none;
@@ -150,6 +156,8 @@
     .gpt3__navbar {
         padding: 2rem;
         padding-bottom: 0;
+
+    
     }
 
     .gpt3__navbar-sign {
@@ -158,6 +166,8 @@
 
     .gpt3__navbar-menu_container {
         top: 20px;
+        background-color: rgba(0,0,0,.5);
+        color: #fff;
     }
 
     .gpt3__navbar-menu_container-links-sign {
@@ -172,6 +182,12 @@
     .gpt3__navbar-links_logo img {
         width: 100px;
         height: 30px;
+    }
+
+    .gpt3__navbar-links_container p,
+    .gpt3__navbar-sign p,
+    .gpt3__navbar-menu_container p {
+        color: #fff;
     }
 
 }
