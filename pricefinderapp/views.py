@@ -228,17 +228,17 @@ class UserDetailsView(APIView):
             state = user_object.state
             pincode = user_object.pincode
            # profile_picture = user_object.profile_picture
-           # return Response(serializer.data)                                                                                   # Return the user details
+            return Response(serializer.data)                                                                                   # Return the user details
                                                                                                          
-            return JsonResponse({'name': name, 
-                                 'email': email, 
-                                 'user_type':user_type, 
-                                 'phone_number': phone_number,  
-                                 'pincode':pincode,
-                                 'address_line_1': address_line_1,
-                                 'address_line_2': address_line_2,
-                                 'city': city,
-                                 'state': state}, status=200)
+            # return JsonResponse({'name': name, 
+            #                      'email': email, 
+            #                      'user_type':user_type, 
+            #                      'phone_number': phone_number,  
+            #                      'pincode':pincode,
+            #                      'address_line_1': address_line_1,
+            #                      'address_line_2': address_line_2,
+            #                      'city': city,
+            #                      'state': state}, status=200)
         except Exception as e:
             print(e)
             return JsonResponse({'error': str(e)}, status=400)
