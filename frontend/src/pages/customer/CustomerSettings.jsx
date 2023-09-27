@@ -19,6 +19,8 @@ const CustomerSettings = () => {
 
   const [userUpdateStatus, setUserUpdateStatus] = useState();
 
+  const [pageReloaded, setPageReloaded] = useState(false);
+
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
     setCustomerData(prevFormData => {
@@ -35,31 +37,41 @@ const CustomerSettings = () => {
   };
 
   useEffect(() => {
-    const fetchCustomerData = async () => {
-      try {
-        const { data } = await axios.get('edituser/',
-          { headers: { 'Content-Type': 'application/json' } },
-          { withCredentials: true });
+    // Check if the page was reloaded by comparing the current pathname
+    // with the previous pathname stored in state.
+    if (!pageReloaded) {
+      // This block will only run on the initial page load or when the page is reloaded.
+      const fetchCustomerData = async () => {
+        try {
+          const { data } = await axios.get('edituser/',
+            { headers: { 'Content-Type': 'application/json' } },
+            { withCredentials: true });
 
-        setCustomerData({
-          name: data.name,
-          email: data.email,
-          phone_number: data.phone_number,
-          address_line_1: data.address_line_1,
-          address_line_2: data.address_line_2,
-          city: data.city,
-          state: data.state,
-          pincode: data.pincode,
-        });
-        console.log(data);
-        setProfilePicture(data.profilePicture);
+          setCustomerData({
+            name: data.name,
+            email: data.email,
+            phone_number: data.phone_number,
+            address_line_1: data.address_line_1,
+            address_line_2: data.address_line_2,
+            city: data.city,
+            state: data.state,
+            pincode: data.pincode,
+          });
+          console.log(data);
+          setProfilePicture(data.profilePicture);
 
-      } catch (error) {
-        console.error(error); // Handle error response
-      }
-    };
-    fetchCustomerData();
-  }, []);
+        } catch (error) {
+          console.error(error); // Handle error response
+        }
+      };
+
+      fetchCustomerData();
+    }
+
+    // Set the pageReloaded state to true to prevent future runs
+    setPageReloaded(true);
+  }, [pageReloaded]);
+
 
   const customerSettings = async (e) => {
     e.preventDefault();
@@ -157,6 +169,7 @@ const CustomerSettings = () => {
                   maxLength={10}
                   name='phone_number'
                   placeholder='Phone Number'
+                  onChange={handleChange}
                   value={customerData.phone_number}
                 />
               </div>
