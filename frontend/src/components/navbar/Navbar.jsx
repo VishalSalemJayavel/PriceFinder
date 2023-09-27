@@ -78,9 +78,15 @@ const Navbar = () => {
         {isAuth ? <Link to='/logout'><p>Sign Out</p></Link> : <Link to='/login'><p>Sign in</p></Link>}
         {isAuth ? (
           user.user_type === "retailer" ? (
-            <Link to="/dashboard"><p>{user.user}</p><img src={images.dp} alt="dp" /></Link>
+            <Link to="/dashboard">
+              <p className='login_name'>{user.user}</p>
+              <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+            </Link>
           ) : user.user_type === "customer" ? (
-            <Link to="/customersettings"><p>{user.user}</p><img src={images.dp} alt="dp" /></Link>
+            <Link to="/customersettings">
+              <p className='login_name'>{user.user}</p>
+              <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+            </Link>
           ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
         ) : (
           <Link to="/signup">
