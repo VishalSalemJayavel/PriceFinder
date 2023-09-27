@@ -1,4 +1,7 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { images } from '../../constants';
 import { MainLayout } from '../../layout';
 import './settings.css';
 
@@ -38,26 +41,24 @@ const Settings = () => {
   }, [isAuth]);
 
   return (
-    <MainLayout>
-      <div className="app__settings">
-        <h1>Edit Profile</h1>
-        <p>Click here to change your Profile details</p>
-        {isAuth ? (
-          user.user_type === "retailer" ? (
-            <Link to="/customersettings">
-              <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
-              <p className='login_name'>{user.user}</p>
-            </Link>
-          ) : user.user_type === "customer" ? (
-            <Link to="/retailersettings">
-              <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
-              <p className='login_name'>{user.user}</p>
-            </Link>
-          ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
-        ) : null // This will render nothing if user is not authenticated
-        }
-      </div>
-    </MainLayout>
+    <div className="app__settings">
+      <h1>Edit Profile</h1>
+      <p>Click here to change your Profile details</p>
+      {isAuth ? (
+        user.user_type === "retailer" ? (
+          <Link to="/retailersettings">
+            <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+            <p className='login_name'>{user.user}</p>
+          </Link>
+        ) : user.user_type === "customer" ? (
+          <Link to="/customersettings">
+            <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+            <p className='login_name'>{user.user}</p>
+          </Link>
+        ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
+      ) : null // This will render nothing if user is not authenticated
+      }
+    </div>
   )
 }
 
