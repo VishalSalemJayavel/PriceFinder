@@ -115,35 +115,38 @@ class EditUserView(APIView):
                     print(e)
                     return JsonResponse({'error': str(e)}, status=420)
             try:
-                data = json.loads(request.body)
-                if data['name']:
-                    name = data['name']
-                    user.name = name
-                    print(name)                                                           
-                if data['address_line_1']:
-                    address_line_1 = data['address_line_1']
-                    user_model.address_line_1 = address_line_1
-                    print(address_line_1)                                                        
-                if data['address_line_2']:
-                    address_line_2 = data['address_line_2']
-                    user_model.address_line_2 = address_line_2
-                    print(address_line_2)                                                         
-                if data['city']:
-                    city = data['city']
-                    user_model.city = city
-                    print(city)                                                         
-                if data['state']:
-                    state = data['state']
-                    user_model.state = state
-                    print(state)                                                         
-                if data['pincode']:
-                    pincode = data['pincode']
-                    user_model.pincode = pincode
-                    print(pincode)  
-                if data['phone_number']:
-                    phone_number = data['phone_number']
-                    user_model.phone_number = phone_number
-                    print(phone_number)                                                       
+                # data = json.loads(request.body)
+                # print(data)
+                # print(request.POST["profilePicture"])
+                # print(request.FILES.get("profilePicture"))
+                # if data['name']:
+                #     name = data['name']
+                #     user.name = name
+                #     print(name)                                                           
+                # if data['address_line_1']:
+                #     address_line_1 = data['address_line_1']
+                #     user_model.address_line_1 = address_line_1
+                #     print(address_line_1)                                                        
+                # if data['address_line_2']:
+                #     address_line_2 = data['address_line_2']
+                #     user_model.address_line_2 = address_line_2
+                #     print(address_line_2)                                                         
+                # if data['city']:
+                #     city = data['city']
+                #     user_model.city = city
+                #     print(city)                                                         
+                # if data['state']:
+                #     state = data['state']
+                #     user_model.state = state
+                #     print(state)                                                         
+                # if data['pincode']:
+                #     pincode = data['pincode']
+                #     user_model.pincode = pincode
+                #     print(pincode)  
+                # if data['phone_number']:
+                #     phone_number = data['phone_number']
+                #     user_model.phone_number = phone_number
+                #     print(phone_number)                                                       
                 # if data['country']:
                 #     country = data['country']
                 #     user_model.country = country
@@ -151,37 +154,37 @@ class EditUserView(APIView):
                 # if data['profilePicture']:
                 #     profile_picture = data['profilePicture']
                 #     user_model.profile_picture = profile_picture                                                                 # Get the data from the request body
-                # if request.POST['name']:
-                #     name = request.POST['name'] 
-                #     print(name)
-                #     user.name = name
-                # if request.POST['address_line_1']:
-                #     address_line_1 = request.POST['address_line_1']
-                #     print(address_line_1)
-                #     user_model.address_line_1 = address_line_1
-                # if request.POST['address_line_2']:     
-                #     address_line_2 = request.POST['address_line_2']
-                #     print(address_line_2)                                                    #  |
-                #     user_model.address_line_2 = address_line_2
-                # if request.POST['city']:
-                #     city = request.POST['city']
-                #     print(city)                                                    #  |
-                #     user_model.city = city 
-                # if request.POST['state']:
-                #     state = request.POST['state']
-                #     print(state)
-                #     user_model.state = state
-                # if request.POST['pincode']:
-                #     pincode = request.POST['pincode']
-                #     print(pincode)
-                #     user_model.pincode = pincode
+                if request.POST['name']:
+                    name = request.POST['name'] 
+                    print(name)
+                    user.name = name
+                if request.POST['address_line_1']:
+                    address_line_1 = request.POST['address_line_1']
+                    print(address_line_1)
+                    user_model.address_line_1 = address_line_1
+                if request.POST['address_line_2']:     
+                    address_line_2 = request.POST['address_line_2']
+                    print(address_line_2)                                                    #  |
+                    user_model.address_line_2 = address_line_2
+                if request.POST['city']:
+                    city = request.POST['city']
+                    print(city)                                                    #  |
+                    user_model.city = city 
+                if request.POST['state']:
+                    state = request.POST['state']
+                    print(state)
+                    user_model.state = state
+                if request.POST['pincode']:
+                    pincode = request.POST['pincode']
+                    print(pincode)
+                    user_model.pincode = pincode
                 # if request.POST['country']:
                 #     country = request.POST['country']
                 #     print(country)
                 #     user_model.country = country
-                if request.FILES.get('profilePicture'):
+                if  request.FILES.get("profilePicture"):
                     print("profile picture")
-                    profile_photo = request.FILES["profilePicture"]
+                    profile_photo = request.FILES.get("profilePicture")
                     user_model.profile_picture = profile_photo
                 user.save()
                 print("user saved")

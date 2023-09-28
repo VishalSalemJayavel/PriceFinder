@@ -31,9 +31,11 @@ const CustomerSettings = () => {
     })
   }
 
-  function handleImageChange(event) {
-    const image = event.target.files[0];
-    setProfilePicture(image)
+  const handleImageChange = async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setProfilePicture(file);
+    }
   };
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const CustomerSettings = () => {
       const fetchCustomerData = async () => {
         try {
           const { data } = await axios.get('edituser/',
-            { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
+            { headers: { 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
             { withCredentials: true });
 
           setCustomerData({
@@ -86,12 +88,12 @@ const CustomerSettings = () => {
     formData.append('pincode', customerData.pincode);
     formData.append('profilePicture', profilePicture);
 
-    console.log(formData);
+    console.log(formData.get('profilePicture'));
 
     try {
       const response = await axios.post('edituser/',
         formData,
-        { headers: { 'Content-Type': 'application/json' } },
+        { headers: { 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
         { withCredentials: true });
 
       if (response.status === 200) {

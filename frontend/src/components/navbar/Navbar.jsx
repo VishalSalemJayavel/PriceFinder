@@ -42,9 +42,7 @@ const Navbar = () => {
             email: data['email'],
             user_type: data['user_type'],
             profile_picture: data['profile_picture'],
-          })
-
-          console.log(user);
+          });
 
         } catch (error) {
           console.error(error); // Handle error response
@@ -53,7 +51,6 @@ const Navbar = () => {
     }
   }, [isAuth]);
 
-  console.log(user);
 
   return (
     <div className='gpt3__navbar'>
@@ -78,19 +75,22 @@ const Navbar = () => {
         {isAuth ? <Link to='/logout'><p>Sign Out</p></Link> : <Link to='/login'><p>Sign in</p></Link>}
         {isAuth ? (
           user.user_type === "retailer" ? (
-            
-              <Link to="/settings" className='app_login-after'>
-                
-                <p className='login_name'>{user.user}</p>
-                <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
 
-              </Link>
-            
-          ) : user.user_type === "customer" ? (
             <Link to="/settings" className='app_login-after'>
+
               <p className='login_name'>{user.user}</p>
               <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+
             </Link>
+
+          ) : user.user_type === "customer" ? (
+
+              <Link to="/settings" className='app_login-after'>
+
+                <p className='login_name'>{user.user}</p>
+                <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+            </Link>
+            
           ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
         ) : (
           <Link to="/signup">
@@ -106,10 +106,10 @@ const Navbar = () => {
         {toggleMenu && (
           <div className='gpt3__navbar-menu_container slide-bottom'>
             <div className='gpt3__navbar-menu_contanier-links'>
-              
+
               <div className='gpt3__navbar-menu_container-links-sign'>
 
-                
+
                 {isAuth ? (
                   user.user_type === "retailer" ? (
                     <Link to="/dashboard" >
