@@ -126,6 +126,7 @@
     height: 60px;
     margin-right: 5px;
     border-radius: 50px;
+    object-fit: cover;
 }
 
 .app_login-after{
