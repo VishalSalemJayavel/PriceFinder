@@ -120,10 +120,10 @@ WSGI_APPLICATION = 'pricefinderproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'farmerconnectdata',
-        'USER': 'SaiyanSai',
-        'PASSWORD': 'DEMONmayCRY#2528',
-        'HOST': 'farmerconnectdev.postgres.database.azure.com',
+        'NAME': 'fcdev_db',
+        'USER': 'fcadmin',
+        'PASSWORD': 'fcdeveloper@2023',
+        'HOST': 'farmersconnect.postgres.database.azure.com',
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'disable',
