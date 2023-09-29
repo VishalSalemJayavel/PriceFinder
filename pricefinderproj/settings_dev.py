@@ -125,9 +125,6 @@ DATABASES = {
         'PASSWORD': 'DEMONmayCRY#2528',
         'HOST': 'farmerconnectdev.postgres.database.azure.com',
         'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'disable',
-        },
     }
 }
 
@@ -178,4 +175,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
+    # site which hosts the frontend will go here
 ]
