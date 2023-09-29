@@ -101,6 +101,7 @@ class Retailer(models.Model):
     address_line_1 = models.CharField(max_length=255, null=True, blank = True)
     address_line_2 = models.CharField(max_length=255, null=True, blank = True)
     city = models.CharField(max_length=255, null=True, blank = True)
+    district = models.CharField(max_length=255, null=True, blank = True)
     state = models.CharField(max_length=255, null=True, blank = True)
     pincode = models.CharField(max_length=6, null=True, blank = True)
     country = models.CharField(max_length=255, null=True, blank = True)
