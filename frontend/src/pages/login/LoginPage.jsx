@@ -35,15 +35,6 @@ const LoginPage = () => {
     }
   };
 
-  //   const requestOptions = {
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify(formData)
-  // };
-  // fetch('http://localhost:8000/api/', requestOptions)
-  //     .then(response => response.json())
-  //     .then(data => console.log(data));
-  // }
 
   function handleChange(event) {
     setFormData(prevFormData => {
