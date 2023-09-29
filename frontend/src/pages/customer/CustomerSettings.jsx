@@ -61,7 +61,7 @@ const CustomerSettings = () => {
             state: data.state,
             pincode: data.pincode,
           });
-          console.log(data);
+
           setProfilePicture(data.profilePicture);
 
         } catch (error) {
@@ -234,7 +234,7 @@ const CustomerSettings = () => {
                     id="district"
                     placeholder="District"
                     onChange={handleChange}
-                    value={customerData.city}
+                    value={customerData.district}
                     required
                   />
                 </div>
