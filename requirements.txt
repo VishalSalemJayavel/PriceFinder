@@ -6,4 +6,3 @@ djangorestframework-simplejwt
 azure-storage-blob
 django-storages[azure]
 psycopg2-binary
-```
