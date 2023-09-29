@@ -5,7 +5,7 @@
 ############################################################################################################################################################
 
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse #Test change
 from rest_framework import viewsets, generics
 from rest_framework.views import APIView
 from .serializers import *
