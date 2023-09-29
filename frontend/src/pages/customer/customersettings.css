@@ -61,22 +61,17 @@ label {
     flex-direction: column;
 }
 
-.app__customerSettings-name,
-.app__customerSettings-pincode {
+.app__customerSettings-name {
     width: 876px;
 }
 
-.app__customerSettings-email {
+.app__customerSettings-email,
+.app__customerSettings-address_line_1,
+.app__customerSettings-city,
+.app__customerSettings-state {
     margin-right: 4rem;
 }
 
-.app__customerSettings-address_line_1 {
-    margin-right: 4rem;
-}
-
-.app__customerSettings-city {
-    margin-right: 4rem;
-}
 
 .app__customerSettings-success,
 .app__customerSettings-failure {
@@ -162,7 +157,7 @@ label {
 
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 550px) {
     .app__customerSettings-main {
         margin-left: 2rem;
         margin-bottom: 1rem;

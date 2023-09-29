@@ -224,60 +224,63 @@ const CustomerSettings = () => {
                 />
               </div>
 
-              <div className='inputs__flex'>
-                <div className='inputs-label'>
-                  <label for="district">District</label>
-                  <input
-                    className="app__customerSettings-district"
-                    type="text"
-                    name="district"
-                    id="district"
-                    placeholder="District"
-                    onChange={handleChange}
-                    value={customerData.district}
-                    required
-                  />
-                </div>
 
-                <div className='inputs-label'>
-                  <label for="state">State</label>
-                  <input
-                    className="app__customerSettings-state"
-                    type="text"
-                    id='state'
-                    name="state"
-                    placeholder="State"
-                    onChange={handleChange}
-                    value={customerData.state}
-                    required
-                  />
-                </div>
+              <div className='inputs-label'>
+                <label for="district">District</label>
+                <input
+                  className="app__customerSettings-district"
+                  type="text"
+                  name="district"
+                  id="district"
+                  placeholder="District"
+                  onChange={handleChange}
+                  value={customerData.district}
+                  required
+                />
               </div>
             </div>
 
-              <label for="pincode">Pincode</label>
-              <input
-                className="app__customerSettings-pincode"
-                type="text"
-                id='pincode'
-                name="pincode"
-                placeholder="Pin Code"
-                onChange={handleChange}
-                value={customerData.pincode}
-                required
-              />
-
-              <div className='app__customerSettings-buttons'>
-                <div className='app__customerSettings-inputs_button'>
-                  <button type="submit" className='app__customerSettings-inputs_button' onClick={customerSettings}>Update Profile</button>
-                </div>
-
-                <div className='app__customerSettings-cancel_button'>
-                  <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
-                </div>
+            <div className='inputs__flex'>
+              <div className='inputs-label'>
+                <label for="state">State</label>
+                <input
+                  className="app__customerSettings-state"
+                  type="text"
+                  id='state'
+                  name="state"
+                  placeholder="State"
+                  onChange={handleChange}
+                  value={customerData.state}
+                  required
+                />
               </div>
 
+              <div className='inputs-label'>
+                <label for="pincode">Pincode</label>
+                <input
+                  className="app__customerSettings-pincode"
+                  type="text"
+                  id='pincode'
+                  name="pincode"
+                  placeholder="Pin Code"
+                  onChange={handleChange}
+                  value={customerData.pincode}
+                  required
+                />
+              </div>
             </div>
+
+            <div className='app__customerSettings-buttons'>
+              <div className='app__customerSettings-inputs_button'>
+                <button type="submit" className='app__customerSettings-inputs_button' onClick={customerSettings}>Update Profile</button>
+              </div>
+
+              <div className='app__customerSettings-cancel_button'>
+                <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
+              </div>
+            </div>
+
+          </div>
 
         </form>
       </div>
