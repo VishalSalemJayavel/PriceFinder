@@ -139,7 +139,7 @@ class Product(models.Model):
     retailer = models.ForeignKey(Retailer, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="product_images", null=True)
     stocks = models.IntegerField(default=0)
-    litre = 'l'
+    litre = 'L'
     kilogram = 'kg'
     gram = 'g'
     single = ''
