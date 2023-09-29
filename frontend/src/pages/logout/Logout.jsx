@@ -1,6 +1,6 @@
+import axios from 'axios';
 import React, { useEffect, } from 'react';
 import './logout.css';
-import axios from 'axios';
 
 const Logout = () => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const Logout = () => {
 
   return (
     <div className="app__logout">
-      <h1>You have been successfully Logged out</h1>
+      <h1 className='logout__msg'>You have been successfully Logged out</h1>
     </div>
   )
 }
