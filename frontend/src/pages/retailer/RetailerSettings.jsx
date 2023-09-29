@@ -112,22 +112,22 @@ const RetailerSettings = () => {
 
   return (
     <MainLayout>
-      <div className='app__customerSettings'>
+      <div className='app__retailerSettings'>
         {userUpdateStatus === true ? (
-          <div className='app__customerSettings-success'>
+          <div className='app__retailerSettings-success'>
             <p>Profile Updated Successfully</p>
           </div>
         ) : userUpdateStatus === false ? (
-          <div className='app__customerSettings-failure'>
+          <div className='app__retailerSettings-failure'>
             <p>Profile Failed to Update</p>
           </div>
         ) : null}
         <form onSubmit={retailerSettings} method="post">
-          <div className='app__customerSettings-main'>
-            <div className='app__customerSettings-title'>
+          <div className='app__retailerSettings-main'>
+            <div className='app__retailerSettings-title'>
               <p>Edit Profile</p>
             </div>
-            <div className='app__customerSettings-inputs_one'>
+            <div className='app__retailerSettings-inputs_one'>
               <input type="file"
                 id="image"
                 accept="image/png, image/jpeg"
@@ -136,10 +136,10 @@ const RetailerSettings = () => {
             </div>
           </div>
 
-          <div className='app__customerSettings-inputs'>
+          <div className='app__retailerSettings-inputs'>
             <label for="name">FullName</label>
             <input
-              className="app__customerSettings-name"
+              className="app__retailerSettings-name"
               type="text"
               id='name'
               name="name"
@@ -153,7 +153,7 @@ const RetailerSettings = () => {
               <div className='inputs-label'>
                 <label for="email">Email</label>
                 <input
-                  className="app__customerSettings-email"
+                  className="app__retailerSettings-email"
                   type="email"
                   id='email'
                   name="email"
@@ -166,7 +166,7 @@ const RetailerSettings = () => {
               <div className='inputs-label'>
                 <label for="phone_number">Phone Number</label>
                 <input
-                  className='app__customerSettings-phonenum'
+                  className='app__retailerSettings-phonenum'
                   type='tel'
                   id='phone_number'
                   maxLength={10}
@@ -182,7 +182,7 @@ const RetailerSettings = () => {
               <div className='inputs-label'>
                 <label for="addr1">Address Line 1</label>
                 <input
-                  className="app__customerSettings-address_line_1"
+                  className="app__retailerSettings-address_line_1"
                   type="text"
                   id='addr1'
                   name="address_line_1"
@@ -196,7 +196,7 @@ const RetailerSettings = () => {
               <div className='inputs-label'>
                 <label for="addr2">Address Line 2</label>
                 <input
-                  className="app__customerSettings-address_line_2"
+                  className="app__retailerSettings-address_line_2"
                   type="text"
                   id='addr2'
                   name="address_line_2"
@@ -211,7 +211,7 @@ const RetailerSettings = () => {
               <div className='inputs-label'>
                 <label for="city">City</label>
                 <input
-                  className="app__customerSettings-city"
+                  className="app__retailerSettings-city"
                   type="text"
                   name="city"
                   id='city'
@@ -221,61 +221,61 @@ const RetailerSettings = () => {
                   required
                 />
               </div>
-
-              <div className='inputs__flex'>
-                <div className='inputs-label'>
-                  <label for="district">District</label>
-                  <input
-                    className="app__customerSettings-district"
-                    type="text"
-                    name="district"
-                    id="district"
-                    placeholder="District"
-                    onChange={handleChange}
-                    value={retailerData.district}
-                    required
-                  />
-                </div>
-
-                <div className='inputs-label'>
-                  <label for="state">State</label>
-                  <input
-                    className="app__customerSettings-state"
-                    type="text"
-                    id='state'
-                    name="state"
-                    placeholder="State"
-                    onChange={handleChange}
-                    value={retailerData.state}
-                    required
-                  />
-                </div>
+              <div className='inputs-label'>
+                <label for="district">District</label>
+                <input
+                  className="app__retailerSettings-district"
+                  type="text"
+                  name="district"
+                  id="district"
+                  placeholder="District"
+                  onChange={handleChange}
+                  value={retailerData.district}
+                  required
+                />
               </div>
             </div>
 
-              <label for="pincode">Pincode</label>
-              <input
-                className="app__customerSettings-pincode"
-                type="text"
-                id='pincode'
-                name="pincode"
-                placeholder="Pin Code"
-                onChange={handleChange}
-                value={retailerData.pincode}
-                required
-              />
+            <div className='inputs__flex'>
+              <div className='inputs-label'>
+                <label for="state">State</label>
+                <input
+                  className="app__retailerSettings-state"
+                  type="text"
+                  id='state'
+                  name="state"
+                  placeholder="State"
+                  onChange={handleChange}
+                  value={retailerData.state}
+                  required
+                />
+              </div>
+              <div className='inputs-label'>
+                <label for="pincode">Pincode</label>
+                <input
+                  className="app__retailerSettings-pincode"
+                  type="text"
+                  id='pincode'
+                  name="pincode"
+                  placeholder="Pin Code"
+                  onChange={handleChange}
+                  value={retailerData.pincode}
+                  required
+                />
+              </div>
+            </div>
 
-              <div className='app__customerSettings-buttons'>
-                <div className='app__customerSettings-inputs_button'>
-                  <button type="submit" className='app__customerSettings-inputs_button' onClick={retailerSettings}>Update Profile</button>
-                </div>
-
-                <div className='app__customerSettings-cancel_button'>
-                  <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
-                </div>
+            <div className='app__retailerSettings-buttons'>
+              <div className='app__retailerSettings-inputs_button'>
+                <button type="submit" className='app__retailerSettings-inputs_button' onClick={retailerSettings}>Update Profile</button>
               </div>
 
+              <div className='app__retailerSettings-cancel_button'>
+                <button type="button" className='app__retailerSettings-cancel_button'>Cancel</button>
+              </div>
             </div>
+
+          </div>
 
         </form>
       </div>
