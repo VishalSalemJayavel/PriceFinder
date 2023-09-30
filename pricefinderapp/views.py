@@ -170,6 +170,11 @@ class EditUserView(APIView):
                     city = request.POST['city']
                     print(city)                                                    #  |
                     user_model.city = city 
+                if request.POST['district']:
+                    district = request.POST['district']
+                    user_model.district = district
+                    print(district)                                                    #  |
+                    user_model.city = city 
                 if request.POST['state']:
                     state = request.POST['state']
                     print(state)

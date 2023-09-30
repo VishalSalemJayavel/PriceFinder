@@ -82,6 +82,7 @@ class Customer(models.Model):
     address_line_1 = models.CharField(max_length=255, null=True, blank = True)
     address_line_2 = models.CharField(max_length=255, null=True, blank = True)
     city = models.CharField(max_length=255, null=True, blank = True)
+    district = models.CharField(max_length=255, null=True, blank = True)
     state = models.CharField(max_length=255, null=True, blank = True)
     pincode = models.CharField(max_length=6, null=True, blank = True)
     country = models.CharField(max_length=255, null=True, blank = True)
@@ -100,6 +101,7 @@ class Retailer(models.Model):
     address_line_1 = models.CharField(max_length=255, null=True, blank = True)
     address_line_2 = models.CharField(max_length=255, null=True, blank = True)
     city = models.CharField(max_length=255, null=True, blank = True)
+    district = models.CharField(max_length=255, null=True, blank = True)
     state = models.CharField(max_length=255, null=True, blank = True)
     pincode = models.CharField(max_length=6, null=True, blank = True)
     country = models.CharField(max_length=255, null=True, blank = True)
@@ -139,7 +141,7 @@ class Product(models.Model):
     retailer = models.ForeignKey(Retailer, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="product_images", null=True)
     stocks = models.IntegerField(default=0)
-    litre = 'l'
+    litre = 'L'
     kilogram = 'kg'
     gram = 'g'
     single = ''

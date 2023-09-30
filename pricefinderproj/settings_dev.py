@@ -120,14 +120,11 @@ WSGI_APPLICATION = 'pricefinderproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fcdev_db',
-        'USER': 'fcadmin',
-        'PASSWORD': 'fcdeveloper@2023',
-        'HOST': 'farmersconnect.postgres.database.azure.com',
+        'NAME': 'farmerconnectdata',
+        'USER': 'SaiyanSai',
+        'PASSWORD': 'DEMONmayCRY#2528',
+        'HOST': 'farmerconnectdev.postgres.database.azure.com',
         'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'disable',
-        },
     }
 }
 
@@ -178,4 +175,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
+    # site which hosts the frontend will go here
 ]

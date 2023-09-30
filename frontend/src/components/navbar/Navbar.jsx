@@ -32,7 +32,7 @@ const Navbar = () => {
       (async () => {
         try {
           const { data } = await axios.get('userdetails/',
-            { headers: { 'Content-Type': 'application/json' } },
+            { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
             { withCredentials: true });
 
           console.log(data); // Handle success response

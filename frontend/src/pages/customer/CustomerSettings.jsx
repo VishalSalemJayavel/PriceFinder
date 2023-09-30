@@ -11,6 +11,7 @@ const CustomerSettings = () => {
     address_line_1: "",
     address_line_2: "",
     city: "",
+    district: "",
     state: "",
     pincode: "",
   });
@@ -56,10 +57,11 @@ const CustomerSettings = () => {
             address_line_1: data.address_line_1,
             address_line_2: data.address_line_2,
             city: data.city,
+            district: data.district,
             state: data.state,
             pincode: data.pincode,
           });
-          console.log(data);
+
           setProfilePicture(data.profilePicture);
 
         } catch (error) {
@@ -84,6 +86,7 @@ const CustomerSettings = () => {
     formData.append('address_line_1', customerData.address_line_1);
     formData.append('address_line_2', customerData.address_line_2);
     formData.append('city', customerData.city);
+    formData.append('district', customerData.district);
     formData.append('state', customerData.state);
     formData.append('pincode', customerData.pincode);
     formData.append('profilePicture', profilePicture);
@@ -208,19 +211,36 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="city">District</label>
+                <label for="city">City</label>
                 <input
                   className="app__customerSettings-city"
                   type="text"
                   name="city"
                   id='city'
-                  placeholder="District"
+                  placeholder="city"
                   onChange={handleChange}
                   value={customerData.city}
                   required
                 />
               </div>
 
+
+              <div className='inputs-label'>
+                <label for="district">District</label>
+                <input
+                  className="app__customerSettings-district"
+                  type="text"
+                  name="district"
+                  id="district"
+                  placeholder="District"
+                  onChange={handleChange}
+                  value={customerData.district}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className='inputs__flex'>
               <div className='inputs-label'>
                 <label for="state">State</label>
                 <input
@@ -234,19 +254,21 @@ const CustomerSettings = () => {
                   required
                 />
               </div>
-            </div>
 
-            <label for="pincode">Pincode</label>
-            <input
-              className="app__customerSettings-pincode"
-              type="text"
-              id='pincode'
-              name="pincode"
-              placeholder="Pin Code"
-              onChange={handleChange}
-              value={customerData.pincode}
-              required
-            />
+              <div className='inputs-label'>
+                <label for="pincode">Pincode</label>
+                <input
+                  className="app__customerSettings-pincode"
+                  type="text"
+                  id='pincode'
+                  name="pincode"
+                  placeholder="Pin Code"
+                  onChange={handleChange}
+                  value={customerData.pincode}
+                  required
+                />
+              </div>
+            </div>
 
             <div className='app__customerSettings-buttons'>
               <div className='app__customerSettings-inputs_button'>

@@ -1,0 +1,203 @@
+.app__retailerSettings {
+    margin-top: 7rem;
+}
+
+.app__retailerSettings-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.app__retailerSettings-title {
+    font-family: var(--font-family);
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.app__retailerSettings-inputs {
+    display: flex;
+    flex-direction: column;
+    margin-left: 22em;
+}
+
+input[type=file] {
+    margin-top: 30px;
+}
+
+label {
+    color: #1C1C1C;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.app__retailerSettings-name,
+.app__retailerSettings-address_line_1,
+.app__retailerSettings-address_line_2,
+.app__retailerSettings-city,
+.app__retailerSettings-district,
+.app__retailerSettings-state,
+.app__retailerSettings-pincode,
+.app__retailerSettings-country,
+.app__retailerSettings-phonenum,
+.app__retailerSettings-email {
+    width: 405px;
+    height: 50px;
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+
+.inputs__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+}
+
+.inputs-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.app__retailerSettings-name {
+    width: 876px;
+}
+
+.app__retailerSettings-email,
+.app__retailerSettings-address_line_1,
+.app__retailerSettings-city,
+.app__retailerSettings-state {
+    margin-right: 4rem;
+}
+
+
+.app__retailerSettings-success,
+.app__retailerSettings-failure {
+    width: 500px;
+    height: 80px;
+    margin: auto;
+    padding: 20px 0 0 0;
+    border-radius: 20px;
+
+
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.app__retailerSettings-buttons {
+    display: flex;
+}
+
+.app__retailerSettings-inputs_button {
+    font-size: 13px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: #1ed10e;
+
+    margin-right: 3rem;
+}
+
+.app__retailerSettings-cancel_button {
+    font-size: 14px;
+    color: #1ed10e;
+    font-family: var(--font-family);
+    font-weight: 400;
+    width: 100px;
+    height: 40px;
+    border: 0.2px solid #1ed10e;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+.app__retailerSettings-success {
+    background-color: rgb(202, 245, 202);
+}
+
+.app__retailerSettings-failure {
+    background-color: rgb(245, 202, 202);
+}
+
+@media screen and (max-width: 1050px) {
+    .app__retailerSettings-main {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .app__retailerSettings-inputs {
+        margin-left: 2rem;
+    }
+
+    .app__retailerSettings-name,
+    .app__retailerSettings-address_line_1,
+    .app__retailerSettings-address_line_2,
+    .app__retailerSettings-city,
+    .app__retailerSettings-state,
+    .app__retailerSettings-pincode,
+    .app__retailerSettings-country,
+    .app__retailerSettings-phonenum,
+    .app__retailerSettings-email {
+        width: 300px;
+        height: 50px;
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .app__retailerSettings-main {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .app__retailerSettings-inputs {
+        margin-left: 3rem;
+    }
+
+    .app__retailerSettings-name,
+    .app__retailerSettings-address_line_1,
+    .app__retailerSettings-address_line_2,
+    .app__retailerSettings-city,
+    .app__retailerSettings-state,
+    .app__retailerSettings-pincode,
+    .app__retailerSettings-country,
+    .app__retailerSettings-phonenum,
+    .app__retailerSettings-email {
+        width: 250px;
+        height: 50px;
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+    .app__retailerSettings-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app__retailerSettings-inputs_button {
+        margin-bottom: 1rem;
+    }
+
+    .app__retailerSettings-cancel_button {
+        margin-bottom: 1rem;
+    }
+
+    .inputs__flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+    }
+}
