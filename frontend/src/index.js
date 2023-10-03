@@ -4,7 +4,7 @@ import App from "./App";
 import './index.css';
 import './interceptors/axios';
 
-import { CustomerSettings, LoginPage, Logout, Product, RetailerDashboard, RetailerSettings, Settings, SignUp, SingleProduct } from './pages';
+import { AllProducts, CustomerSettings, LoginPage, Logout, Product, RetailerDashboard, RetailerSettings, Settings, SignUp, SingleProduct } from './pages';
 
 import {
   createBrowserRouter,
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "signup/",
     element: <SignUp />,
+  },
+  {
+    path: "allproducts/",
+    element: <AllProducts />,
   },
   {
     path: "products/:category/",
