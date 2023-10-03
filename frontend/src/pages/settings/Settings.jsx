@@ -46,12 +46,14 @@ const Settings = () => {
               <h1>Dashboard</h1>
             </Link>
             <Link to="/retailersettings">
+              <h1>Edit your profile</h1>
               <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
               <p className='login_name'>{user.user}</p>
             </Link>
           </>
         ) : user.user_type === "customer" ? (
           <Link to="/customersettings">
+            <h1>Edit your profile</h1>
             <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
             <p className='login_name'>{user.user}</p>
           </Link>
