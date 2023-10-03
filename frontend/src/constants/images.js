@@ -6,6 +6,7 @@ import header from '../assets/header.png';
 import tomato from '../assets/tomato.png';
 import signup from '../assets/signup.png';
 import dp from '../assets/dp.jpg';
+import dashboard from '../assets/dashboard.png';
 
 export default {
     cart,
@@ -15,5 +16,6 @@ export default {
     header,
     tomato,
     signup,
-    dp
+    dp,
+    dashboard
 };

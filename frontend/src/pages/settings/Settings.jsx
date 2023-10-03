@@ -41,16 +41,25 @@ const Settings = () => {
     <div className="app__settings">
       {isAuth ? (
         user.user_type === "retailer" ? (
-          <>
-            <Link to="/dashboard/">
-              <h1>Dashboard</h1>
-            </Link>
-            <Link to="/retailersettings">
-              <h1>Edit your profile</h1>
-              <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
-              <p className='login_name'>{user.user}</p>
-            </Link>
-          </>
+          <div className='app__settings-retailer'>
+            <div className='app__settings-retailer-dashboard'>
+              <Link to="/dashboard/">
+                <h1 className='app__settings-dashtit'>Dashboard</h1>
+                <img src={images.dashboard} alt='dashboard_img' className='app__settings-dashboard_img' />
+                <p className='app__sesttings-dashinfo'>Take Control of Your Workforce with Dashboards</p>
+                <a href="/dashboard" className='dashboard-link'>Click Here</a>
+              </Link>
+            </div>
+
+            <div className='app__settings-retailer-profile'>
+              <Link to="/retailersettings">
+                <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img-settings' />
+                
+                <h1 className='app__settings-protit'>Edit your profile</h1>
+                <p className='app__settings-profileinfo'>Click here to change your details</p>
+              </Link>
+            </div>
+          </div>
         ) : user.user_type === "customer" ? (
           <Link to="/customersettings">
             <h1>Edit your profile</h1>
