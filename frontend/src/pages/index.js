@@ -2,6 +2,7 @@ export { default as CustomerSettings } from './customer/CustomerSettings';
 export { default as Landing } from './landingPage/Landing';
 export { default as LoginPage } from './login/LoginPage';
 export { default as Logout } from './logout/Logout';
+export { default as AllProducts } from './product/AllProducts';
 export { default as Product } from './product/Product';
 export { default as RetailerDashboard } from './retailer/RetailerDashboard';
 export { default as RetailerSettings } from './retailer/RetailerSettings';

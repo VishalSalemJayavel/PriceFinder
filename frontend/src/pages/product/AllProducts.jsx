@@ -1,18 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MainLayout } from '../../layout';
-import './products.css';
 
-const Products = () => {
-  let { category } = useParams();
-
+const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/products/' + category );
+        const response = await axios.get('products/');
         const data = response.data;
 
         console.log(data);
@@ -40,6 +37,7 @@ const Products = () => {
   return (
     <MainLayout>
       <div className="products">
+        <h1>All Products</h1>
         {products.map((product, index) => (
           <div key={index} className='products__card'>
             <Link to={`/singleproduct/${product.id}`} className='products__container'>
@@ -59,4 +57,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default AllProducts

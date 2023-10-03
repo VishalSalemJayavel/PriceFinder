@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import './category.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './category.css';
 
 const Category = () => {
     const [categories, setCategories] = useState([]);
@@ -26,11 +26,16 @@ const Category = () => {
         fetchData();
     }, []);
 
+    const allProducts = () => {
+        window.location.href = '/allproducts';
+    };
+
     return (
         <div className="app__featured">
             <div className='app__featured-title'>
                 <p>Categories</p>
             </div>
+            <button onClick={allProducts}>All Products</button>
             {categories.map((category, index) => (
                 <div key={index} className='app__featured-card'>
                     <Link to={`/products/${category.categoryName}`}>
