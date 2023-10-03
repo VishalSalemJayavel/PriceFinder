@@ -6,7 +6,7 @@ import { Products } from '../../components';
 const Product = () => {
 
   return (
-    <div className='app__product'>
+    <div className='empty__div'>
       <div className='app__product-header'>
         <p>Products</p>
       </div>

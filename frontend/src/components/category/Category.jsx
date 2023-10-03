@@ -35,15 +35,20 @@ const Category = () => {
             <div className='app__featured-title'>
                 <p>Categories</p>
             </div>
-            <button onClick={allProducts}>All Products</button>
+
             {categories.map((category, index) => (
                 <div key={index} className='app__featured-card'>
                     <Link to={`/products/${category.categoryName}`}>
                         <img src={category.imgSrc} className='card__image' alt={category.categoryName} />
                         <p className='card__title'>{category.categoryName}</p>
                     </Link>
-                </div>)
+
+                </div>
+            )
             )}
+            <div className='app__category-button'>
+                <button onClick={allProducts}>All Products</button>
+            </div>
         </div>
     )
 }

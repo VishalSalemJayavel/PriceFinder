@@ -46,6 +46,24 @@
      text-align: center;
  }
 
+ .app__category-button{
+    display: flex;
+    align-items: center;
+ 
+ }
+
+ .app__category-button button {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #1ed10e;
+        border: none;
+        color: #FFF;
+        font-family: var(--font-family);
+        font-weight: 600; 
+        cursor: pointer;
+ }
+
  @media screen and (max-width: 550px) {
      .app__featured {
          flex-direction: column;

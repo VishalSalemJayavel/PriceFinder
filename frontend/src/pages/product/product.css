@@ -1,16 +1,11 @@
-.app__product {
-    margin-top: 5.5rem;
-}
-
 .app__product-header {
-    margin-bottom: 2rem;
     font-family: var(--font-family);
     font-size: 31px;
     font-weight: 700;
     line-height: 120%;
     letter-spacing: 0.155px;
-    margin-top: 7rem;
     margin-left: 2rem;
+    margin-bottom: 2rem;
 }
 
 .app__product-cards {
