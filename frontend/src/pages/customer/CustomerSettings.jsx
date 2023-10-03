@@ -22,6 +22,10 @@ const CustomerSettings = () => {
 
   const [pageReloaded, setPageReloaded] = useState(false);
 
+  const [isNameValid, setIsNameValid] = useState(true);
+
+  const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
+
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
     setCustomerData(prevFormData => {
@@ -30,12 +34,27 @@ const CustomerSettings = () => {
         [name]: type === "checkbox" ? checked : value
       }
     })
+
+    switch (name) {
+      case 'name':
+        setIsNameValid(value.length > 0);
+        break;
+      case 'phone_number':
+        setIsPhoneNumberValid(/^\d{10}$/.test(value));
+        break;
+      default:
+        break;
+    }
   }
 
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      setProfilePicture(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setProfilePicture(reader.result);
+      };
     }
   };
 
@@ -129,19 +148,26 @@ const CustomerSettings = () => {
             <div className='app__customerSettings-title'>
               <p>Edit Profile</p>
             </div>
+            
             <div className='app__customerSettings-inputs_one'>
               <input type="file"
                 id="image"
                 accept="image/png, image/jpeg"
                 onChange={handleImageChange} required
               />
+              {profilePicture && 
+                <img 
+                  src={profilePicture} 
+                  alt="preview"
+                  className='app__customerSettings-preview' 
+                />}
             </div>
           </div>
 
           <div className='app__customerSettings-inputs'>
             <label for="name">FullName</label>
             <input
-              className="app__customerSettings-name"
+              className={`app__customerSettings-name ${isNameValid ? '' : 'invalid'}`}
               type="text"
               id='name'
               name="name"
@@ -150,6 +176,7 @@ const CustomerSettings = () => {
               value={customerData.name}
               required
             />
+            {!isNameValid && <p className='app__customerSettings-error'>Name cannot be empty</p>}
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
@@ -168,7 +195,7 @@ const CustomerSettings = () => {
               <div className='inputs-label'>
                 <label for="phone_number">Phone Number</label>
                 <input
-                  className='app__customerSettings-phonenum'
+                  className={`app__customerSettings-phonenum ${isPhoneNumberValid ? '' : 'invalid'}`}
                   type='tel'
                   id='phone_number'
                   maxLength={10}
@@ -177,6 +204,7 @@ const CustomerSettings = () => {
                   onChange={handleChange}
                   value={customerData.phone_number}
                 />
+                {!isPhoneNumberValid && <p className='app__customerSettings-error'>Phone Number must be 10 digits</p>}
               </div>
             </div>
 

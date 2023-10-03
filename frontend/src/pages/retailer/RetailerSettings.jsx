@@ -35,7 +35,11 @@ const RetailerSettings = () => {
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      setProfilePicture(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setProfilePicture(reader.result);
+      };
     }
   };
 
@@ -127,12 +131,19 @@ const RetailerSettings = () => {
             <div className='app__retailerSettings-title'>
               <p>Edit Profile</p>
             </div>
+            
             <div className='app__retailerSettings-inputs_one'>
               <input type="file"
                 id="image"
                 accept="image/png, image/jpeg"
                 onChange={handleImageChange} required
               />
+              {profilePicture && 
+                <img 
+                  src={profilePicture} 
+                  alt="preview"
+                  className='app__retailerSettings-preview' 
+                />}
             </div>
           </div>
 
