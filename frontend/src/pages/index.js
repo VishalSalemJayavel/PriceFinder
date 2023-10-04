@@ -4,6 +4,7 @@ export { default as LoginPage } from './login/LoginPage';
 export { default as Logout } from './logout/Logout';
 export { default as AllProducts } from './product/AllProducts';
 export { default as Product } from './product/Product';
+export { default as ProductUpload } from './productUpload/ProductUpload';
 export { default as RetailerDashboard } from './retailer/RetailerDashboard';
 export { default as RetailerSettings } from './retailer/RetailerSettings';
 export { default as Settings } from './settings/Settings';

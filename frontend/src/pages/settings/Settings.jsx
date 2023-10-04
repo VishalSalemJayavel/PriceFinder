@@ -42,6 +42,7 @@ const Settings = () => {
       {isAuth ? (
         user.user_type === "retailer" ? (
           <div className='app__settings-retailer'>
+
             <div className='app__settings-retailer-dashboard'>
               <Link to="/dashboard/">
                 <h1 className='app__settings-dashtit'>Dashboard</h1>
@@ -59,6 +60,14 @@ const Settings = () => {
                 <p className='app__settings-profileinfo'>Click here to change your details</p>
               </Link>
             </div>
+
+            <div className='app__settings-retailer-upload'>
+              <Link to="/productupload">
+                <h1 className='app__settings-upload'>Upload your Product</h1>
+                <p className='app__settings-uploadinfo'>Click here to upload the details of your product</p>
+              </Link>
+            </div>
+
           </div>
         ) : user.user_type === "customer" ? (
           <Link to="/customersettings">
