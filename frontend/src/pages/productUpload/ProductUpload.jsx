@@ -82,7 +82,8 @@ const ProductUpload = () => {
 
   return (
     <MainLayout>
-      <div className='app__customerSettings'>
+      <div className='empty__div'>
+      <div className='app__productupload'>
         {/* {userUpdateStatus === true ? (
           <div className='app__customerSettings-success'>
             <p>Product Uploaded Successfully</p>
@@ -93,12 +94,12 @@ const ProductUpload = () => {
           </div>
         ) : null} */}
         <form onSubmit='#' method="post">
-          <div className='app__customerSettings-main'>
-            <div className='app__customerSettings-title'>
+          <div className='app__productupload-main'>
+            <div className='app__productupload-title'>
               <p>Add your Product details</p>
             </div>
 
-            <div className='app__customerSettings-inputs_one'>
+            <div className='app__productupload-inputs_one'>
               <input type="file"
                 id="image"
                 accept="image/png, image/jpeg"
@@ -109,15 +110,15 @@ const ProductUpload = () => {
                 <img
                   src={productPicture}
                   alt="preview"
-                  className='app__customerSettings-preview'
+                  className='app__productupload-preview'
                 />}
             </div>
           </div>
 
-          <div className='app__customerSettings-inputs'>
+          <div className='app__productupload-inputs'>
             <label for="title">Product Name</label>
             <input
-              className={`app__customerSettings-name ${isTitleValid ? '' : 'invalid'}`}
+              className={`app__productupload-name ${isTitleValid ? '' : 'invalid'}`}
               type="text"
               id='title'
               name="title"
@@ -126,12 +127,12 @@ const ProductUpload = () => {
               value={productData.title}
               required
             />
-            {!isTitleValid && <p className='app__customerSettings-error'>Product Name cannot be empty</p>}
+            {!isTitleValid && <p className='app__productupload-error'>Product Name cannot be empty</p>}
 
             <div className='inputs-label'>
               <label for="description">Product Description</label>
               <input
-                className={`app__customerSettings-phonenum`}
+                className={`app__productupload-description`}
                 type='text'
                 id='description'
                 name='description'
@@ -145,7 +146,7 @@ const ProductUpload = () => {
               <div className='inputs-label'>
                 <label for="price">Price</label>
                 <input
-                  className="app__customerSettings-address_line_1"
+                  className="app__productupload-price"
                   type="number"
                   id='price'
                   name="price"
@@ -159,11 +160,11 @@ const ProductUpload = () => {
               <div className='inputs-label'>
                 <label for="currency">Currency</label>
                 <input
-                  className="app__customerSettings-email"
+                  className="app__productupload-currency"
                   type="text"
                   id='currency'
                   name="currency"
-                  placeholder="Currency"
+                  placeholder="Rupees"
                   value={productData.currency}
                   disabled
                 />
@@ -174,7 +175,7 @@ const ProductUpload = () => {
               <div className='inputs-label'>
                 <label for="stocks">Stocks</label>
                 <input
-                  className="app__customerSettings-city"
+                  className="app__productupload-stocks"
                   type="number"
                   name="stocks"
                   id='stocks'
@@ -189,7 +190,7 @@ const ProductUpload = () => {
               <div className='inputs-label'>
                 <label for="unit">Unit</label>
                 <select
-                  className="app__customerSettings-district"
+                  className="app__productupload-unit"
                   id='unit'
                   name="unit"
                   value={productData.unit}
@@ -203,18 +204,19 @@ const ProductUpload = () => {
               </div>
             </div>
 
-            <div className='app__customerSettings-buttons'>
-              <div className='app__customerSettings-inputs_button'>
-                <button type="submit" className='app__customerSettings-inputs_button'>Upload Product</button>
+            <div className='app__productupload-buttons'>
+              <div className='app__productupload-inputs_button'>
+                <button type="submit" className='app__productupload-inputs_button'>Upload Product</button>
               </div>
 
-              <div className='app__customerSettings-cancel_button'>
-                <button type="button" className='app__customerSettings-cancel_button'>Cancel</button>
+              <div className='app__productupload-cancel_button'>
+                <button type="button" className='app__productupload-cancel_button'>Cancel</button>
               </div>
             </div>
 
           </div>
         </form>
+      </div>
       </div>
     </MainLayout>
   )

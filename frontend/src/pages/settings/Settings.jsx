@@ -55,7 +55,7 @@ const Settings = () => {
             <div className='app__settings-retailer-profile'>
               <Link to="/retailersettings">
                 <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img-settings' />
-                
+
                 <h1 className='app__settings-protit'>Edit your profile</h1>
                 <p className='app__settings-profileinfo'>Click here to change your details</p>
               </Link>
@@ -63,18 +63,25 @@ const Settings = () => {
 
             <div className='app__settings-retailer-upload'>
               <Link to="/productupload">
-                <h1 className='app__settings-upload'>Upload your Product</h1>
+                <img src={images.upload} alt="dp" className='upload_img-settings' />
+                <h1 className='app__settings-uploadtit'>Upload your Product</h1>
                 <p className='app__settings-uploadinfo'>Click here to upload the details of your product</p>
               </Link>
             </div>
 
           </div>
         ) : user.user_type === "customer" ? (
-          <Link to="/customersettings">
-            <h1>Edit your profile</h1>
-            <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
-            <p className='login_name'>{user.user}</p>
-          </Link>
+          <div className='app__settings-customer'>
+            <div className='app__settings-customer-profile'>
+              <Link to="/customersettings">
+                <h1 className='app__settings-protit'>Edit your profile</h1>
+                <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img-settings' />
+                <p className='app__settings-profileinfo'>Click here to change your details</p>
+              </Link>
+            </div>
+          </div>
+
+
         ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
       ) : null // This will render nothing if user is not authenticated
       }

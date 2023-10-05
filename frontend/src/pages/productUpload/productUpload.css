@@ -1,0 +1,198 @@
+.app__productupload-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.app__productupload-title {
+    font-family: var(--font-family);
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.app__productupload-inputs {
+    display: flex;
+    flex-direction: column;
+    margin-left: 22em;
+}
+
+label {
+    color: #1C1C1C;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.app__productupload-preview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.app__productupload-name,
+.app__productupload-description,
+.app__productupload-price,
+.app__productupload-currency,
+.app__productupload-stocks,
+.app__productupload-unit {
+    width: 405px;
+    height: 50px;
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+
+.inputs__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+}
+
+.inputs-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.app__productupload-name {
+    width: 600px;
+}
+
+.app__productupload-price,
+.app__productupload-stocks {
+    margin-right: 4rem;
+}
+
+.app__productupload-success,
+.app__productupload-failure {
+    width: 500px;
+    height: 80px;
+    margin: auto;
+    padding: 20px 0 0 0;
+    border-radius: 20px;
+
+
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.app__productupload-success {
+    background-color: rgb(202, 245, 202);
+}
+
+.app__productupload-failure {
+    background-color: rgb(245, 202, 202);
+}
+
+.app__productupload-buttons {
+    display: flex;
+}
+
+.app__productupload-inputs_button {
+    font-size: 12px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: #1ed10e;
+
+    margin-right: 3rem;
+}
+
+.app__productupload-cancel_button {
+    font-size: 14px;
+    color: #1ed10e;
+    font-family: var(--font-family);
+    font-weight: 500;
+    width: 100px;
+    height: 40px;
+    border: 0.2px solid #1ed10e;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1050px) {
+    .app__productupload-main {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .app__productupload-inputs {
+        margin-left: 2rem;
+    }
+
+    .app__productupload-preview{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .app__productupload-name,
+    .app__productupload-description,
+    .app__productupload-price,
+    .app__productupload-currency,
+    .app__productupload-stocks,
+    .app__productupload-unit {
+        width: 300px;
+        height: 50px;
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .app__productupload-main {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .app__productupload-inputs {
+        margin-left: 3rem;
+    }
+
+    .app__productupload-preview{
+        margin-left: 4.5rem;
+    }
+
+    .app__productupload-name,
+    .app__productupload-description,
+    .app__productupload-price,
+    .app__productupload-currency,
+    .app__productupload-stocks,
+    .app__productupload-unit {
+        width: 250px;
+        height: 50px;
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+    .app__productupload-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app__productupload-inputs_button {
+        margin-bottom: 1rem;
+    }
+
+    .app__productupload-cancel_button {
+        margin-bottom: 1rem;
+    }
+
+    .inputs__flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+    }
+}

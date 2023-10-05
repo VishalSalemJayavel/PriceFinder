@@ -21,6 +21,12 @@
     margin-left: 22em;
 }
 
+.app__customerSettings-preview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
 input[type=file] {
     margin-top: 30px;
 }
@@ -139,6 +145,10 @@ label {
     .app__customerSettings-inputs {
         margin-left: 2rem;
     }
+    .app__customerSettings-preview{
+        width: 150px;
+        height: 150px;
+    }
 
     .app__customerSettings-name,
     .app__customerSettings-address_line_1,
@@ -165,6 +175,10 @@ label {
 
     .app__customerSettings-inputs {
         margin-left: 3rem;
+    }
+    
+    .app__customerSettings-preview{
+        margin-left: 4.5rem;
     }
 
     .app__customerSettings-name,

@@ -7,6 +7,7 @@ import tomato from '../assets/tomato.png';
 import signup from '../assets/signup.png';
 import dp from '../assets/dp.jpg';
 import dashboard from '../assets/dashboard.png';
+import upload from '../assets/upload.png';
 
 export default {
     cart,
@@ -17,5 +18,6 @@ export default {
     tomato,
     signup,
     dp,
-    dashboard
+    dashboard,
+    upload
 };

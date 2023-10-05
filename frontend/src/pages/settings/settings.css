@@ -5,10 +5,14 @@
     font-family: var(--font-family);
 }
 
-.app__settings-retailer{
+.app__settings-retailer,
+.app__settings-customer{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
 
+.app__settings-customer{
+    padding: 20px;
 }
 
 .app__settings-retailer-dashboard{
@@ -21,12 +25,15 @@
     margin: 20px;
 }
 
-.app__settings-dashtit{
+.app__settings-dashtit,
+.app__settings-uploadtit,
+.app__settings-profiletit{
     margin-bottom: 20px;
     margin-left: 4.5rem;
 }
 
-.app__settings-dashboard_img{
+.app__settings-dashboard_img,
+.upload_img-settings{
     width: 100px;
     height: 100px;
     margin-left: 6.5rem;
@@ -34,8 +41,9 @@
 }
 
 .app__sesttings-dashinfo,
-.app__settings-profileinfo{
-    font-size: 15px;
+.app__settings-profileinfo,
+.app__settings-uploadinfo{
+    font-size: 14px;
     margin-left: 1rem;
     margin-bottom: 10rem;
 }
@@ -46,7 +54,9 @@
     color: blue;
 }
 
-.app__settings-retailer-profile{
+.app__settings-retailer-profile,
+.app__settings-retailer-upload,
+.app__settings-customer-profile{
     background: #FFF;
     box-shadow: 0px 24px 64px 0px rgba(11, 11, 11, 0.16);
     width: 320px;
@@ -72,4 +82,8 @@
     margin-bottom: 2rem;
 }
 
+.app__settings-uploadtit{
+    font-size: 21px;
+    margin-left: 3rem;
+}
 
