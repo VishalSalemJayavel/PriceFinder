@@ -35,8 +35,6 @@ const Navbar = () => {
             { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
             { withCredentials: true });
 
-          console.log(data); // Handle success response
-
           setUser({
             user: data['name'],
             email: data['email'],

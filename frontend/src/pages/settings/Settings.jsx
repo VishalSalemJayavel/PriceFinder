@@ -52,20 +52,20 @@ const Settings = () => {
               </Link>
             </div>
 
+            <div className='app__settings-retailer-upload'>
+              <Link to="/productupload">
+                <img src={images.upload} alt="dp" className='upload_img-settings' />
+                <h1 className='app__settings-uploadtit'>Upload your Product</h1>
+                <p className='app__settings-uploadinfo'>Click here to upload the details of your product</p>
+              </Link>
+            </div>
+
             <div className='app__settings-retailer-profile'>
               <Link to="/retailersettings">
                 <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img-settings' />
 
                 <h1 className='app__settings-protit'>Edit your profile</h1>
                 <p className='app__settings-profileinfo'>Click here to change your details</p>
-              </Link>
-            </div>
-
-            <div className='app__settings-retailer-upload'>
-              <Link to="/productupload">
-                <img src={images.upload} alt="dp" className='upload_img-settings' />
-                <h1 className='app__settings-uploadtit'>Upload your Product</h1>
-                <p className='app__settings-uploadinfo'>Click here to upload the details of your product</p>
               </Link>
             </div>
 
