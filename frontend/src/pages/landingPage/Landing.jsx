@@ -7,22 +7,25 @@ import { MainLayout } from '../../layout';
 
 const Landing = () => {
   const [user, setUser] = useState({
+    user: "",
+    email: "",
     user_type: "",
+    profile_picture: null,
   });
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get('userdetails/', {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-          },
-          withCredentials: true,
-        });
+        const { data } = await axios.get('userdetails/',
+          { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
+          { withCredentials: true });
 
         setUser({
+          user: data['name'],
+          email: data['email'],
           user_type: data['user_type'],
+          profile_picture: data['profile_picture'],
         });
 
       } catch (error) {
@@ -30,9 +33,10 @@ const Landing = () => {
       }
     };
 
-    fetchData();
+    fetchData(); //random comment
   }, []);
 
+  console.log(user)
   console.log("User Type:", user.user_type);
   if (user.user_type === "retailer") {
     console.log("User is a retailer");
