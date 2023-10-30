@@ -49,42 +49,42 @@ const ProductUpload = () => {
   };
 
 
-  // const uploadProduct = async (e) => {
-  //   e.preventDefault();
+  const uploadProduct = async (e) => {
+    e.preventDefault();
 
-  //   let formData = new FormData();
-  //   formData.append('title', productData.title);
-  //   formData.append('description', productData.description);
-  //   formData.append('price', productData.price);
-  //   formData.append('currency', productData.currency);
-  //   formData.append('stocks', productData.stocks);
-  //   formData.append('unit', productData.unit);
-  //   formData.append('productPicture', productPicture);
+    let formData = new FormData();
+    formData.append('title', productData.title);
+    formData.append('description', productData.description);
+    formData.append('price', productData.price);
+    formData.append('currency', productData.currency);
+    formData.append('stocks', productData.stocks);
+    formData.append('unit', productData.unit);
+    formData.append('productPicture', productPicture);
 
-  //   try {
-  //     const response = await axios.post('edituser/',
-  //       formData,
-  //       { headers: { 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
-  //       { withCredentials: true });
+    try {
+      const response = await axios.post('edituser/',
+        formData,
+        { headers: { 'Authorization': `Bearer ${localStorage.getItem('access_token')}` } },
+        { withCredentials: true });
 
-  //     if (response.status === 200) {
-  //       setUserUpdateStatus(true);
-  //     }
-  //     else {
-  //       setUserUpdateStatus(false);
-  //     }
+      if (response.status === 200) {
+        setUserUpdateStatus(true);
+      }
+      else {
+        setUserUpdateStatus(false);
+      }
 
-  //   } catch (error) {
-  //     console.error(error); // Handle error response
-  //   }
-  // };
+    } catch (error) {
+      console.error(error); // Handle error response
+    }
+  };
 
 
   return (
     <MainLayout>
       <div className='empty__div'>
       <div className='app__productupload'>
-        {/* {userUpdateStatus === true ? (
+        {userUpdateStatus === true ? (
           <div className='app__customerSettings-success'>
             <p>Product Uploaded Successfully</p>
           </div>
@@ -92,8 +92,8 @@ const ProductUpload = () => {
           <div className='app__customerSettings-failure'>
             <p>Product Failed to Upload try again</p>
           </div>
-        ) : null} */}
-        <form onSubmit='#' method="post">
+        ) : null}
+        <form onSubmit={uploadProduct} method="post">
           <div className='app__productupload-main'>
             <div className='app__productupload-title'>
               <p>Add your Product details</p>

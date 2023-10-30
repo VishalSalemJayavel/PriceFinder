@@ -53,10 +53,10 @@ const Landing = () => {
       <Header />
       <div>
         {user.user_type === "retailer" ? (
-          <div className='app__uploadprod' style={{display:'flex', justifyContent:'center', fontFamily:'var(--font-family)' }}>
+          <div className='app__uploadprod' style={{ display: 'flex', justifyContent: 'center', fontFamily: 'var(--font-family)' }}>
             <Link to="/productupload">
-              <img src={images.upload} alt="dp" className='app__uploadprod-img' style={{margin:'2rem', marginLeft:'8.5rem'}}/>
-              <h1 style={{marginLeft:'1rem'}}>Upload your Product</h1>
+              <img src={images.upload} alt="dp" className='app__uploadprod-img' style={{ margin: '2rem', marginLeft: '8.5rem' }} />
+              <h1 style={{ marginLeft: '1rem' }}>Upload your Product</h1>
               <p  >Click here to upload the details of your product</p>
             </Link>
           </div>
