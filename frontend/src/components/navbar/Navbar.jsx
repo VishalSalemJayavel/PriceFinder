@@ -31,13 +31,13 @@ const Navbar = () => {
       setIsAuth(true);
       (async () => {
         try {
-          console.log(localStorage.getItem('access_token'));
+          // console.log(localStorage.getItem('access_token'));
+          axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
           const { data } = await axios.get('userdetails/',
             { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
             { withCredentials: true });
-
           setUser({
-            user: data['name'],
+            user: data['name'], //sa
             email: data['email'],
             user_type: data['user_type'],
             profile_picture: data['profile_picture'],
