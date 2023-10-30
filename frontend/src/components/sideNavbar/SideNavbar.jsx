@@ -1,5 +1,5 @@
 import React from 'react'
-import './SideNavbar.css'
+import './sideNavbar.css'
 
 const SideNavbar = () => {
   return (

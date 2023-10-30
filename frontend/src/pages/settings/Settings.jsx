@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { images } from '../../constants';
 import './settings.css';
+import { SideNavbar } from '../../components';
 
 const Settings = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -39,6 +40,8 @@ const Settings = () => {
 
   return (
     <div className="app__settings">
+      <SideNavbar />
+
       {isAuth ? (
         user.user_type === "retailer" ? (
           <div className='app__settings-retailer'>
