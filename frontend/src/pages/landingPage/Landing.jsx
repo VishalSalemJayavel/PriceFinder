@@ -7,7 +7,7 @@ const Landing = () => {
   return (
     <MainLayout>
       <Header />
-        <Category />
+      <Category />
     </MainLayout>
   );
 };
