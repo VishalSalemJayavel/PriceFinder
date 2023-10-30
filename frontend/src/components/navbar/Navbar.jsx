@@ -31,13 +31,12 @@ const Navbar = () => {
       setIsAuth(true);
       (async () => {
         try {
-          // console.log(localStorage.getItem('access_token'));
           axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
           const { data } = await axios.get('userdetails/',
             { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
             { withCredentials: true });
           setUser({
-            user: data['name'], //sa
+            user: data['name'], 
             email: data['email'],
             user_type: data['user_type'],
             profile_picture: data['profile_picture'],
@@ -84,12 +83,12 @@ const Navbar = () => {
 
           ) : user.user_type === "customer" ? (
 
-              <Link to="/settings" className='app_login-after'>
+            <Link to="/settings" className='app_login-after'>
 
-                <p className='login_name'>{user.user}</p>
-                <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
+              <p className='login_name'>{user.user}</p>
+              <img src={user.profile_picture ? user.profile_picture : images.dp} alt="dp" className='login_img' />
             </Link>
-            
+
           ) : null // This will render nothing if user_type is neither "retailer" nor "customer"
         ) : (
           <Link to="/signup">
