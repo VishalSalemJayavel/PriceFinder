@@ -15,8 +15,6 @@ const Products = () => {
         const response = await axios.get('/products/' + category );
         const data = response.data;
 
-        console.log(data);
-
         const productArray = data.map((product) => ({
           id: product.uuid,
           title: product.title,

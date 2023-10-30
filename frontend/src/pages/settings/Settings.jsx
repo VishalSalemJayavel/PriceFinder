@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SideNavbar } from '../../components';
 import { images } from '../../constants';
 import './settings.css';
 
@@ -22,8 +23,6 @@ const Settings = () => {
             { headers: { 'Content-Type': 'application/json' } },
             { withCredentials: true });
 
-          console.log(data); // Handle success response
-
           setUser({
             user: data['name'],
             user_type: data['user_type'],
@@ -39,6 +38,8 @@ const Settings = () => {
 
   return (
     <div className="app__settings">
+      <SideNavbar />
+
       {isAuth ? (
         user.user_type === "retailer" ? (
           <div className='app__settings-retailer'>
@@ -48,7 +49,8 @@ const Settings = () => {
                 <h1 className='app__settings-dashtit'>Dashboard</h1>
                 <img src={images.dashboard} alt='dashboard_img' className='app__settings-dashboard_img' />
                 <p className='app__sesttings-dashinfo'>Take Control of Your Workforce with Dashboards</p>
-                <a href="/dashboard" className='dashboard-link'>Click Here</a>
+                <p href="/dashboard" className='dashboard-link'>Click Here</p>
+                
               </Link>
             </div>
 

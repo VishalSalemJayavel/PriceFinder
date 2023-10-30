@@ -20,8 +20,6 @@ const RetailerDashboard = () => {
             { headers: { 'Content-Type': 'application/json' } },
             { withCredentials: true });
 
-          console.log(data); // Handle success response
-
           setUser({
             user: data['name'],
             profile_picture: data['profile_picture'],
