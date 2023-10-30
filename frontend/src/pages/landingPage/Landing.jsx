@@ -20,11 +20,9 @@ const Landing = () => {
     if (!pageReloaded) {
       const fetchData = async () => {
         try {
-          const headers = {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-          };
-          const { data } = await axios.get('userdetails/', { headers, withCredentials: true });
+          const { data } = await axios.get('userdetails/',
+            { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
+            { withCredentials: true });
 
           setUser({
             user: data['name'],
