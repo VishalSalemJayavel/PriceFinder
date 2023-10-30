@@ -48,7 +48,8 @@ const Settings = () => {
                 <h1 className='app__settings-dashtit'>Dashboard</h1>
                 <img src={images.dashboard} alt='dashboard_img' className='app__settings-dashboard_img' />
                 <p className='app__sesttings-dashinfo'>Take Control of Your Workforce with Dashboards</p>
-                <a href="/dashboard" className='dashboard-link'>Click Here</a>
+                <p href="/dashboard" className='dashboard-link'>Click Here</p>
+                
               </Link>
             </div>
 
