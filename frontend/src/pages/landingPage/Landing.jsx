@@ -12,35 +12,43 @@ const Landing = () => {
     user_type: "",
     profile_picture: null,
   });
-  
+
+  const [pageReloaded, setPageReloaded] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get('userdetails/',
-          { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
-          { withCredentials: true });
 
-        setUser({
-          user: data['name'],
-          email: data['email'],
-          user_type: data['user_type'],
-          profile_picture: data['profile_picture'],
-        });
+    if (!pageReloaded) {
+      const fetchData = async () => {
+        try {
+          const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          };
+          const { data } = await axios.get('userdetails/', { headers, withCredentials: true });
 
-      } catch (error) {
-        console.error(error); // Handle error response
-      }
-    };
+          setUser({
+            user: data['name'],
+            email: data['email'],
+            user_type: data['user_type'],
+            profile_picture: data['profile_picture'],
+          });
 
-    fetchData(); //random comment
-  }, []);
+        } catch (error) {
+          console.error(error); // Handle error response
+        }
+      };
 
-  console.log(user)
-  console.log("User Type:", user.user_type);
-  if (user.user_type === "retailer") {
-    console.log("User is a retailer");
-  }
+      fetchData(); // Fetch data from API
+      setPageReloaded(true);
+    }
+
+  }, [pageReloaded]);
+
+  // console.log(user)
+  // console.log("User Type:", user.user_type);
+  // if (user.user_type === "retailer") {
+  //   console.log("User is a retailer");
+  // }
 
   return (
     <MainLayout>
@@ -49,7 +57,7 @@ const Landing = () => {
         {user.user_type === "retailer" ? (
           <div>
             <Link to="/productupload">
-              <img src={images.upload} alt="dp"/>
+              <img src={images.upload} alt="dp" />
               <h1>Upload your Product</h1>
               <p>Click here to upload the details of your product</p>
             </Link>
