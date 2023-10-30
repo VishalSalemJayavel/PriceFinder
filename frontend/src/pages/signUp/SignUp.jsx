@@ -1,8 +1,8 @@
-import React from 'react'
-import './signUp.css';
 import axios from 'axios';
-import { MainLayout } from '../../layout';
+import React from 'react';
 import { images } from '../../constants';
+import { MainLayout } from '../../layout';
+import './signUp.css';
 
 function SignUp() {
   const [formData, setFormData] = React.useState(
@@ -15,8 +15,6 @@ function SignUp() {
     }
   )
 
-  console.log(formData)
-
   const signUp = async (e) => {
     e.preventDefault();
     try {
@@ -26,8 +24,6 @@ function SignUp() {
           { 'Content-Type': 'application/json' }
       },
         { withCredentials: true });
-
-      console.log(response); // Handle success response
 
       window.location.href = '/login'
 

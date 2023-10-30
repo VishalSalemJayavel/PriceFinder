@@ -13,8 +13,6 @@ const AllProducts = () => {
         const response = await axios.get('products/');
         const data = response.data;
 
-        console.log(data);
-
         const productArray = data.map((product) => ({
           id: product.uuid,
           title: product.title,

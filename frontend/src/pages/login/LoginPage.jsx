@@ -10,8 +10,6 @@ const LoginPage = () => {
     { email: "", password: "" }
   );
 
-  console.log(formData)
-
   const login = async (e) => {
     e.preventDefault();
     try {
@@ -21,8 +19,6 @@ const LoginPage = () => {
             { 'Content-Type': 'application/json' }
       },
         { withCredentials: true });
-
-      console.log(data); // Handle success response
 
       localStorage.clear();
       localStorage.setItem('access_token', data.access);

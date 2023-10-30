@@ -110,8 +110,6 @@ const CustomerSettings = () => {
     formData.append('pincode', customerData.pincode);
     formData.append('profilePicture', profilePicture);
 
-    console.log(formData.get('profilePicture'));
-
     try {
       const response = await axios.post('edituser/',
         formData,

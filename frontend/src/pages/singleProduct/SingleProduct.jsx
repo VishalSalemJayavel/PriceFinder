@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './singleProduct.css'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import './singleProduct.css';
 
 const SingleProduct = () => {
   let { productId } = useParams();
@@ -22,8 +22,6 @@ const SingleProduct = () => {
       try {
         const response = await axios.get('/products/' + productId + '/');
         const data = response.data;
-
-        console.log(data);
 
         setProduct({
           title: data.title,

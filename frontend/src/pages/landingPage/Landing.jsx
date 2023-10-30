@@ -7,10 +7,7 @@ import { MainLayout } from '../../layout';
 
 const Landing = () => {
   const [user, setUser] = useState({
-    user: "",
-    email: "",
     user_type: "",
-    profile_picture: null,
   });
 
   const [pageReloaded, setPageReloaded] = useState(false);
@@ -25,10 +22,7 @@ const Landing = () => {
             { withCredentials: true });
 
           setUser({
-            user: data['name'],
-            email: data['email'],
             user_type: data['user_type'],
-            profile_picture: data['profile_picture'],
           });
 
         } catch (error) {
@@ -42,11 +36,6 @@ const Landing = () => {
 
   }, [pageReloaded]);
 
-  // console.log(user)
-  // console.log("User Type:", user.user_type);
-  // if (user.user_type === "retailer") {
-  //   console.log("User is a retailer");
-  // }
 
   return (
     <MainLayout>

@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SideNavbar } from '../../components';
 import { images } from '../../constants';
 import './settings.css';
-import { SideNavbar } from '../../components';
 
 const Settings = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -22,8 +22,6 @@ const Settings = () => {
           const { data } = await axios.get('userdetails/',
             { headers: { 'Content-Type': 'application/json' } },
             { withCredentials: true });
-
-          console.log(data); // Handle success response
 
           setUser({
             user: data['name'],
