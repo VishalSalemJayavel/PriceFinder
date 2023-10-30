@@ -31,6 +31,7 @@ const Navbar = () => {
       setIsAuth(true);
       (async () => {
         try {
+          console.log(localStorage.getItem('access_token'));
           const { data } = await axios.get('userdetails/',
             { headers: { 'Content-Type': 'application/json' }, 'Authorization': `Bearer ${localStorage.getItem('access_token')}` },
             { withCredentials: true });

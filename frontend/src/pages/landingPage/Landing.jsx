@@ -15,9 +15,12 @@ const Landing = () => {
 
   const [pageReloaded, setPageReloaded] = useState(false);
 
+
   useEffect(() => {
 
     if (!pageReloaded) {
+      if (localStorage.getItem('access_token') !== null) {
+
       const fetchData = async () => {
         try {
           const { data } = await axios.get('userdetails/',
@@ -39,6 +42,7 @@ const Landing = () => {
       fetchData(); // Fetch data from API
       setPageReloaded(true);
     }
+  }
 
   }, [pageReloaded]);
 
