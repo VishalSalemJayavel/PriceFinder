@@ -148,7 +148,7 @@ const RetailerSettings = () => {
           </div>
 
           <div className='app__retailerSettings-inputs'>
-            <label for="name">FullName</label>
+            <label htmlFor="name">FullName</label>
             <input
               className="app__retailerSettings-name"
               type="text"
@@ -162,7 +162,7 @@ const RetailerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                   className="app__retailerSettings-email"
                   type="email"
@@ -175,7 +175,7 @@ const RetailerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label for="phone_number">Phone Number</label>
+                <label htmlFor="phone_number">Phone Number</label>
                 <input
                   className='app__retailerSettings-phonenum'
                   type='tel'
@@ -191,7 +191,7 @@ const RetailerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="addr1">Address Line 1</label>
+                <label htmlFor="addr1">Address Line 1</label>
                 <input
                   className="app__retailerSettings-address_line_1"
                   type="text"
@@ -205,7 +205,7 @@ const RetailerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label for="addr2">Address Line 2</label>
+                <label htmlFor="addr2">Address Line 2</label>
                 <input
                   className="app__retailerSettings-address_line_2"
                   type="text"
@@ -220,7 +220,7 @@ const RetailerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="city">City</label>
+                <label htmlFor="city">City</label>
                 <input
                   className="app__retailerSettings-city"
                   type="text"
@@ -233,7 +233,7 @@ const RetailerSettings = () => {
                 />
               </div>
               <div className='inputs-label'>
-                <label for="district">District</label>
+                <label htmlFor="district">District</label>
                 <input
                   className="app__retailerSettings-district"
                   type="text"
@@ -249,7 +249,7 @@ const RetailerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="state">State</label>
+                <label htmlFor="state">State</label>
                 <input
                   className="app__retailerSettings-state"
                   type="text"
@@ -262,7 +262,7 @@ const RetailerSettings = () => {
                 />
               </div>
               <div className='inputs-label'>
-                <label for="pincode">Pincode</label>
+                <label htmlFor="pincode">Pincode</label>
                 <input
                   className="app__retailerSettings-pincode"
                   type="text"

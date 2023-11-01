@@ -116,7 +116,7 @@ const ProductUpload = () => {
           </div>
 
           <div className='app__productupload-inputs'>
-            <label for="title">Product Name</label>
+            <label htmlFor="title">Product Name</label>
             <input
               className={`app__productupload-name ${isTitleValid ? '' : 'invalid'}`}
               type="text"
@@ -130,7 +130,7 @@ const ProductUpload = () => {
             {!isTitleValid && <p className='app__productupload-error'>Product Name cannot be empty</p>}
 
             <div className='inputs-label'>
-              <label for="description">Product Description</label>
+              <label htmlFor="description">Product Description</label>
               <input
                 className={`app__productupload-description`}
                 type='text'
@@ -144,7 +144,7 @@ const ProductUpload = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="price">Price</label>
+                <label htmlFor="price">Price</label>
                 <input
                   className="app__productupload-price"
                   type="number"
@@ -158,7 +158,7 @@ const ProductUpload = () => {
               </div>
 
               <div className='inputs-label'>
-                <label for="currency">Currency</label>
+                <label htmlFor="currency">Currency</label>
                 <input
                   className="app__productupload-currency"
                   type="text"
@@ -173,7 +173,7 @@ const ProductUpload = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="stocks">Stocks</label>
+                <label htmlFor="stocks">Stocks</label>
                 <input
                   className="app__productupload-stocks"
                   type="number"
@@ -188,7 +188,7 @@ const ProductUpload = () => {
 
 
               <div className='inputs-label'>
-                <label for="unit">Unit</label>
+                <label htmlFor="unit">Unit</label>
                 <select
                   className="app__productupload-unit"
                   id='unit'

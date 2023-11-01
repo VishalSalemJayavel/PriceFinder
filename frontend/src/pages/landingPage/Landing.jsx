@@ -14,7 +14,7 @@ const Landing = () => {
 
   useEffect(() => {
 
-    if (!pageReloaded) {
+    if (!pageReloaded && localStorage.getItem('access_token') !== null) {
       const fetchData = async () => {
         try {
           const { data } = await axios.get('userdetails/',
