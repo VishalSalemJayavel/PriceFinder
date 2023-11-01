@@ -141,6 +141,7 @@ const CustomerSettings = () => {
             <p>Profile Failed to Update</p>
           </div>
         ) : null}
+
         <form onSubmit={customerSettings} method="post">
           <div className='app__customerSettings-main'>
             <div className='app__customerSettings-title'>
@@ -163,7 +164,7 @@ const CustomerSettings = () => {
           </div>
 
           <div className='app__customerSettings-inputs'>
-            <label for="name">FullName</label>
+            <label htmlFor="name">FullName</label>
             <input
               className={`app__customerSettings-name ${isNameValid ? '' : 'invalid'}`}
               type="text"
@@ -178,7 +179,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                   className="app__customerSettings-email"
                   type="email"
@@ -191,7 +192,7 @@ const CustomerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label for="phone_number">Phone Number</label>
+                <label htmlFor="phone_number">Phone Number</label>
                 <input
                   className={`app__customerSettings-phonenum ${isPhoneNumberValid ? '' : 'invalid'}`}
                   type='tel'
@@ -208,7 +209,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="addr1">Address Line 1</label>
+                <label htmlFor="addr1">Address Line 1</label>
                 <input
                   className="app__customerSettings-address_line_1"
                   type="text"
@@ -222,7 +223,7 @@ const CustomerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label for="addr2">Address Line 2</label>
+                <label htmlFor="addr2">Address Line 2</label>
                 <input
                   className="app__customerSettings-address_line_2"
                   type="text"
@@ -237,7 +238,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="city">City</label>
+                <label htmlFor="city">City</label>
                 <input
                   className="app__customerSettings-city"
                   type="text"
@@ -252,7 +253,7 @@ const CustomerSettings = () => {
 
 
               <div className='inputs-label'>
-                <label for="district">District</label>
+                <label htmlFor="district">District</label>
                 <input
                   className="app__customerSettings-district"
                   type="text"
@@ -268,7 +269,7 @@ const CustomerSettings = () => {
 
             <div className='inputs__flex'>
               <div className='inputs-label'>
-                <label for="state">State</label>
+                <label htmlFor="state">State</label>
                 <input
                   className="app__customerSettings-state"
                   type="text"
@@ -282,7 +283,7 @@ const CustomerSettings = () => {
               </div>
 
               <div className='inputs-label'>
-                <label for="pincode">Pincode</label>
+                <label htmlFor="pincode">Pincode</label>
                 <input
                   className="app__customerSettings-pincode"
                   type="text"
