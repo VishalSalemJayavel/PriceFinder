@@ -41,21 +41,23 @@ const Landing = () => {
     <MainLayout>
       <Header />
       <div className='uploadprod-landing'>
-        <div style={{display:'flex', justifyContent:'center', padding:'20px' }}>
-        <div style={{border:'1px solid', width:'400px', borderRadius:'30px', paddingLeft:'10px'}}>
-        {user.user_type === "retailer" ? (
-          <div className='app__uploadprod' style={{display:'flex', justifyContent:'center',fontFamily: 'var(--font-family)' }}>
-            <Link to="/productupload">
-              <img src={images.upload} alt="dp" className='app__uploadprod-img' style={{ margin: '2rem', marginLeft: '9.8rem' }} />
-              <h1 style={{ marginLeft: '1.6rem' }}>Upload your Product</h1>
-              <p  >Click here to upload the details of your product</p>
-            </Link>
-          </div>
-        ) : null}
-        </div>
-        </div>
-        <Category />
+        
+            {user.user_type === "retailer" ? (
+              <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+              <div style={{ border: '1px solid', width: '400px', borderRadius: '30px', paddingLeft: '10px' }}>
+              <div className='app__uploadprod' style={{ display: 'flex', justifyContent: 'center', fontFamily: 'var(--font-family)' }}>
+                <Link to="/productupload">
+                  <img src={images.upload} alt="dp" className='app__uploadprod-img' style={{ margin: '2rem', marginLeft: '9.8rem' }} />
+                  <h1 style={{ marginLeft: '1.6rem' }}>Upload your Product</h1>
+                  <p  >Click here to upload the details of your product</p>
+                </Link>
+              </div>
+              </div>
       </div>
+            ) : null}
+          </div>
+ 
+        <Category />
     </MainLayout>
   );
 };

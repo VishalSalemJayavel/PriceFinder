@@ -1,12 +1,12 @@
 import React from 'react'
-import './sideNavbar.css'
+import './sideNavbar.css';
 
 const SideNavbar = () => {
   return (
-    <div>
-      Sidenavbar
+    <div className='app__sidebar'>
+      
     </div>
   )
 }
 
-export default SideNavbar
+export default SideNavbar;
