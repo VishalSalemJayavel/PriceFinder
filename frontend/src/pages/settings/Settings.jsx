@@ -50,7 +50,6 @@ const Settings = () => {
                 <img src={images.dashboard} alt='dashboard_img' className='app__settings-dashboard_img' />
                 <p className='app__sesttings-dashinfo'>Take Control of Your Workforce with Dashboards</p>
                 <p href="/dashboard" className='dashboard-link'>Click Here</p>
-                
               </Link>
             </div>
 

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { images } from '../../constants';
 import { MainLayout } from '../../layout';
 import './login.css';
@@ -10,23 +11,22 @@ const LoginPage = () => {
     { email: "", password: "" }
   );
 
+  const Navigate = useNavigate();
+
   const login = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('api/token/',
-        formData, {
-          headers:
-            { 'Content-Type': 'application/json' }
-      },
-        { withCredentials: true });
+      const { data } = await axios.post('api/token/', formData, 
+      {headers:{ 'Content-Type': 'application/json' }}, { withCredentials: true });
 
       localStorage.clear();
       localStorage.setItem('access_token', data.access);
       localStorage.setItem('refresh_token', data.refresh);
       axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`; 
-      window.location.href = '/'
+      Navigate('/')
+
     } catch (error) {
-      console.error(error); // Handle error response
+      alert('Invalid credentials check your email and password'); // Handle error response
     }
   };
 

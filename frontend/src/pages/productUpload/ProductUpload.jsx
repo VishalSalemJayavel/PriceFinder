@@ -7,6 +7,7 @@ const ProductUpload = () => {
   const [productData, setProductData] = useState({
     title: "",
     description: "",
+    category: "",
     price: "",
     currency: "",
     stocks: "",
@@ -55,6 +56,7 @@ const ProductUpload = () => {
     let formData = new FormData();
     formData.append('title', productData.title);
     formData.append('description', productData.description);
+    formData.append('category', productData.category);
     formData.append('price', productData.price);
     formData.append('currency', productData.currency);
     formData.append('stocks', productData.stocks);
@@ -141,6 +143,22 @@ const ProductUpload = () => {
                 value={productData.description}
               />
             </div>
+
+            <div className='inputs-label'>
+                <label htmlFor="category">Category</label>
+                <select
+                  className="app__productupload-unit"
+                  id='category'
+                  name="category"
+                  value={productData.category}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="select">Select</option>
+                  <option value="vegetable">Vegetable</option>
+                  <option value="dairy">Dairy</option>
+                </select>
+              </div>
 
             <div className='inputs__flex'>
               <div className='inputs-label'>

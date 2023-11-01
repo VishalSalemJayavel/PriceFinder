@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './logout.css';
 
 const Logout = () => {
+  const Navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       try {
@@ -14,7 +17,7 @@ const Logout = () => {
 
         localStorage.clear();
         axios.defaults.headers.common['Authorization'] = null;
-        window.location.href = '/'
+        Navigate('/')
       } catch (e) {
         console.log('logout not working', e)
       }
