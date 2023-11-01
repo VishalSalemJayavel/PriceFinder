@@ -114,46 +114,7 @@ class EditUserView(APIView):
                 except Exception as e:
                     print(e)
                     return JsonResponse({'error': str(e)}, status=420)
-            try:
-                # data = json.loads(request.body)
-                # print(data)
-                # print(request.POST["profilePicture"])
-                # print(request.FILES.get("profilePicture"))
-                # if data['name']:
-                #     name = data['name']
-                #     user.name = name
-                #     print(name)                                                           
-                # if data['address_line_1']:
-                #     address_line_1 = data['address_line_1']
-                #     user_model.address_line_1 = address_line_1
-                #     print(address_line_1)                                                        
-                # if data['address_line_2']:
-                #     address_line_2 = data['address_line_2']
-                #     user_model.address_line_2 = address_line_2
-                #     print(address_line_2)                                                         
-                # if data['city']:
-                #     city = data['city']
-                #     user_model.city = city
-                #     print(city)                                                         
-                # if data['state']:
-                #     state = data['state']
-                #     user_model.state = state
-                #     print(state)                                                         
-                # if data['pincode']:
-                #     pincode = data['pincode']
-                #     user_model.pincode = pincode
-                #     print(pincode)  
-                # if data['phone_number']:
-                #     phone_number = data['phone_number']
-                #     user_model.phone_number = phone_number
-                #     print(phone_number)                                                       
-                # if data['country']:
-                #     country = data['country']
-                #     user_model.country = country
-                #     print(country)                                                         
-                # if data['profilePicture']:
-                #     profile_picture = data['profilePicture']
-                #     user_model.profile_picture = profile_picture                                                                 # Get the data from the request body
+            try:                                                                   # Get the data from the request body
                 if request.POST['name']:
                     name = request.POST['name'] 
                     print(name)
@@ -203,7 +164,37 @@ class EditUserView(APIView):
                 
       
                                                                    # Only Authenticated Users can access this view
-     
+# A View to Upload new Products___________________________________________________________________________________________________________________________
+
+class UploadProductView(APIView):
+    permission_classes = (IsAuthenticated,)                                                                         # Only Authenticated Users can access this view
+    def post(self, request, *args, **kwargs):                                                                        # Get the user details from the request object
+        user = request.user
+        try:
+                name = request.POST['title'] 
+                print(name)
+                description = request.POST['description']
+                print(description)
+                category = request.POST['category']
+                print(category)
+                price = request.POST['price']
+                print(price)
+                stocks = request.POST['stocks']
+                print(stocks)
+                currency = request.POST['currency']
+                print(currency)
+                unit = request.POST['unit']
+                print(unit)
+                image = request.FILES.get("productPicture")
+                print(image)
+                product = Product.objects.create(title=name, description=description, category=category, price=price, stocks=stocks, currency=currency, unit=unit, image=image, retailer=user)
+                product.save()
+                return JsonResponse({'Success': 'Product Uploaded Succesfully'}, status = 200)
+        except Exception as e:
+                print (e)
+                return JsonResponse({'error': str(e)}, status = 400)                                              #  |
+
+
 
         
 # A View to display user details after Login __________________________________________________________________________________________________________
