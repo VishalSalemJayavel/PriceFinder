@@ -16,10 +16,10 @@ const SideNavbar = () => {
             key={key} 
             onClick={() => {window.location.pathname = val.link}}
             className='app__sidebar-row'>
-              <div className=''>
+              <div className='app__sidebar-row_icon'>
                 {val.icon}
               </div>
-              <div>
+              <div className='app__sidebar-row_title'>
                 {val.title}
                 </div>
             </li>

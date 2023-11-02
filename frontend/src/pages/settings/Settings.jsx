@@ -38,7 +38,9 @@ const Settings = () => {
 
   return (
     <div className="app__settings">
-      <SideNavbar />
+      <div className='app__settings-sidebar'>
+        <SideNavbar />
+      </div>
 
       {isAuth ? (
         user.user_type === "retailer" ? (
@@ -69,6 +71,7 @@ const Settings = () => {
                 <p className='app__settings-profileinfo'>Click here to change your details</p>
               </Link>
             </div>
+            
 
           </div>
         ) : user.user_type === "customer" ? (
